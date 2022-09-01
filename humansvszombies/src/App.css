@@ -1,10 +1,8 @@
 .App {
   text-align: center;
-}
-
-.LandingPagedDiv{
   
 }
+
 
 #LandingPageTitle{
   margin-bottom: 20px;
@@ -18,17 +16,21 @@ ul {
 }
 
 #ChooseGameButton{
-  background-color: rgb(6, 6, 107);
+  background-color: rgb(63, 87, 70);
+  
 }
 
 #container{
   align-items: center;
 }
+
 #row{
   margin: 15px;
 }
-#col{
-  
+#registerBtn{
+margin-left: 100px;
 }
+
+
 
 
