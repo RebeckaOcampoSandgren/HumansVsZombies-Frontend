@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import { Container, Row, Card, Col } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
 
@@ -25,7 +26,7 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -42,7 +43,7 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton" >Click to play</Button>
+                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -59,7 +60,7 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -80,7 +81,7 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -97,7 +98,7 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -114,7 +115,7 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                 </Card.Body>
                             </Card>
                         </Col>

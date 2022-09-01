@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+.list-unstyled{
+  display: table;
+  margin: 0 auto;
+}
+
+#gameTitle{
+  padding: 60px;
+}
+.gameDescription{
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+#gameRegisterBtn{
+  width: 300px;
+}
+
 .LandingPagedDiv{
   
 }
@@ -17,7 +34,7 @@ ul {
   text-align: left;
 }
 
-#ChooseGameButton{
+#chooseGame{
   background-color: rgb(6, 6, 107);
 }
 
@@ -29,6 +46,9 @@ ul {
 }
 #col{
   
+}
+#gameDetails{
+
 }
 
 
