@@ -19,7 +19,14 @@
   width: 300px;
 }
 
+.biteCodeEntry, .gameBiteCode, .Entry{
+  margin-left: 100px;
+  width: 300px;
+}
 
+.biteCode{
+  margin-left: 100px;
+}
 
 #LandingPageTitle{
   margin-bottom: 20px;
