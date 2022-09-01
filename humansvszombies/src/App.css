@@ -19,9 +19,7 @@
   width: 300px;
 }
 
-.LandingPagedDiv{
-  
-}
+
 
 #LandingPageTitle{
   margin-bottom: 20px;
@@ -36,19 +34,23 @@ ul {
 
 #chooseGame{
   background-color: rgb(6, 6, 107);
+
 }
 
 #container{
   align-items: center;
 }
+
 #row{
   margin: 15px;
 }
-#col{
-  
+#registerBtn{
+margin-left: 100px;
 }
 #gameDetails{
 
 }
+
+
 
 
