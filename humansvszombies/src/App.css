@@ -7,7 +7,7 @@
   margin: 0 auto;
 }
 
-#gameTitle{
+#gameTitle, #gameBiteCode{
   padding: 60px;
 }
 .gameDescription{
@@ -19,13 +19,10 @@
   width: 300px;
 }
 
-.biteCodeEntry, .gameBiteCode, .Entry{
-  margin-left: 100px;
-  width: 300px;
-}
 
-.biteCode{
-  margin-left: 100px;
+#BiteCodeInput{
+  width: 400px;
+  margin: 0 auto;
 }
 
 #LandingPageTitle{
@@ -51,12 +48,11 @@ ul {
 #row{
   margin: 15px;
 }
+
 #registerBtn{
 margin-left: 100px;
 }
-#gameDetails{
 
-}
 
 
 

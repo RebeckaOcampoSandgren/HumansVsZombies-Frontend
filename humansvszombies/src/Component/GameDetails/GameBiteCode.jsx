@@ -4,24 +4,17 @@ import { Row } from 'react-bootstrap';
 const GameBiteCode = () => {
     return(
         <>
-            <div className="gameBiteCode">
+            <div id="gameBiteCode" className="text-center">
                 <header>
                     <h2>Bite Code:</h2>
                 </header>
                 <div className="biteCode">
                     <p>1234567890</p>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Write your bite code" aria-label="Recipient's username" aria-describedby="button-addon2" className="Entry"></input>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Select</button>
-                        </div>
-                    </div>
+                <div class="input-group" id="BiteCodeInput">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
+                    <button class="btn btn-outline-secondary" type="button">Button</button>
                 </div>
-
             </div>
         </>
     )
