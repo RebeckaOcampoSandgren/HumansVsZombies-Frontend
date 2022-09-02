@@ -1,4 +1,4 @@
-body {
+body{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +7,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+code{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#adminNav{
+  margin: 10px;
+  color: gray;
+}
+.form-wrapper{
+  width: 70%;
+  margin: 0 auto;
+  text-align: Left;
+  
+}
+
+.h3{
+  margin: 15px;
+  text-align: left;
+  }
+
+#form1{
+  width: 200px;
+  display: inline-flex;
+  
+}
+#form2{
+  width: 160px;
+  display: inline-flex;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+#form3{
+  width: 160px;
+  display: inline-flex;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+.creatBtn{
+margin: 10px;
+margin-left: 4px;
+}
+
+.chooseEditGame{
+  float: right;
+
+}
+
