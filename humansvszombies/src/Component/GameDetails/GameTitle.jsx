@@ -13,7 +13,7 @@ const GameTitle = () => {
                         fuga odio autem error sit, debitis necessitatibus dicta at illum qui. </p>
                 </div>
                 <div>
-                    <h4>Game Rules:</h4>
+                    <h4>Game Rules</h4>
                     <ul className="list-unstyled">
                         <li>Have fun</li>
                         <li>Be happy</li>
