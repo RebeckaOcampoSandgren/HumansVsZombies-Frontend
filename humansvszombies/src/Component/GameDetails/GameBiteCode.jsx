@@ -6,14 +6,14 @@ const GameBiteCode = () => {
         <>
             <div id="gameBiteCode" className="text-center">
                 <header>
-                    <h2>Bite Code:</h2>
+                    <h2>Bite Code</h2>
                 </header>
                 <div className="biteCode">
                     <p>1234567890</p>
                 </div>
-                <div class="input-group" id="BiteCodeInput">
-                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
-                    <button class="btn btn-outline-secondary" type="button">Button</button>
+                <div class="input-group" id="biteCodeInput">
+                    <input type="text" class="form-control" placeholder="Write your bite code" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
+                    <button class="btn btn-outline-secondary" type="button" id="button">OK</button>
                 </div>
             </div>
         </>

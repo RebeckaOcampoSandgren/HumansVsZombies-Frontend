@@ -7,10 +7,10 @@
   margin: 0 auto;
 }
 
-#gameTitle, #gameBiteCode{
+#gameTitle, #gameBiteCode, #squadCreation, #SquadList{
   padding: 60px;
 }
-.gameDescription{
+.gameDescription, .squadDetails{
   margin-top: 25px;
   margin-bottom: 35px;
 }
@@ -19,8 +19,12 @@
   width: 300px;
 }
 
+#gameSquadDetails{
+  width:400px;
+  margin: 0 auto;
+}
 
-#BiteCodeInput{
+#biteCodeInput, #squadCreationInput, #card{
   width: 400px;
   margin: 0 auto;
 }
@@ -38,7 +42,11 @@ ul {
 
 #chooseGame{
   background-color: rgb(6, 6, 107);
+}
 
+#button{
+  background-color: rgb(15, 84, 246);
+  color: aliceblue;
 }
 
 #container{
@@ -51,6 +59,12 @@ ul {
 
 #registerBtn{
 margin-left: 100px;
+}
+
+li{
+  border-color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
