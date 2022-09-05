@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import LandingPageView from './Views/LandingPageView.jsx';
+import AdministrationPageView from './Views/AdministrationPageView';
 
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
    <BrowserRouter>
     <div className ="App">
     <Routes>
-    <Route path= "/" element={<LandingPageView/>}/>
+    <Route path = '/LandingPageView' element={<LandingPageView/>}/>
+    <Route path ='/AdministrationPageView' element={<AdministrationPageView/>}/>
     </Routes>    
     </div>
    </BrowserRouter>
