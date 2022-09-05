@@ -34,7 +34,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -51,7 +53,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -68,7 +72,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -89,7 +95,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -106,7 +114,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -123,7 +133,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
