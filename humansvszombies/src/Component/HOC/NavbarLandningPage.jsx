@@ -19,8 +19,7 @@ function NavbarLandningPage(){
         {keycloak.authenticated && (
           <button onClick={() => keycloak.logout()}>Logout</button>
         )}
-
-           <Nav.Link href="LogIn"  id="LogIn">Log in</Nav.Link>
+           <Nav.Link href="map" id="map">Game Map</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
