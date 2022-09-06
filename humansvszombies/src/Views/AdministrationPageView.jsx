@@ -1,5 +1,5 @@
-import AdministratorPage from '../Component/AdministrationPage'
-import NavbarLandningPage from '../Component/HOC/NavbarLandningPage'
+import AdministratorPage from '../Component/AdministrationPage';
+import NavbarLandningPage from '../Component/HOC/NavbarLandningPage';
 
 
 const AdministrationPageView = () => {
