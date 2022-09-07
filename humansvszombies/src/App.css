@@ -1,8 +1,33 @@
 .App {
   text-align: center;
-  
 }
 
+.list-unstyled{
+  display: table;
+  margin: 0 auto;
+}
+
+#gameTitle, #gameBiteCode, #squadCreation, #SquadList{
+  padding: 60px;
+}
+.gameDescription, .squadDetails{
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+#gameRegisterBtn{
+  width: 300px;
+}
+
+#gameSquadDetails{
+  width:400px;
+  margin: 0 auto;
+}
+
+#biteCodeInput, #squadCreationInput, #card{
+  width: 400px;
+  margin: 0 auto;
+}
 
 #LandingPageTitle{
   margin-bottom: 20px;
@@ -15,9 +40,13 @@ ul {
   text-align: left;
 }
 
-#ChooseGameButton{
-  background-color: rgb(63, 87, 70);
-  
+#chooseGame{
+  background-color: rgb(6, 6, 107);
+}
+
+#button{
+  background-color: rgb(15, 84, 246);
+  color: aliceblue;
 }
 
 #container{
@@ -27,6 +56,7 @@ ul {
 #row{
   margin: 15px;
 }
+
 #registerBtn{
 margin-left: 100px;
 }
@@ -75,3 +105,8 @@ margin-left: 4px;
 
 }
 
+li{
+  border-color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

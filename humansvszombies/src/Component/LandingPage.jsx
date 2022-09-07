@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
 import { Container, Row, Card, Col } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+import keycloak from '../keycloak';
 
 
 
@@ -12,6 +13,12 @@ function LandingPage() {
 
                 <h1 id="LandingPageTitle">Games</h1>
 
+                {keycloak.token && (
+                                    <div>
+                                    <h4>Token</h4>
+                                    <pre>{keycloak.token}</pre>
+                                    </div>
+ )}
                 <Container id="container" fixed className="App py-2 overflow-hidden">
                     <Row id="row">
                         <Col id="col">
@@ -26,7 +33,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -43,7 +52,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton" >Click to play</Button>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -60,7 +71,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -81,7 +94,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -98,7 +113,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -115,7 +132,9 @@ function LandingPage() {
                                             <li>Dates</li>
                                         </ul>
                                     </Card.Text>
-                                    <Button variant="primary" id="ChooseGameButton">Click to play</Button>
+                                    {keycloak.authenticated && (
+                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
