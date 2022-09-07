@@ -7,19 +7,6 @@ import keycloak from '../../keycloak';
 
 function NavbarLandningPage() {
 
-  return (
-
-    <Navbar bg="light" variant="light">
-      <Container>
-        <Nav className="me-auto">
-          <NavLink to="/LandingPageView" id="adminNav">HvZ</NavLink>
-          <NavLink to="/AdministrationPageView" id="adminNav">Administrator</NavLink>
-        </Nav>
-      </Container>
-    </Navbar>
-
-  )
-
     return(
         
         <Navbar bg="light" variant="light">
@@ -27,6 +14,7 @@ function NavbarLandningPage() {
           <Navbar.Brand href="#home">HvZ</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="Register" id="register">Register</Nav.Link>
+            <NavLink to="/AdministrationPageView" id="adminNav">Administrator</NavLink>
             {!keycloak.authenticated && (
           <button onClick={() => keycloak.login()}>Login</button>
         )}
