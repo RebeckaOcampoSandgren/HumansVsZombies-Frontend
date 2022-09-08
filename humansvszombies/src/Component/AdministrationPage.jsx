@@ -4,6 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from 'react';
 import * as React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
+import MediaQuery from './MediaQuery';
 
 
 function AdministrationPage() {
