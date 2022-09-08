@@ -1,8 +1,17 @@
 {
   "dependencies": {
+    "@react-keycloak/web": "^3.4.0",
+    "bootstrap": "^5.2.1",
     "button-dropdown": "^1.0.45",
+    "keycloak-js": "^19.0.1",
+    "leaflet": "^1.8.0",
+    "mdb-react-ui-kit": "^4.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-leaflet": "^4.0.2",
     "react-modal": "^3.15.1",
     "react-placeholder-image": "^0.1.8",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1",
     "reactjs-popup": "^2.0.5",
     "reactstrap": "^9.1.4",
     "yup": "^0.32.11"
