@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Card, Col } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import keycloak from '../keycloak';
 
 
@@ -14,16 +14,16 @@ function LandingPage() {
                 <h1 id="LandingPageTitle">Games</h1>
 
                 {keycloak.token && (
-                                    <div>
-                                    <h4>Token</h4>
-                                    <pre>{keycloak.token}</pre>
-                                    </div>
- )}
+                    <div>
+                        <h4>Token</h4>
+                        <pre>{keycloak.token}</pre>
+                    </div>
+                )}
                 <Container id="container" fixed className="App py-2 overflow-hidden">
                     <Row id="row">
                         <Col id="col">
                             <Card style={{ width: '18rem' }} id="card">
-                                <Card.Img variant="top"src="https://dummyimage.com/50/000/fff.jpg" />
+                                <Card.Img variant="top" src="https://dummyimage.com/50/000/fff.jpg" />
                                 <Card.Body>
                                     <Card.Title>Game title</Card.Title>
                                     <Card.Text>
@@ -34,7 +34,7 @@ function LandingPage() {
                                         </ul>
                                     </Card.Text>
                                     {keycloak.authenticated && (
-                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                        <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -42,7 +42,7 @@ function LandingPage() {
 
                         <Col id="col">
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top"src="https://dummyimage.com/50/000/fff.jpg" />
+                                <Card.Img variant="top" src="https://dummyimage.com/50/000/fff.jpg" />
                                 <Card.Body>
                                     <Card.Title>Game title</Card.Title>
                                     <Card.Text>
@@ -53,7 +53,7 @@ function LandingPage() {
                                         </ul>
                                     </Card.Text>
                                     {keycloak.authenticated && (
-                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                        <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -61,7 +61,7 @@ function LandingPage() {
 
                         <Col id="col">
                             <Card style={{ width: '18rem' }}>
-                               <Card.Img variant="top"src="https://dummyimage.com/50/000/fff.jpg" />
+                                <Card.Img variant="top" src="https://dummyimage.com/50/000/fff.jpg" />
                                 <Card.Body>
                                     <Card.Title>Game title</Card.Title>
                                     <Card.Text>
@@ -72,7 +72,7 @@ function LandingPage() {
                                         </ul>
                                     </Card.Text>
                                     {keycloak.authenticated && (
-                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                        <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -84,7 +84,7 @@ function LandingPage() {
                     <Row id="row">
                         <Col id="col">
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top"src="https://dummyimage.com/50/000/fff.jpg" />
+                                <Card.Img variant="top" src="https://dummyimage.com/50/000/fff.jpg" />
                                 <Card.Body>
                                     <Card.Title>Game title</Card.Title>
                                     <Card.Text>
@@ -95,7 +95,7 @@ function LandingPage() {
                                         </ul>
                                     </Card.Text>
                                     {keycloak.authenticated && (
-                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                        <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -114,7 +114,7 @@ function LandingPage() {
                                         </ul>
                                     </Card.Text>
                                     {keycloak.authenticated && (
-                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                        <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -133,7 +133,7 @@ function LandingPage() {
                                         </ul>
                                     </Card.Text>
                                     {keycloak.authenticated && (
-                                          <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                        <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
                                     )}
                                 </Card.Body>
                             </Card>
