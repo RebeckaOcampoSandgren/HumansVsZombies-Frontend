@@ -9,13 +9,14 @@ function Cards() {
 const [error, setError] = useState(null);
 const [isLoaded, setIsLoaded] = useState(false);
 const [data, setData] = useState([]);
-const [missionData, setMData] = useState([]);
-const [playerData, setPData] = useState([]);
-const [isZombieVisible, setZVisible] = useState();
+const [gameId, setId] = useState([]);
+const [playerData, setPData] = useState([{}]);
+const [isZombieVisible, setZVisible] = useState(false);
 const [isHumanVisible, setHVisible] = useState(false);
 
+
 useEffect(() => {
-    fetch('https://humanvszombies.azurewebsites.net/api/games')
+    fetch(`$https://humanvszombies.azurewebsites.net/api/games/${gameId}/players`)
     .then((response) => response.json())
     .then((data) => {
        setPData(data);
@@ -28,7 +29,7 @@ useEffect(() => {
     }, []);
 
 useEffect(() => {
-fetch('https://humanvszombies.azurewebsites.net/api/games')
+fetch("https://humanvszombies.azurewebsites.net/api/games")
 .then((response) => response.json())
 .then((data) => {
   setIsLoaded(true);
@@ -42,14 +43,8 @@ fetch('https://humanvszombies.azurewebsites.net/api/games')
  )
 }, []);
 
-let dataP = data;
-
-const renderPlayers = () => {
-let totalPlayers = 0;
-for (let i = 0; i < dataP.length; i++) {
-    totalPlayers++;   
-}
-return totalPlayers;
+function handleClick(e) {
+    setId(e.target.id);
 }
 
 if(error) {
@@ -71,11 +66,11 @@ if(error) {
                                             <Card.Text>
                                                 <ul>
                                                     <li>State: {data.gameState}</li>
-                                                    <li>Number of registered players: {renderPlayers()}</li>
+                                                     <li>Registered players: {data.players.length}</li>
                                                 </ul>
                                             </Card.Text>
                                             {keycloak.authenticated && (
-                                                  <Link to="/gamedetails" className="btn btn-primary" id='chooseGame'>Details</Link>
+                                                  <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={(e) => handleClick(e)} >Details</Link>
                                             )}
                                         </Card.Body>
                                     </Card>
