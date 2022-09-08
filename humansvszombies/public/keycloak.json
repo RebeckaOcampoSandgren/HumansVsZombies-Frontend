@@ -3,7 +3,7 @@
     "realm": "HvZ-auth",
     "auth-server-url": "https://keycloak-auth-hvz-service.herokuapp.com/auth/",
     "ssl-required": "external",
-    "resource": "humansvszombiesapp", 
+    "resources": ["humansvszombiesapp", "HvZ-client"], 
     "public-client": true,
     "confidential-port": 0
   }
