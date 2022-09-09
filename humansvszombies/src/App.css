@@ -61,16 +61,22 @@ ul {
 margin-left: 100px;
 }
 
-
 #adminNav{
   margin: 10px;
   color: gray;
 }
+
 .form-wrapper{
   width: 70%;
   margin: 0 auto;
   text-align: Left;
-  
+}
+
+.form-inline{
+  width: 160px;
+  display: inline-flex;
+  margin-left: 100px;
+  margin-top: 40px;
 }
 
 .h3{
@@ -78,23 +84,10 @@ margin-left: 100px;
   text-align: left;
   }
 
-#form1{
+#createGameBtn{
   width: 200px;
-  display: inline-flex;
-  
 }
-#form2{
-  width: 160px;
-  display: inline-flex;
-  margin-left: 100px;
-  margin-top: 40px;
-}
-#form3{
-  width: 160px;
-  display: inline-flex;
-  margin-left: 100px;
-  margin-top: 40px;
-}
+
 .creatBtn{
 margin: 10px;
 margin-left: 4px;
@@ -102,7 +95,6 @@ margin-left: 4px;
 
 .chooseEditGame{
   float: right;
-
 }
 
 li{
