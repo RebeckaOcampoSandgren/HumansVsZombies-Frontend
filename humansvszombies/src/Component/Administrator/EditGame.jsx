@@ -1,52 +1,130 @@
-import { Modal, ModalBody, ModalHeader } from 'react-bootstrap';
+import { DropdownButton, Modal, ModalBody, ModalHeader } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
+import { updateGame } from '../../api/game';
+const apiUrl = process.env.REACT_APP_API_URL
 
 const EditGame = () =>{
+    //Hooks
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [selectedGame,setSelectedGame]=useState({});
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
     const [showModal, setShow] = useState(false);
+    const [ apiError, setApiError] = useState(null)
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    //Get all the games to show in dropdown
+    useEffect(() => {
+        fetch(`${apiUrl}/Games`)
+        .then((response) => response.json())
+        .then((data) => {
+          setIsLoaded(true);
+          setError(error);
+           setData(data);
+           console.log(data);
+         },
+         (error) => {
+            setIsLoaded(true);
+            setError(error);
+         }
+         )
+    }, []);
+
+    //Event handlers
+    //On change update the game object
+    const updateGameObject = e => {
+        const fieldname = e.target.name
+        setSelectedGame(existingValues => ({
+            ...existingValues,
+            //update the current field
+            [fieldname]: e.target.value
+        }))
+        console.log(selectedGame);
+    }
+
+    const handleSelect = (e) => {
+        let gameObject = findGameById(parseInt(e));
+        setSelectedGame({
+            ...selectedGame,
+            ...gameObject
+          })
+    } 
+
+    //find game in data array by gameId
+    function findGameById(id) {
+        return data.find((element) => {
+          return element.gameId === id;
+        })
+      }
+
+    //Handle update game button's submit and closes the modal
+    const onSubmit = async () => {
+        const [ error, userResponse ] = await updateGame(selectedGame, selectedGame.gameId)
+        if (error !== null){
+            setApiError(error)
+        }
+        if(userResponse !== null){
+            alert("The game has been updated");
+            handleClose();
+            window.location.reload();
+        }
+    };
 
     return(
         <div className='form-inline'>
             <form>
-              <Dropdown>
+              <Dropdown onSelect={handleSelect}>
                 <Dropdown.Toggle className="py-0"> Choose a game to edit</Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item onClick={handleShow}>ZombieGame</Dropdown.Item>
+                    {data.map(d =>
+                        <Dropdown.Item eventKey={d.gameId} onClick={handleShow}>{d.gameName}</Dropdown.Item>
+                    )}
                     <Modal show={showModal} onHide={handleClose}>
-                      <ModalHeader>ZombieGame</ModalHeader>
+                      <ModalHeader>{selectedGame.gameName}</ModalHeader>
                       <ModalBody>
-                        <div className='adminFormContainer'>
-                          <form className='form-inline' id='editGameForm'>
+                        <div>
+                          <form id='editGameForm'>
                             <h6 className='headerEditGameform'>Edit game</h6>
+                            <label>Name</label>
+                            <input type="text" className='form-control' placeholder='Name' name='gameName' value={selectedGame.gameName}
+                            onChange={updateGameObject}></input>
                             <label>State</label>
-                            <input type="text" className='form-control' placeholder='State' name='gamestate'></input>
+                            <input type="text" className='form-control' placeholder='State' name='gameState' value={selectedGame.gameState}
+                            onChange={updateGameObject}></input>
+                            <label>Description</label>
+                            <textarea className='form-control' placeholder='Description' name='description' value={selectedGame.description}
+                            onChange={updateGameObject}></textarea>
                             <label>Northwest latitude</label>
-                            <input type="text" className='form-control' placeholder='Northwest Latitude' name='nwlatitude'></input>
+                            <input type="text" className='form-control' placeholder='Northwest Latitude' name='nwLat' value={selectedGame.nwLat}
+                            onChange={updateGameObject}></input>
                             <label>Northwest longitude</label>
-                                <input type="text" className='form-control' placeholder='Northwest Longitude' name='nwlongitude'></input>
-                                <label>Southwest latitude</label>
-                                <input type="text" className='form-control' placeholder='Northwest Latitude' name='nwlatitude'></input>
-                                <label>Southwest longitude</label>
-                                <input type="text" className='form-control' placeholder='Northwest Longitude' name='nwlongitude'></input>
+                            <input type="text" className='form-control' placeholder='Northwest Longitude' name='nwLng' value={selectedGame.nwLng}
+                            onChange={updateGameObject}></input>
+                            <label>Southeast latitude</label>
+                            <input type="text" className='form-control' placeholder='Southeast Latitude' name='seLat' value={selectedGame.seLat}
+                            onChange={updateGameObject}></input>
+                            <label>Southeast longitude</label>
+                            <input type="text" className='form-control' placeholder='Southeast Longitude' name='seLng' value={selectedGame.seLng}
+                            onChange={updateGameObject}></input>
                           </form>
                         </div>
                       </ModalBody>
                       <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
-                        <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+                        <Button variant="primary" onClick={onSubmit}>Save Changes</Button>
                       </Modal.Footer>
                     </Modal>
                   </Dropdown.Menu>
               </Dropdown>
             </form>
-          </div>
-    )
-    
+        </div>     
+    ) 
 } 
 
 export default EditGame

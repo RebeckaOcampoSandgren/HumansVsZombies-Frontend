@@ -1,12 +1,12 @@
 import { Modal, ModalBody, ModalHeader } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 
-const EditPlayer = () =>{
 
+const EditPlayer = () =>{
     const [showModal3, setShow3] = useState(false);
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
@@ -24,7 +24,7 @@ const EditPlayer = () =>{
                         <ModalHeader>ZombieGame</ModalHeader>
                         <ModalBody>
                         <div className='adminFormContainer'>
-                            <form className='form-inline' id='editPlayerForm'>
+                            <form id='editPlayerForm'>
                             <h6 className='headerEditGameform'>Edit Player</h6>
                             <label>State</label>
                             <input type="text" className='form-control' placeholder='State'></input>

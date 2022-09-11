@@ -32,6 +32,7 @@ const CreateGame = () =>{
     //Event Handlers
     //handle create game button's submit and closes create game modal
     const onSubmit = async (data) => {
+        console.log(data)
         const [ error, userResponse ] = await createGame(data)
         if (error !== null){
             setApiError(error)
@@ -43,7 +44,6 @@ const CreateGame = () =>{
     };
 
     return(
-        
         <div className='form-inline'>
           <Button onClick={handleShow2}>Click to create a game</Button>
           <Modal show={showModal2} onHide={handleClose2}>
@@ -55,15 +55,17 @@ const CreateGame = () =>{
                   <label>Name of the game</label>
                   <input type="text" className='form-control' placeholder='Name of the game' {...register("gameName", gamenameConfig)}></input>
                   <label>State</label>
-                  <input type="text" className='form-control' placeholder='State' name='gamestate' {...register("gameState", gamestateConfig)}></input>
+                  <input type="text" className='form-control' placeholder='State' {...register("gameState", gamestateConfig)}></input>
+                  <label>Description</label>
+                  <textarea className='form-control' placeholder='Description' name='gamestate' {...register("description")}></textarea>
                   <label>Northwest latitude</label>
                   <input type="text" className='form-control' placeholder='Northwest Latitude' {...register("nwLat")}></input>
                   <label>Northwest longitude</label>
                   <input type="text" className='form-control' placeholder='Northwest Longitude' {...register("nwLng")}></input>
                   <label>Southeast latitude</label>
-                  <input type="text" className='form-control' placeholder='Southwest Latitude' {...register("seLat")}></input>
+                  <input type="text" className='form-control' placeholder='Southeast Latitude' {...register("seLat")}></input>
                   <label>Southeast longitude</label>
-                  <input type="text" className='form-control' placeholder='Southwest Longitude' {...register("seLng")}></input>
+                  <input type="text" className='form-control' placeholder='Southeast Longitude' {...register("seLng")}></input>
                   <input type="submit" value="Create game" className='submitGame'></input>
                 </form>
               </div>
@@ -71,8 +73,7 @@ const CreateGame = () =>{
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose2}>Close</Button>
             </Modal.Footer>
-          </Modal>
-          
+          </Modal>      
         </div>
         
     )
