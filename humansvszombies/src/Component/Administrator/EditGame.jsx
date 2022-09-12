@@ -1,40 +1,19 @@
 import { DropdownButton, Modal, ModalBody, ModalHeader } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { updateGame } from '../../api/game';
-const apiUrl = process.env.REACT_APP_API_URL
 
-const EditGame = () =>{
+const EditGame = ({gameData}) =>{
     //Hooks
-    const [isLoaded, setIsLoaded] = useState(false);
     const [selectedGame,setSelectedGame]=useState({});
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
     const [showModal, setShow] = useState(false);
     const [ apiError, setApiError] = useState(null)
-
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    //Get all the games to show in dropdown
-    useEffect(() => {
-        fetch(`${apiUrl}/Games`)
-        .then((response) => response.json())
-        .then((data) => {
-          setIsLoaded(true);
-          setError(error);
-           setData(data);
-           console.log(data);
-         },
-         (error) => {
-            setIsLoaded(true);
-            setError(error);
-         }
-         )
-    }, []);
 
     //Event handlers
     //On change update the game object
@@ -45,9 +24,9 @@ const EditGame = () =>{
             //update the current field
             [fieldname]: e.target.value
         }))
-        console.log(selectedGame);
     }
 
+    //Set selected game from drop down select
     const handleSelect = (e) => {
         let gameObject = findGameById(parseInt(e));
         setSelectedGame({
@@ -56,12 +35,12 @@ const EditGame = () =>{
           })
     } 
 
-    //find game in data array by gameId
+    //Find game in data array by gameId
     function findGameById(id) {
-        return data.find((element) => {
+        return gameData.find((element) => {
           return element.gameId === id;
         })
-      }
+    }
 
     //Handle update game button's submit and closes the modal
     const onSubmit = async () => {
@@ -82,8 +61,8 @@ const EditGame = () =>{
               <Dropdown onSelect={handleSelect}>
                 <Dropdown.Toggle className="py-0"> Choose a game to edit</Dropdown.Toggle>
                   <Dropdown.Menu>
-                    {data.map(d =>
-                        <Dropdown.Item eventKey={d.gameId} onClick={handleShow}>{d.gameName}</Dropdown.Item>
+                    {gameData.map(d =>
+                        <Dropdown.Item eventKey={d.gameId} key={d.gameId} onClick={handleShow}>{d.gameName}</Dropdown.Item>
                     )}
                     <Modal show={showModal} onHide={handleClose}>
                       <ModalHeader>{selectedGame.gameName}</ModalHeader>

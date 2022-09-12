@@ -74,7 +74,7 @@ margin-left: 100px;
 
 .form-inline{
   width: 160px;
-  display: inline-flex;
+  display: inline-block;
   margin-left: 100px;
   margin-top: 40px;
 }
@@ -101,6 +101,10 @@ li{
   border-color: black;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#editPlayer{
+  margin-top: 20px;
 }
 
  
