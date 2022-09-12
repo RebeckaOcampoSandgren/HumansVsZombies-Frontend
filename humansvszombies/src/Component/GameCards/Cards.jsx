@@ -8,28 +8,14 @@ function Cards() {
 
 const [error, setError] = useState(null);
 const [isLoaded, setIsLoaded] = useState(false);
-const [data, setData] = useState([]);
-const [gameId, setId] = useState([]);
-const [playerData, setPData] = useState([{}]);
+const [gameData, setData] = useState([]);
+const [selectedGame, setSelectedGame] = useState({game: ""});
 const [isZombieVisible, setZVisible] = useState(false);
 const [isHumanVisible, setHVisible] = useState(false);
 
 
 useEffect(() => {
-    fetch(`$https://humanvszombies.azurewebsites.net/api/games/${gameId}/players`)
-    .then((response) => response.json())
-    .then((data) => {
-       setPData(data);
-       console.log(data)
-     },
-     (error) => {
-        setError(error);
-     }
-     )
-    }, []);
-
-useEffect(() => {
-fetch("https://humanvszombies.azurewebsites.net/api/games")
+fetch(`https://humanvszombies.azurewebsites.net/api/v1/games`)
 .then((response) => response.json())
 .then((data) => {
   setIsLoaded(true);
@@ -41,11 +27,13 @@ fetch("https://humanvszombies.azurewebsites.net/api/games")
     setError(error);
  }
  )
-}, []);
+},[]);
 
-function handleClick(e) {
-    setId(e.target.id);
-}
+
+function handleClick(event){
+
+    localStorage.setItem("gameId", event.target.id)
+    };
 
 if(error) {
     return <div>Error: {error.message}</div>;
@@ -54,11 +42,10 @@ if(error) {
 }else{
     return (
      <div>
-
         <Container id="container" fixed className="App py-2 overflow-hidden">
                             <Row id="row">
                                 <Col id="col">
-                                    {data.map(data => 
+                                    {gameData.map(data =>
                                         <Card style={{ width: '18rem' }} id="card" key={data.gameId}>
                                         <Card.Img variant="top"src="https://cdn.wccftech.com/wp-content/uploads/2016/01/steamworkshop_webupload_previewfile_315734800_preview.png" />
                                         <Card.Body>
@@ -70,17 +57,15 @@ if(error) {
                                                 </ul>
                                             </Card.Text>
                                             {keycloak.authenticated && (
-                                                  <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={(e) => handleClick(e)} >Details</Link>
+                                                 <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={handleClick} >Details</Link>
                                             )}
                                         </Card.Body>
                                     </Card>
                                         )}
                                 </Col>
                             </Row>
-        
                         </Container>
              </div>
     )}
 }
-
 export default Cards;
