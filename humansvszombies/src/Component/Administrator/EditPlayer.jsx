@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import * as React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../../App.css';
+import { updatePlayer } from '../../api/player';
 const apiUrl = process.env.REACT_APP_API_URL
 
 const EditPlayer = ({gameData}) =>{
@@ -14,17 +15,13 @@ const EditPlayer = ({gameData}) =>{
     const [showModal, setShow3] = useState(false);
     const [showPlayerDropdown, setShowDropdown] = useState(false);
     const [players, setPlayers] = useState([]);
+    const [ apiError, setApiError] = useState(null);
 
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
     const handleShowDropdown = () => setShowDropdown(true);
 
-    //Show the players dropdown when game is chosen
-    const showPlayersDropdown = (e) => {
-        console.log(e)
-    } 
-
-    // Function to collect data
+    //Get players from chosen game
     const getPlayers = (gameId) => {
         fetch(`${apiUrl}/games/${gameId}/players`)
         .then((response) => response.json())
@@ -33,7 +30,7 @@ const EditPlayer = ({gameData}) =>{
             setPlayers(data)
         },
         (error) => {
-            console.log(error)
+            setApiError(error)
         })
     };
 
@@ -51,6 +48,16 @@ const EditPlayer = ({gameData}) =>{
           })
     }
 
+    //On change update the player object
+    const updatePlayerObject = e => {
+        const fieldname = e.target.name
+        setSelectedPlayer(existingValues => ({
+            ...existingValues,
+            //update the current field
+            [fieldname]: e.target.value
+        }))
+    }
+
     //Handle the game selection
     const handleGameSelect = (gameId) => {
         handleShowDropdown();
@@ -64,13 +71,28 @@ const EditPlayer = ({gameData}) =>{
 
     //Handle the player selection
     const handlePlayerSelect = (playerId) => {
-        console.log(findPlayerById(parseInt(playerId)));
         let playerObject = findPlayerById(parseInt(playerId));
         setSelectedPlayer({
             ...selectedPlayer,
             ...playerObject
         })
     } 
+
+    //Handle update player button's submit and closes the modal
+    const onSubmit = async () => {
+        selectedPlayer.isHuman = (selectedPlayer.isHuman === "true");
+        selectedPlayer.isPatientZero = (selectedPlayer.isPatientZero === "true");
+
+        const [ error, userResponse ] = await updatePlayer(selectedPlayer, selectedPlayer.playerId)
+        if (error !== null){
+            setApiError(error)
+        }
+        if(userResponse !== null){
+            alert("The player has been updated");
+            handleClose3();
+            window.location.reload();
+        }
+    };
 
     return (
         <div id='editPlayerContainer' className='form-inline'>
@@ -79,7 +101,7 @@ const EditPlayer = ({gameData}) =>{
                 <Dropdown.Toggle className="py-0">Choose a game to edit players in</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {gameData.map(d =>
-                        <Dropdown.Item eventKey={d.gameId} key={d.gameId} onClick={showPlayersDropdown}>{d.gameName}</Dropdown.Item>
+                        <Dropdown.Item eventKey={d.gameId} key={d.gameId}>{d.gameName}</Dropdown.Item>
                     )}
                   </Dropdown.Menu>
             </Dropdown>
@@ -97,21 +119,21 @@ const EditPlayer = ({gameData}) =>{
                 <Modal show={showModal} onHide={handleClose3}>
                     <ModalHeader>Player {selectedPlayer.playerId}</ModalHeader>
                     <ModalBody>
-                    <div className='adminFormContainer'>
-                        <form id='editPlayerForm'>
-                        <h6 className='headerEditGameform'>Edit Player</h6>
-                        <label>Is human</label>
-                        <input type="text" className='form-control' placeholder='State'></input>
-                        <label>Is patient zero</label>
-                        <input type="text" className='form-control' placeholder='Latitude'></input>
-                        <label>Bite code</label>
-                        <input type="text" className='form-control' placeholder='Longitude'></input>
-                        </form>
-                    </div>
+                        <div className='adminFormContainer'>
+                            <form id='editPlayerForm'>
+                            <h6 className='headerEditGameform'>Edit Player</h6>
+                            <label>Is human</label>
+                            <input type="text" className='form-control' placeholder='Is human' name='isHuman' value={selectedPlayer.isHuman}
+                            onChange={updatePlayerObject}></input>
+                            <label>Is patient zero</label>
+                            <input type="text" className='form-control' placeholder='Is patient zero' name='isPatientZero' value={selectedPlayer.isPatientZero}
+                            onChange={updatePlayerObject}></input>
+                            </form>
+                        </div>
                     </ModalBody>
                     <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose3}>Close</Button>
-                    <Button variant="primary" onClick={handleClose3}>Save Changes</Button>
+                    <Button variant="primary" onClick={onSubmit}>Save Changes</Button>
                     </Modal.Footer>
                 </Modal>
                 </Dropdown.Menu>

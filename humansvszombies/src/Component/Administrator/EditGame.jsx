@@ -10,7 +10,7 @@ const EditGame = ({gameData}) =>{
     //Hooks
     const [selectedGame,setSelectedGame]=useState({});
     const [showModal, setShow] = useState(false);
-    const [ apiError, setApiError] = useState(null)
+    const [ apiError, setApiError] = useState(null);
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

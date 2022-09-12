@@ -39,5 +39,6 @@ export const updateGame = async (gameInfo, gameId) => {
     catch (error) {
         return [ error.message, [] ]
     }
+
 }
 
