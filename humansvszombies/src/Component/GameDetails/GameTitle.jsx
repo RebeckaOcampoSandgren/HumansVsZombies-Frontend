@@ -1,16 +1,17 @@
+import { useState } from "react"
+import Cards from "../GameCards/Cards"
 
-
-const GameTitle = () => {
+const GameTitle = ({game}) => {
     return(
         <>
             <div id="gameTitle" className="text-center">
                 <header>
                     <h2>Game title</h2>
                 </header>
-                <div className="gameDescription">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint perspiciatis, 
-                        iure deleniti aspernatur voluptates nihil asperiores delectus velit veritatis 
-                        fuga odio autem error sit, debitis necessitatibus dicta at illum qui. </p>
+                <div className="gameDescription" key={game.gameId}>
+                    {game.gameId && (
+                    <p> {game.gameName} </p>
+                        )}
                 </div>
                 <div>
                     <h4>Game Rules</h4>
