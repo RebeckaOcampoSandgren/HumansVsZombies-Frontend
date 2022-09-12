@@ -36,13 +36,12 @@ var missionIcon = L.icon({
 
 const positionMark = [57.70716, 11.96679];
 useEffect(() => {
-  fetch('https://humanvszombies.azurewebsites.net/api/missions')
+  fetch('https://humanvszombies.azurewebsites.net/api/v1/missions')
   .then((response) => response.json())
   .then((data) => {
     setIsLoaded(true);
     setError(error);
      setData(data);
-     console.log(data.JSON());
    })
    .catch((err) => {
     console.log(err);
