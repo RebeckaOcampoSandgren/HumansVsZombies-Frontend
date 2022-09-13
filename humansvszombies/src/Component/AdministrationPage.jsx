@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
+import '../App.css';
 import MediaQuery from './MediaQuery';
 import CreateGame from './Administrator/CreateGame';
 import EditGame from './Administrator/EditGame';
 import EditPlayer from './Administrator/EditPlayer';
+import CreateMission from './Administrator/CreateMission';
 const apiUrl = process.env.REACT_APP_API_URL
 
 function AdministrationPage() {
@@ -37,7 +39,10 @@ function AdministrationPage() {
           <CreateGame/>
           <EditGame gameData = {data}/>
           <EditPlayer gameData = {data}/>
-        </div>  
+        </div> 
+        <div className='form-wrapper' id='missionContainer'>
+          <CreateMission gameData = {data}/>
+        </div> 
         </div>
     </>
   );

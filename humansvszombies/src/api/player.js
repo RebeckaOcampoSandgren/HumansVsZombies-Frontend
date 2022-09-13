@@ -1,5 +1,6 @@
-const apiUrl = process.env.REACT_APP_API_URL
 import { createHeaders } from '.'
+const apiUrl = process.env.REACT_APP_API_URL
+
 
 //Update an existing player
 export const updatePlayer = async (playerInfo, playerId) => {
