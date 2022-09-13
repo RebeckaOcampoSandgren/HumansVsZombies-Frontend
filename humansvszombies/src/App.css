@@ -122,3 +122,12 @@ li{
   width: 15px;
   margin-right: 8px;
 }
+.createUser{
+  width: 160px;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+.headerRegisterUser{
+  margin-top: 25px;
+}

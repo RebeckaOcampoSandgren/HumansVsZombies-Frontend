@@ -16,12 +16,12 @@ function LandingPage() {
                 <h1 id="LandingPageTitle">Games</h1>
 
                 {keycloak.token && (
-                                    <div>
-                                    <h4>Token</h4>
-                                    <pre>{keycloak.token}</pre>
-                                    </div>
- )}
-            <Cards/>
+                    <div>
+                        <h4>Token</h4>
+                        <pre>{keycloak.token}</pre>
+                    </div>
+                )}
+                <Cards />
 
             </div>
         </>
