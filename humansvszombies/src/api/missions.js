@@ -1,4 +1,3 @@
-import { createHeaders } from '.'
 const apiUrl = process.env.REACT_APP_API_URL
 
 //Create a new mission
