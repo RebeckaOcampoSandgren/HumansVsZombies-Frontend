@@ -2,22 +2,22 @@ import { createHeaders } from '.'
 const apiUrl = process.env.REACT_APP_API_URL
 
 //Create a new game (takes in a game object)
-export const createGame = async (game) => {
-    try {
-
-        const response = await fetch(`${apiUrl}/Games`, {
-            method: 'PATCH',
-            headers: createHeaders(),
-            games: [ game]
+export const createGame = async (gameInfo) => {
+    try{
+        console.log(`${apiUrl}/games`);
+        const response =await fetch(`${apiUrl}/games`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(gameInfo)
         })
-        if (!response.ok) {
-            throw new Error('Could not create new game' + game)
+        if(!response.ok){
+            throw new Error('Could not create new game')
         }
         const data = await response.json()
-        return [ null, data ]
+        return[ null,data ]
     }
-    catch (error) {
-        return [ error.message, null ]
+    catch(error) {
+        return[ error.message,[] ]
     }
 
 }
@@ -25,7 +25,7 @@ export const createGame = async (game) => {
 //Update an existing game (takes in a game object)
 export const updateGame = async (gameId, gameName, gameState, description, nwLat, nwLng, seLat, seLng) => {
     try {
-        const response = await fetch(`${apiUrl}/Games/${gameId}`, {
+        const response = await fetch(`${apiUrl}/games/${gameId}`, {
             method: 'PUT',
             headers: createHeaders(),
             body: JSON.stringify(gameId, gameName, gameState, description, nwLat, nwLng, seLat, seLng)
@@ -66,7 +66,6 @@ export const deleteGame = async (gameId) => {
 
 //Zombiechat
 //Humanchat
-
 
 //Get a list of players in a specific game by playerId
 export const getPlayersInGame = async (gameId) => {
