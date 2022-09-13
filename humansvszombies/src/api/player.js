@@ -1,7 +1,7 @@
-const apiUrl = process.env.REACT_APP_API_URL
 import { createHeaders } from '.'
+const apiUrl = process.env.REACT_APP_API_URL
 
-//Update an existing player
+//Update an existing player (Works)
 export const updatePlayer = async (playerInfo, playerId) => {
     try {
         const response = await fetch(`${apiUrl}/players/${playerId}`, {
@@ -20,24 +20,23 @@ export const updatePlayer = async (playerInfo, playerId) => {
     }
 }
             
-
 //Create a new player (takes in a player object)
-export const createPlayer = async (player) => {
-    try {
-
-        const response = await fetch(`${apiUrl}/players`, {
-            method: 'PATCH',
-            headers: createHeaders(),
-            players: [ player]
+export const createPlayer = async (playerInfo) => {
+    try{
+        console.log(`${apiUrl}/players`);
+        const response =await fetch(`${apiUrl}/players`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(playerInfo)
         })
-        if (!response.ok) {
-            throw new Error('Could not create new player' + player)
+        if(!response.ok){
+            throw new Error('Could not create new player')
         }
         const data = await response.json()
-        return [ null, data ]
+        return[ null,data ]
     }
-    catch (error) {
-        return [ error.message, null ]
+    catch(error) {
+        return[ error.message,[] ]
     }
 
 }
