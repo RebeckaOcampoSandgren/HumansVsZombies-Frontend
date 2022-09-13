@@ -22,13 +22,13 @@ export const createSquadMember = async (squadMemberInfo) => {
 
 }
 
-//Update an existing squadMember (takes in a squadMember object)
-export const updateSquadMember = async (squadMemberId, rank, squad, player, squadCheckins) => {
+//Update an existing squadMember
+export const updateSquadMember = async (squadMemberInfo, squadMemberId) => {
     try {
-        const response = await fetch(`${apiUrl}/squadMember/${squadMemberId}`, {
+        const response = await fetch(`${apiUrl}/squadMembers/${squadMemberId}`, {
             method: 'PUT',
-            headers: createHeaders(),
-            body: JSON.stringify(squadMemberId, rank, squad, player, squadCheckins)
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ squadMemberId: squadMemberInfo.squadMemberId, rank: squadMemberInfo.rank, squadId: squadMemberInfo.squadId, playerId: squadMemberInfo.playerId })
         })
         if (!response.ok) {
             throw new Error('Could not update the squadMember')
@@ -37,17 +37,17 @@ export const updateSquadMember = async (squadMemberId, rank, squad, player, squa
         return [ null, data ]
     }
     catch (error) {
-        return [ error.message, null ]
+        return [ error.message, [] ]
     }
-
 }
+
 
 //Delete an existing squad member (takes in a squadMember object)
 export const deleteSquadMember = async (squadMemberId) => {
     try {
         const response = await fetch(`${apiUrl}/squadMembers/${squadMemberId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 squadMembers: []
             })

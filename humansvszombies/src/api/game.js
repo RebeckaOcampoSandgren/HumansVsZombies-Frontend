@@ -1,7 +1,7 @@
 import { createHeaders } from '.'
 const apiUrl = process.env.REACT_APP_API_URL
 
-//Create a new game (takes in a game object)
+//Create a new game
 export const createGame = async (gameInfo) => {
     try{
         const response =await fetch(`${apiUrl}/games`,{
@@ -21,13 +21,13 @@ export const createGame = async (gameInfo) => {
 
 }
 
-//Update an existing game (takes in a game object)
-export const updateGame = async (gameId, gameName, gameState, description, nwLat, nwLng, seLat, seLng) => {
+//Update an existing game
+export const updateGame = async (gameInfo, gameId) => {
     try {
         const response = await fetch(`${apiUrl}/games/${gameId}`, {
             method: 'PUT',
-            headers: createHeaders(),
-            body: JSON.stringify(gameId, gameName, gameState, description, nwLat, nwLng, seLat, seLng)
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ gameId: gameInfo.gameId, gameName: gameInfo.gameName, gameState: gameInfo.gameState, description: gameInfo.description, nwLat: gameInfo.nwLat, nwLng: gameInfo.nwLng, seLat: gameInfo.seLat, seLng: gameInfo.seLng })
         })
         if (!response.ok) {
             throw new Error('Could not update the game')
@@ -36,17 +36,18 @@ export const updateGame = async (gameId, gameName, gameState, description, nwLat
         return [ null, data ]
     }
     catch (error) {
-        return [ error.message, null ]
+        return [ error.message, [] ]
+        
     }
-
 }
 
 //Delete an existing game (takes in a game object)
 export const deleteGame = async (gameId) => {
     try {
-        const response = await fetch(`${apiUrl}/Games/${gameId}`, {
+        const response = await fetch(`${apiUrl}/games/${gameId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
+            //Look if this works
             body: JSON.stringify({
                 games: []
             })
