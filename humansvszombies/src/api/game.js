@@ -4,7 +4,6 @@ const apiUrl = process.env.REACT_APP_API_URL
 //Create a new game (takes in a game object)
 export const createGame = async (gameInfo) => {
     try{
-        console.log(`${apiUrl}/games`);
         const response =await fetch(`${apiUrl}/games`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},

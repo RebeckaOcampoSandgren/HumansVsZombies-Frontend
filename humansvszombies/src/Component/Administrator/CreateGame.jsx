@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { createGame } from '../../api/game';
 
-//These configs for preventing errors are not used at the moment 
+//These configs for preventing errors (are not used at the moment)
 //minimum length of game name is 3
 const gamenameConfig = {
     required: true,
@@ -40,6 +40,7 @@ const CreateGame = () =>{
         if(userResponse !== null){
             alert("A new game has been created.");
             handleClose2();
+            window.location.reload();
         }
     };
 

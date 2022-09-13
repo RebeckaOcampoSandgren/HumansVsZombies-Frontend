@@ -1,23 +1,22 @@
 import { createHeaders } from '.'
+const apiUrl = process.env.REACT_APP_API_URL
 
-const apiUrl = 'https://experis-java-hvz-api.herokuapp.com/api/v1/games/8/missions'
-
-export const createMission = async (mission) => {
-    try{
-        const response = await fetch(apiUrl, {
-            method: 'PATCH',
-            headers: createHeaders(),
-            body: JSON.stringify({
-                missions: [ mission]
-            })
+//Create a new mission (takes in array of mission information)
+export const createMission = async (missionInfo) => {
+    try {
+        const response = await fetch(`${apiUrl}/missions`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(missionInfo)
         })
-        if(!response.ok){
-            throw new Error('Could not create your translation ' + mission)
+        if (!response.ok) {
+            throw new Error('Could not create new mission')
         }
-        const result = await response.json()
-        return [null, result]
+        const data = await response.json()
+        return [ null, data ]
     }
-    catch(error) {
-        return [error.message, null]
+    catch (error) {
+        return [ error.message, [] ]
     }
+
 }

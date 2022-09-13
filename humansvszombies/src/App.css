@@ -79,6 +79,9 @@ margin-left: 100px;
   margin-top: 40px;
 }
 
+.form-control{
+  margin-bottom: 8px;
+}
 .h3{
   margin: 15px;
   text-align: left;
@@ -107,4 +110,15 @@ li{
   margin-top: 20px;
 }
 
- 
+#missionContainer{
+  margin-top: 30px;
+} 
+
+.adminDropdown{
+  padding: 10px;
+}
+
+.adminCheckbox{
+  width: 15px;
+  margin-right: 8px;
+}
