@@ -11,7 +11,7 @@ function NavbarLandningPage() {
         
         <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">HvZ</Navbar.Brand>
+          <Navbar.Brand href="/">HvZ</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="Register" id="register">Register</Nav.Link>
             <NavLink to="/AdministrationPageView" id="adminNav">Administrator</NavLink>

@@ -61,40 +61,36 @@ ul {
 margin-left: 100px;
 }
 
-
 #adminNav{
   margin: 10px;
   color: gray;
 }
+
 .form-wrapper{
   width: 70%;
   margin: 0 auto;
   text-align: Left;
-  
 }
 
+.form-inline{
+  width: 160px;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+
+.form-control{
+  margin-bottom: 8px;
+}
 .h3{
   margin: 15px;
   text-align: left;
   }
 
-#form1{
+#createGameBtn{
   width: 200px;
-  display: inline-flex;
-  
 }
-#form2{
-  width: 160px;
-  display: inline-flex;
-  margin-left: 100px;
-  margin-top: 40px;
-}
-#form3{
-  width: 160px;
-  display: inline-flex;
-  margin-left: 100px;
-  margin-top: 40px;
-}
+
 .creatBtn{
 margin: 10px;
 margin-left: 4px;
@@ -102,11 +98,27 @@ margin-left: 4px;
 
 .chooseEditGame{
   float: right;
-
 }
 
 li{
   border-color: black;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#editPlayer{
+  margin-top: 20px;
+}
+
+#missionContainer{
+  margin-top: 30px;
+} 
+
+.adminDropdown{
+  padding: 10px;
+}
+
+.adminCheckbox{
+  width: 15px;
+  margin-right: 8px;
 }
