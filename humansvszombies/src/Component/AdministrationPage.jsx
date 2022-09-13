@@ -7,6 +7,8 @@ import CreateGame from './Administrator/CreateGame';
 import EditGame from './Administrator/EditGame';
 import EditPlayer from './Administrator/EditPlayer';
 import CreateMission from './Administrator/CreateMission';
+import EditMission from './Administrator/EditMission';
+import {Container, Row, Col} from 'react-bootstrap';
 const apiUrl = process.env.REACT_APP_API_URL
 
 function AdministrationPage() {
@@ -36,14 +38,29 @@ function AdministrationPage() {
       <div className='adminDiv'>
         <h1>Welcome Administrator</h1>
         <div className='form-wrapper'>
-          <CreateGame/>
-          <EditGame gameData = {data}/>
-          <EditPlayer gameData = {data}/>
+          <Row>
+            <Col>
+              <CreateGame/> 
+            </Col>
+            <Col>
+              <EditGame gameData = {data}/>
+            </Col>
+            <Col>
+              <EditPlayer gameData = {data}/>
+            </Col>
+          </Row>
         </div> 
         <div className='form-wrapper' id='missionContainer'>
-          <CreateMission gameData = {data}/>
+          <Row>
+            <Col>
+              <CreateMission gameData = {data}/>
+            </Col>
+            <Col>
+              <EditMission gameData = {data}/>
+            </Col>
+          </Row>
         </div> 
-        </div>
+      </div>
     </>
   );
 }

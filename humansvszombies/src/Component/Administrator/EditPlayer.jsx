@@ -80,9 +80,12 @@ const EditPlayer = ({gameData}) =>{
 
     //Handle update player button's submit and closes the modal
     const onSubmit = async () => {
-        selectedPlayer.isHuman = (selectedPlayer.isHuman === "true");
-        selectedPlayer.isPatientZero = (selectedPlayer.isPatientZero === "true");
-
+        if(typeof selectedPlayer.isHuman === 'string'){
+            selectedPlayer.isHuman = (selectedPlayer.isHuman === "true"); 
+        }
+        if(typeof selectedPlayer.isPatientZero === 'string'){
+            selectedPlayer.isPatientZero = (selectedPlayer.isPatientZero === "true");
+        }
         const [ error, userResponse ] = await updatePlayer(selectedPlayer, selectedPlayer.playerId)
         if (error !== null){
             setApiError(error)
@@ -111,7 +114,7 @@ const EditPlayer = ({gameData}) =>{
             { showPlayerDropdown ?
             <Dropdown onSelect={handlePlayerSelect}>
                 <p>{selectedGame.gameName}</p>
-                <Dropdown.Toggle className="py-0">Choose a player to edit</Dropdown.Toggle>
+                <Dropdown.Toggle className='adminDropdown'>Choose a player to edit</Dropdown.Toggle>
                 <Dropdown.Menu>
                     {players.map(d =>
                         <Dropdown.Item eventKey={d.playerId} key={d.playerId} onClick={handleShow3}>{d.playerId}</Dropdown.Item>
