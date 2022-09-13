@@ -27,7 +27,7 @@ export const updateUser = async (userInfo, userId) => {
         const response = await fetch(`${apiUrl}/users/${userId}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ userId: userInfo.userId, firstName: userInfo.firstName, lastName: userInfo.lastName})
+            body: JSON.stringify({ userId: userInfo.userId, firstName: userInfo.firstName, lastName: userInfo.lastName, isAdmin: userInfo.isAdmin})
         })
         if (!response.ok) {
             throw new Error('Could not update the user')
@@ -45,7 +45,7 @@ export const deleteUser = async (userId) => {
     try {
         const response = await fetch(`${apiUrl}/users/${userId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 users: []
             })

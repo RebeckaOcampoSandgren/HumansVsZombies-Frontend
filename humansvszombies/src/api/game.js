@@ -38,15 +38,17 @@ export const updateGame = async (gameInfo, gameId) => {
     }
     catch (error) {
         return [ error.message, [] ]
+        
     }
 }
 
 //Delete an existing game (takes in a game object)
 export const deleteGame = async (gameId) => {
     try {
-        const response = await fetch(`${apiUrl}/Games/${gameId}`, {
+        const response = await fetch(`${apiUrl}/games/${gameId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
+            //Look if this works
             body: JSON.stringify({
                 games: []
             })

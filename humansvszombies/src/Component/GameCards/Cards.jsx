@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState, array } from 'react';
+import React, { useEffect, useState, array } from 'react';
 import { Container, Row, Card, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { deleteGame } from '../../api/game';
 import keycloak from '../../keycloak';
 
 function Cards() {
@@ -29,10 +30,24 @@ fetch(`https://humanvszombies.azurewebsites.net/api/v1/games`)
  )
 },[]);
 
+const deleteGameClick = async (event) => {
+    console.log(event.target.id);
+    if (!window.confirm('Are you sure?\nThis can not be undone!')) {
+        return
+    }
+
+    const [clearError] = await deleteGame(event.target.id)
+
+    if (clearError !== null) {
+        return
+    }
+
+}
+
 
 function handleClick(event){
 
-    localStorage.setItem("gameId", event.target.id)
+ localStorage.setItem("gameId", event.target.id)
     };
 
 if(error) {
@@ -58,6 +73,10 @@ if(error) {
                                             </Card.Text>
                                             {keycloak.authenticated && (
                                                  <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={handleClick} >Details</Link>
+  
+                                            )}
+                                            {keycloak.authenticated && (
+                                            <button onClick={deleteGameClick} id={data.gameId}>Delete game</button>
                                             )}
                                         </Card.Body>
                                     </Card>

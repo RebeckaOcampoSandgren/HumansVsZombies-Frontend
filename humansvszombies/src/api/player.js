@@ -1,4 +1,4 @@
-import { createHeaders } from '.'
+
 const apiUrl = process.env.REACT_APP_API_URL
 
 //Update an existing player (Works )
@@ -46,9 +46,9 @@ export const deletePlayer = async (playerId) => {
     try {
         const response = await fetch(`${apiUrl}/players/${playerId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                games: []
+                players: []
             })
         })
         if (!response.ok) {

@@ -46,7 +46,7 @@ export const deleteSquadCheckin = async (squadCheckinId) => {
     try {
         const response = await fetch(`${apiUrl}/squadCheckins/${squadCheckinId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 squadCheckins: []
             })
@@ -62,7 +62,6 @@ export const deleteSquadCheckin = async (squadCheckinId) => {
     }
 
 }
-
 
 //Get all squadCheckins
 export const getAllSquadCheckins = async () => {

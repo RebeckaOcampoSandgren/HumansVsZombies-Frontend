@@ -47,7 +47,7 @@ export const deleteSquadMember = async (squadMemberId) => {
     try {
         const response = await fetch(`${apiUrl}/squadMembers/${squadMemberId}`, {
             method: 'DELETE',
-            headers: createHeaders(),
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 squadMembers: []
             })
