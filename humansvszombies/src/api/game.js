@@ -1,4 +1,3 @@
-import { createHeaders } from '.'
 const apiUrl = process.env.REACT_APP_API_URL
 
 //Create a new game
@@ -47,7 +46,6 @@ export const deleteGame = async (gameId) => {
         const response = await fetch(`${apiUrl}/games/${gameId}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
-            //Look if this works
             body: JSON.stringify({
                 games: []
             })
@@ -66,6 +64,42 @@ export const deleteGame = async (gameId) => {
 
 //Zombiechat
 //Humanchat
+
+//Get all games
+export const getAllGames = async () => {
+    try {
+        const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/games`)
+        if (!response.ok) {
+            throw new Error('Could not get games')
+        }
+
+        const games = await response.json()
+        return [null, games]
+
+    }
+    catch (error) {
+        return [error.message, null]
+
+    }
+}
+
+//Get specific game by gameId
+export const getGameById = async (gameId) => {
+    try {
+        const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/games/${gameId}`)
+        if (!response.ok) {
+            throw new Error('Could not get the game')
+        }
+
+        const gameById = await response.json()
+        return [null, gameById]
+
+    }
+    catch (error) {
+        return [error.message, null]
+
+    }
+}
 
 //Get a list of players in a specific game by playerId
 export const getPlayersInGame = async (gameId) => {
