@@ -21,13 +21,13 @@ export const createUser = async (userInfo) => {
     }
 }
 
-//Update an existing user (takes in a user object)
-export const updateUser = async (userId) => {
+//Update an existing user
+export const updateUser = async (userInfo, userId) => {
     try {
         const response = await fetch(`${apiUrl}/users/${userId}`, {
             method: 'PUT',
-            headers: createHeaders(),
-            body: JSON.stringify(userId)
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ userId: userInfo.userId, firstName: userInfo.firstName, lastName: userInfo.lastName})
         })
         if (!response.ok) {
             throw new Error('Could not update the user')
@@ -36,9 +36,8 @@ export const updateUser = async (userId) => {
         return [ null, data ]
     }
     catch (error) {
-        return [ error.message, null ]
+        return [ error.message, [] ]
     }
-
 }
 
 //Delete an existing squad member (takes in a squadMember object)

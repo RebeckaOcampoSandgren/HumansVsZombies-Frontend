@@ -22,13 +22,13 @@ export const createSquadCheckin = async (SquadCheckinInfo) => {
 
 }
 
-//Update an existing squadCheckin (takes in a squadCheckin object)
-export const updateSquadCheckin = async (squadCheckinId, startTime, endTime, lat, lng, gameId, squadId, squadMemberId) => {
+//Update an existing squadCheckin
+export const updateSquadCheckin = async (squadCheckinInfo, squadCheckinId) => {
     try {
         const response = await fetch(`${apiUrl}/squadCheckins/${squadCheckinId}`, {
             method: 'PUT',
-            headers: createHeaders(),
-            body: JSON.stringify(squadCheckinId, startTime, endTime, lat, lng, gameId, squadId, squadMemberId)
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ squadCheckinId: squadCheckinInfo.squadCheckinId, startTime: squadCheckinInfo.startTime, endTime: squadCheckinInfo.endTime, lat: squadCheckinInfo.lat, lng: squadCheckinInfo.lng, gameId: squadCheckinInfo.gameId, squadId: squadCheckinInfo.squadId, squadMemberId: squadCheckinInfo.squadMemberId })
         })
         if (!response.ok) {
             throw new Error('Could not update the squadCheckin')
@@ -37,9 +37,8 @@ export const updateSquadCheckin = async (squadCheckinId, startTime, endTime, lat
         return [ null, data ]
     }
     catch (error) {
-        return [ error.message, null ]
+        return [ error.message, [] ]
     }
-
 }
 
 //Delete an existing squadCheckin (takes in a squadCheckin object)
