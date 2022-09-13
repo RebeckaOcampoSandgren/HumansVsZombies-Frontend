@@ -9,11 +9,11 @@ import keycloak from "../keycloak";
  */
 function KeycloakRoute({ children, role, redirectTo = "/" }) {
 
-  if (!keycloak.authenticated) {
+  if (!keycloak.auth()) {
     return <Navigate replace to={redirectTo} />;
   }
 
-  if (keycloak.hasRealmRole(role)) {
+  if (keycloak.hasRole(role)) {
     return <>{children}</>;
   }
 

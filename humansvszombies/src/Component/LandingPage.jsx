@@ -14,11 +14,12 @@ function LandingPage() {
             <div className="LandingPagedDiv" >
 
                 <h1 id="LandingPageTitle">Games</h1>
+                <h2>Welcome {keycloak.userName()}</h2>
 
-                {keycloak.token && (
+                {keycloak.getToken() && (
                                     <div>
                                     <h4>Token</h4>
-                                    <pre>{keycloak.token}</pre>
+                                    <pre>{keycloak.getToken()}</pre>
                                     </div>
  )}
             <Cards/>

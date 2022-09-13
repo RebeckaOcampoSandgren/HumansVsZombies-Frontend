@@ -4,6 +4,7 @@ import { Container, Row, Card, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { deleteGame } from '../../api/game';
 import keycloak from '../../keycloak';
+import RenderOnRole from '../RenderOnRole';
 
 function Cards() {
 
@@ -71,13 +72,17 @@ if(error) {
                                                      <li>Registered players: {data.players.length}</li>
                                                 </ul>
                                             </Card.Text>
-                                            {keycloak.authenticated && (
+                                            {keycloak.auth() && (
                                                  <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={handleClick} >Details</Link>
   
                                             )}
-                                            {keycloak.authenticated && (
+                                            {/* Use this if you have the role as a user */}
+                                            {/* <RenderOnRole roles={['default-roles-hvz-auth']}>*/}
+                                            <RenderOnRole roles={['Admin']}>
+                                            {keycloak.auth() && (
                                             <button onClick={deleteGameClick} id={data.gameId}>Delete game</button>
                                             )}
+                                            </RenderOnRole>
                                         </Card.Body>
                                     </Card>
                                         )}
