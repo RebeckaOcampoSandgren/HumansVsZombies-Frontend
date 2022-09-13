@@ -2,22 +2,22 @@ import { createHeaders } from '.'
 const apiUrl = process.env.REACT_APP_API_URL
 
 //Create a new squadCheckin (takes in a squadCheckin object)
-export const createSquadCheckin = async (squadCheckin) => {
-    try {
-
-        const response = await fetch(`${apiUrl}/squadCheckins`, {
-            method: 'PATCH',
-            headers: createHeaders(),
-            players: [ squadCheckin]
+export const createSquadCheckin = async (SquadCheckinInfo) => {
+    try{
+        console.log(`${apiUrl}/squadCheckins`);
+        const response =await fetch(`${apiUrl}/squadCheckins`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(SquadCheckinInfo)
         })
-        if (!response.ok) {
-            throw new Error('Could not create new squadCheckin' + squadCheckin)
+        if(!response.ok){
+            throw new Error('Could not create new squad checkin')
         }
         const data = await response.json()
-        return [ null, data ]
+        return[ null,data ]
     }
-    catch (error) {
-        return [ error.message, null ]
+    catch(error) {
+        return[ error.message,[] ]
     }
 
 }

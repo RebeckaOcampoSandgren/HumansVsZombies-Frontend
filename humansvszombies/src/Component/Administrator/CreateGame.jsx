@@ -31,9 +31,9 @@ const CreateGame = () =>{
 
     //Event Handlers
     //handle create game button's submit and closes create game modal
-    const onSubmit = async (data) => {
-        console.log(data)
-        const [ error, userResponse ] = await createGame(data)
+    const onSubmit = async (game) => {
+        //console.log(game)
+        const [ error, userResponse ] = await createGame(game)
         if (error !== null){
             setApiError(error)
         }
