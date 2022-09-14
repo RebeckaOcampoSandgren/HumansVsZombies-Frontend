@@ -3,10 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom'
 import keycloak from '../../keycloak';
 import RenderOnRole from '../RenderOnRole';
+import React, { useEffect, useState, array } from 'react';
+
 
 
 
 function NavbarLandningPage() {
+
 
     return(
         
