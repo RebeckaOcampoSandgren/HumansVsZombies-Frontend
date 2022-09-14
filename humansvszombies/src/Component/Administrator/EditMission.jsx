@@ -9,7 +9,6 @@ import { updateMission } from '../../api/missions';
 const apiUrl = process.env.REACT_APP_API_URL
 
 const EditMission = ({gameData}) => {
-
     //Hooks
     const [selectedGame, setSelectedGame]=useState({});
     const [selectedMission, setSelectedMission]=useState({});
@@ -17,6 +16,8 @@ const EditMission = ({gameData}) => {
     const [showMissionDropdown, setShowDropdown] = useState(false);
     const [missions, setMissions] = useState([]);
     const [ apiError, setApiError] = useState(null);
+    const [isHumanVisible, setIsHumanVisible] = useState(false); 
+    const [isZombieVisible, setIsZombieVisible] = useState(false); 
 
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
@@ -79,14 +80,26 @@ const EditMission = ({gameData}) => {
         })
     } 
 
+    //When the selected mission is changed, set isHumanVisible and isZombieVisible
+    useEffect(()=>{
+        setIsHumanVisible(selectedMission.isHumanVisible)
+        setIsZombieVisible(selectedMission.isZombieVisible)
+      }, [selectedMission])
+
+    //Handle checkboxes change
+    const onCheckboxChange = e => {
+        if(e.target.name === 'isHumanVisible'){
+            setIsHumanVisible(e.target.checked)
+        }
+        else if(e.target.name === 'isZombieVisible'){
+            setIsZombieVisible(e.target.checked)
+        }
+    }
+
     //Handle update mission button's submit and closes the modal
     const onSubmit = async () => {
-        if(typeof selectedMission.isHumanVisible === 'string'){
-            selectedMission.isHumanVisible = (selectedMission.isHumanVisible === "true");
-        }
-        if(typeof selectedMission.isZombieVisible === 'string'){
-            selectedMission.isZombieVisible = (selectedMission.isZombieVisible === "true");
-        }
+        selectedMission.isHumanVisible = isHumanVisible;
+        selectedMission.isZombieVisible = isZombieVisible;
         const [ error, userResponse ] = await updateMission(selectedMission, selectedMission.missionId)
         if (error !== null){
             setApiError(error)
@@ -130,12 +143,12 @@ const EditMission = ({gameData}) => {
                                 <label>Mission Name</label>
                                 <input type="text" className='form-control' name='missionName' value={selectedMission.missionName}
                                 onChange={updateMissionObject}></input>
-                                <label>Is human visible</label>
-                                <input type="text" className='form-control' placeholder='Is human visible' name='isHumanVisible' value={selectedMission.isHumanVisible}
-                                onChange={updateMissionObject}></input>
+                                <input type="checkbox" className='adminCheckbox' name='isHumanVisible' checked={isHumanVisible || ''}
+                                 onChange={onCheckboxChange}></input>
+                                <label>Is human visible</label><br/>
+                                <input type="checkbox" className='adminCheckbox' name='isZombieVisible' checked={isZombieVisible || ''}
+                                 onChange={onCheckboxChange}></input>
                                 <label>Is zombie visible</label><br/>
-                                <input type="text" className='form-control' placeholder='Is zombie visible' name='isZombieVisible' value={selectedMission.isZombieVisible}
-                                onChange={updateMissionObject}></input>
                                 <label>Description</label>
                                 <textarea className='form-control' placeholder='Description' name='description' value={selectedMission.description}
                                 onChange={updateMissionObject}></textarea>
