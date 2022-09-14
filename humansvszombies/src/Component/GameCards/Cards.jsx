@@ -7,14 +7,20 @@ import keycloak from '../../keycloak';
 import RenderOnRole from '../RenderOnRole';
 
 function Cards() {
-
 const [error, setError] = useState(null);
 const [isLoaded, setIsLoaded] = useState(false);
 const [gameData, setData] = useState([]);
 const [selectedGame, setSelectedGame] = useState({game: ""});
 const [isZombieVisible, setZVisible] = useState(false);
 const [isHumanVisible, setHVisible] = useState(false);
+let counter = 0;
 
+function handleCounter(){
+    if(counter === 6){
+        counter = 0;
+    }
+    counter++;
+}
 
 useEffect(() => {
 fetch(`https://humanvszombies.azurewebsites.net/api/v1/games`)
@@ -62,8 +68,8 @@ if(error) {
                             <Row id="row">
                                 <Col id="col">
                                     {gameData.map(data =>
-                                        <Card style={{ width: '18rem' }} id="card" key={data.gameId}>
-                                        <Card.Img variant="top"src="https://cdn.wccftech.com/wp-content/uploads/2016/01/steamworkshop_webupload_previewfile_315734800_preview.png" />
+                                        <Card style={{ width: '18rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
+                                        <Card.Img variant="top"src={`zombieImages/zombie${counter}.png`}/>
                                         <Card.Body>
                                             <Card.Title>{data.gameName}</Card.Title>
                                             <Card.Text>
