@@ -1,65 +1,59 @@
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+const apiUrl = process.env.REACT_APP_API_URL
 
-const usernameConfig = {
-    required: true,
-    minLength: 6
-}
-const passwordConfig = {
-    required: true,
-    minLength: 10
-}
+function RegisterPage() {
+    const [firstName, setFirstName] = useState("")
+    const [LastName, setLastName] = useState("")
+    const [password, setPassword] = useState("")
+    
 
-const RegisterPage = () => {
+    async function SignUp() {
 
-  
-    const {
-        register, 
-        handleSubmit, 
-        formState: { errors } 
-    } = useForm()
+        let userInfo = { firstName, LastName, password }
+        console.warn(userInfo)
 
-   
-    const onSubmit = async ({ username }) => { 
-      
-      
-    };
+        let result = await fetch(`${apiUrl}/users`, {
+            method: 'POST',
+            body: JSON.stringify(userInfo),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept":"application/json"
+            }
 
+        });
+        userInfo = await result.json()
+        localStorage.setItem("user-info", JSON.stringify(result))
+    }
 
-    const errorMessage = (() => {
-        if(!errors.username) {
-            return null
-        }
-
-        if(errors.username.type === 'required') {
-            return <span>Username is required</span>
-        }
-
-        if(errors.username.type === 'minLength'){
-            return <span>Username is to short (min. 3)</span>
-        }
-    })()
+    
 
     return (
         <>
             <div className="RegisterPagedDiv">
 
                 <div className='form-wrapper'>
-                    <form id='createUser' onSubmit={handleSubmit(onSubmit)}>
+                    <form id='createUser'>
                         <h5 className='headerRegisterUser'>Register a user</h5>
-                        <label>Username </label>
-                        <input type="text" className='form-control' placeholder='Username'{...register("username", usernameConfig) }></input>
+                        <label>First name </label>
+                        <input type="text" value={firstName} className='form-control' placeholder='First name' onChange={(e)=>setFirstName(e.target.value)}></input>
+                        <label>Last name </label>
+                        <input type="text" value={LastName} className='form-control' placeholder='Last name' onChange={(e)=>setLastName(e.target.value)}></input>
                         <label>Password </label>
-                        <input type="text" className='form-control' placeholder='password' {...register("pasword", passwordConfig) }></input>
-                        <button type="submit" value="Submit">Click to register</button>
-                        <br/>
-                   {errorMessage}
-                </form>
-            </div>
+                        <input type="password" value={password} className='form-control' placeholder='password'onChange={(e)=>setPassword(e.target.value)}></input>
+                        <button type="submit" value="Submit" onClick={SignUp}>Click to register</button>
+                        <br />
+                        
+                    </form>
+                </div>
 
-        </div>
+            </div>
 
         </>
 
     );
+
+
+
 }
 export default RegisterPage
+
