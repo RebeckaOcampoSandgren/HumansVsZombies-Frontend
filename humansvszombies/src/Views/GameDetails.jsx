@@ -16,6 +16,7 @@ const [gameIdData, setData] = useState([]);
 const [isZombieVisible, setZVisible] = useState(false);
 const [isHumanVisible, setHVisible] = useState(false);
 
+
  useEffect(() => {
     const selectedGame = localStorage.getItem("gameId")
      fetch(`https://humanvszombies.azurewebsites.net/api/v1/games/${selectedGame}`)
@@ -36,7 +37,7 @@ return(
     <GameMap/>
     <GameRegistration></GameRegistration>
     <GameBiteCode/>
-    <GameSquadCreation/>
+    <GameSquadCreation game = {gameIdData}/>
     <GameSquadDetails/>
     <GameChat/>
     </>
