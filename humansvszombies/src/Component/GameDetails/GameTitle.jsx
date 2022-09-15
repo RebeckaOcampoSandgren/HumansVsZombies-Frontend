@@ -6,11 +6,11 @@ const GameTitle = ({game}) => {
         <>
             <div id="gameTitle" className="text-center">
                 <header>
-                    <h2>Game title</h2>
+                    <h2>{game.gameName}</h2>
                 </header>
                 <div className="gameDescription" key={game.gameId}>
                     {game.gameId && (
-                    <p> {game.gameName} </p>
+                    <p> {game.description} </p>
                         )}
                 </div>
                 <div>

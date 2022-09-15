@@ -7,6 +7,7 @@ import GameChat from "../Component/GameDetails/GameChat"
 import GameMap from '../Component/WorldMap/GameMap'
 import NavbarLandningPage from "../Component/HOC/NavbarLandningPage"
 import { useState, useEffect } from "react"
+import GameSquadList from "../Component/GameDetails/GameSquadList"
 
 const GameDetails = () => {
 
@@ -38,6 +39,7 @@ return(
     <GameRegistration></GameRegistration>
     <GameBiteCode/>
     <GameSquadCreation game = {gameIdData}/>
+    <GameSquadList game = {gameIdData}/>
     <GameSquadDetails/>
     <GameChat/>
     </>
