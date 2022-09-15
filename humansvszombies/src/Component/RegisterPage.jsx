@@ -1,5 +1,5 @@
 import { useState } from "react";
-const apiUrl = process.env.REACT_APP_API_URL
+/* const apiUrl = process.env.REACT_APP_API_URL */
 
 function RegisterPage() {
     const [firstName, setFirstName] = useState("")
@@ -33,7 +33,7 @@ function RegisterPage() {
             <div className="RegisterPagedDiv">
 
                 <div className='form-wrapper'>
-                    <form id='createUser'>
+                    <form id='registerUser'>
                         <h5 className='headerRegisterUser'>Register a user</h5>
                         <label>First name </label>
                         <input type="text" value={firstName} className='form-control' placeholder='First name' onChange={(e) => setFirstName(e.target.value)}></input>
