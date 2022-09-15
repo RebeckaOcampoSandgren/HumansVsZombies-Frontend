@@ -16,6 +16,8 @@ const EditPlayer = ({gameData}) =>{
     const [showPlayerDropdown, setShowDropdown] = useState(false);
     const [players, setPlayers] = useState([]);
     const [ apiError, setApiError] = useState(null);
+    const [isHuman, setIsHuman] = useState(false); 
+    const [isPatientZero, setIsPatientZero] = useState(false); 
 
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
@@ -48,14 +50,20 @@ const EditPlayer = ({gameData}) =>{
           })
     }
 
-    //On change update the player object
-    const updatePlayerObject = e => {
-        const fieldname = e.target.name
-        setSelectedPlayer(existingValues => ({
-            ...existingValues,
-            //update the current field
-            [fieldname]: e.target.value
-        }))
+    //When the selected player is changed, set isHuman and isPatientZero
+    useEffect(()=>{
+        setIsHuman(selectedPlayer.isHuman)
+        setIsPatientZero(selectedPlayer.isPatientZero)
+      }, [selectedPlayer])
+
+    //Handle checkboxes change
+    const onCheckboxChange = e => {
+        if(e.target.name === 'isHuman'){
+            setIsHuman(e.target.checked)
+        }
+        else if(e.target.name === 'isPatientZero'){
+            setIsPatientZero(e.target.checked)
+        }
     }
 
     //Handle the game selection
@@ -80,9 +88,8 @@ const EditPlayer = ({gameData}) =>{
 
     //Handle update player button's submit and closes the modal
     const onSubmit = async () => {
-        selectedPlayer.isHuman = (selectedPlayer.isHuman === "true");
-        selectedPlayer.isPatientZero = (selectedPlayer.isPatientZero === "true");
-
+        selectedPlayer.isHuman = isHuman;
+        selectedPlayer.isPatientZero = isPatientZero;
         const [ error, userResponse ] = await updatePlayer(selectedPlayer, selectedPlayer.playerId)
         if (error !== null){
             setApiError(error)
@@ -111,7 +118,7 @@ const EditPlayer = ({gameData}) =>{
             { showPlayerDropdown ?
             <Dropdown onSelect={handlePlayerSelect}>
                 <p>{selectedGame.gameName}</p>
-                <Dropdown.Toggle className="py-0">Choose a player to edit</Dropdown.Toggle>
+                <Dropdown.Toggle className='adminDropdown'>Choose a player to edit</Dropdown.Toggle>
                 <Dropdown.Menu>
                     {players.map(d =>
                         <Dropdown.Item eventKey={d.playerId} key={d.playerId} onClick={handleShow3}>{d.playerId}</Dropdown.Item>
@@ -122,12 +129,12 @@ const EditPlayer = ({gameData}) =>{
                         <div className='adminFormContainer'>
                             <form id='editPlayerForm'>
                             <h6 className='headerEditGameform'>Edit Player</h6>
-                            <label>Is human</label>
-                            <input type="text" className='form-control' placeholder='Is human' name='isHuman' value={selectedPlayer.isHuman}
-                            onChange={updatePlayerObject}></input>
-                            <label>Is patient zero</label>
-                            <input type="text" className='form-control' placeholder='Is patient zero' name='isPatientZero' value={selectedPlayer.isPatientZero}
-                            onChange={updatePlayerObject}></input>
+                            <input type="checkbox" className='adminCheckbox' name='isHuman' checked={isHuman || ''}
+                            onChange={onCheckboxChange}></input>
+                            <label>Is human</label><br/>
+                            <input type="checkbox" className='adminCheckbox' name='isPatientZero' checked={isPatientZero || ''}
+                            onChange={onCheckboxChange}></input>
+                            <label>Is patient zero</label><br/>
                             </form>
                         </div>
                     </ModalBody>

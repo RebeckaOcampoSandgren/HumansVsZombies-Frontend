@@ -1,7 +1,6 @@
-
 const apiUrl = process.env.REACT_APP_API_URL
 
-//Update an existing player (Works )
+//Update an existing player
 export const updatePlayer = async (playerInfo, playerId) => {
     try {
         const response = await fetch(`${apiUrl}/players/${playerId}`, {

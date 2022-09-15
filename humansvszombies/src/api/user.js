@@ -1,4 +1,3 @@
-import { createHeaders } from '.'
 const apiUrl = process.env.REACT_APP_API_URL
 
 //Create a new user (takes in a user object)
@@ -40,7 +39,7 @@ export const updateUser = async (userInfo, userId) => {
     }
 }
 
-//Delete an existing squad member (takes in a squadMember object)
+//Delete an existing user
 export const deleteUser = async (userId) => {
     try {
         const response = await fetch(`${apiUrl}/users/${userId}`, {
@@ -63,8 +62,8 @@ export const deleteUser = async (userId) => {
 }
 
 
-//Get all squadMembers
-export const getAllSquadMembers = async () => {
+//Get all users
+export const getAllUsers = async () => {
     try {
         const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/users`)
         if (!response.ok) {
@@ -82,7 +81,7 @@ export const getAllSquadMembers = async () => {
 }
 
 //Get specific user by userId
-export const getSquadMemberById = async (userId) => {
+export const getUserById = async (userId) => {
     try {
         const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/users/${userId}`)
         if (!response.ok) {
