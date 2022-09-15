@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .list-unstyled {
@@ -30,10 +31,16 @@
 }
 
 #biteCodeInput,
-#squadCreationInput,
-#card {
+#squadCreationInput
+{
   width: 400px;
-  margin: 0 auto;
+  margin: 0 auto;  
+}
+
+#card{
+  margin: 15px;
+  width: 400px;
+  float: left;
 }
 
 #LandingPageTitle {
@@ -58,10 +65,11 @@ ul {
 
 #container {
   align-items: center;
+  justify-content: center;
 }
 
 #row {
-  margin: 15px;
+  margin: 10px;
 }
 
 #registerBtn {
