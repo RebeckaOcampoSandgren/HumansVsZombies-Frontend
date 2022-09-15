@@ -85,7 +85,7 @@ export const getAllSquads = async () => {
 //Get specific squad by squadId
 export const getSquadById = async (squadId) => {
     try {
-        const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/squadss/${squadId}`)
+        const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/squads/${squadId}`)
         if (!response.ok) {
             throw new Error('Could not get the squad')
         }
@@ -103,7 +103,7 @@ export const getSquadById = async (squadId) => {
 //Get a list of squads in a specific game by gameId
 export const getSquadsInGame = async (gameId) => {
     try {
-        const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/squads/${gameId}/squads`)
+        const response = await fetch(`${apiUrl}/squads/${gameId}/squads`)
         if (!response.ok) {
             throw new Error('Could not get squads')
         }
