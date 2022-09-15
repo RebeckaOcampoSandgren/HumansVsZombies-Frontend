@@ -12,36 +12,6 @@ const GameSquadCreation = () => {
                     <button class="btn btn-outline-secondary" type="button" id="button">Create</button>
                 </div>
             </div>
-
-            <div id="SquadList" className="text-center">
-                <header>
-                    <h2>Available squads</h2>
-                </header>
-                <ul>
-                    <li>
-                        <div class="card w-50" id="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Squad A</h5>
-                                <p class="card-text">Squad Name: Scary Zombies</p>
-                                <p class="card-text">Total number of members : 25</p>
-                                <p class="card-text">Number of deceased numbers : 12</p>
-                                <button class="btn btn-outline-secondary" type="button" id="button">Join</button>
-                            </div>
-                        </div>
-                    </li>    
-                    <li>
-                        <div class="card w-50" id="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Squad B</h5>
-                                <p class="card-text">Squad Name: Crazy Zombies</p>
-                                <p class="card-text">Total number of members : 12</p>
-                                <p class="card-text">Number of deceased numbers : 1</p>
-                                <button class="btn btn-outline-secondary" type="button" id="button">Join</button>                              
-                            </div>
-                        </div>
-                    </li>    
-                </ul>
-            </div>
         </>
     )
 }
