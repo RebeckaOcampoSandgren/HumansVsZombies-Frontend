@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {width > 500 && (
+        {width > 400 && (
           <>
             <Routes>
               <Route index path="/" element={<LandingPageView />} />

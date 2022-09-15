@@ -69,13 +69,10 @@ margin-left: 100px;
 .form-wrapper{
   width: 70%;
   margin: 0 auto;
-  text-align: Left;
+  text-align: center;
 }
 
 .form-inline{
-  width: 160px;
-  display: inline-block;
-  margin-left: 100px;
   margin-top: 40px;
 }
 
@@ -106,7 +103,7 @@ li{
   margin-bottom: 10px;
 }
 
-#editPlayer{
+#editPlayer, #editMission{
   margin-top: 20px;
 }
 
@@ -122,6 +119,7 @@ li{
   width: 15px;
   margin-right: 8px;
 }
+
 .registerUser{
   width: 160px;
   display: inline-block;
@@ -131,3 +129,5 @@ li{
 .headerRegisterUser{
   margin-top: 25px;
 }
+
+

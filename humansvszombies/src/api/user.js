@@ -1,8 +1,24 @@
+import keycloak from "../keycloak";
+
 const apiUrl = process.env.REACT_APP_API_URL
+
+//if the user is already exists, log in to the page
+export const loginUser = async (userInfo) => {
+    const [ checkError, user ] = await getUserById(userInfo.userId)
+    
+    if (user != null){
+        return [ null, user ]
+    }else if(typeof user != "undefined"){
+        return [ null, user ]
+    }
+
+    return await createUser(userInfo)
+}
 
 //Create a new user (takes in a user object)
 export const createUser = async (userInfo) => {
     try{
+        console.log("inside of create")
         console.log(`${apiUrl}/users`);
         const response =await fetch(`${apiUrl}/users`,{
             method: 'POST',
@@ -90,10 +106,10 @@ export const getUserById = async (userId) => {
 
         const userById = await response.json()
         return [null, userById]
-
     }
     catch (error) {
         return [error.message, null]
 
     }
 }
+
