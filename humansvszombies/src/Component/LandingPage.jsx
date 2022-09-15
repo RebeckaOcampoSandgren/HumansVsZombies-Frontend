@@ -40,6 +40,7 @@ function LandingPage() {
                     <div>
                         <h4>Token</h4>
                         <pre>{keycloak.getToken()}</pre>
+
                     </div>
                 )}
                 <Cards />

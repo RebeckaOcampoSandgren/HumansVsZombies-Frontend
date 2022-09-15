@@ -17,7 +17,7 @@ function NavbarLandningPage() {
         <Container>
           <Navbar.Brand href="/">HvZ</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="Register" id="register">Register</Nav.Link>
+            <Nav.Link href="/RegisterPageView" id="adminNav">Register</Nav.Link>
             <RenderOnRole roles={['Admin']}>
             {keycloak.auth() && (
             <NavLink to="/AdministrationPageView" id="adminNav">Administrator</NavLink>
