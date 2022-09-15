@@ -5,9 +5,9 @@ function RegisterPage() {
     const [firstName, setFirstName] = useState("")
     const [LastName, setLastName] = useState("")
     const [password, setPassword] = useState("")
-    
 
-    async function SignUp() {
+
+    /* const SignUp = async () => {
 
         let userInfo = { firstName, LastName, password }
         console.warn(userInfo)
@@ -17,15 +17,16 @@ function RegisterPage() {
             body: JSON.stringify(userInfo),
             headers: {
                 "Content-Type": "application/json",
-                "Accept":"application/json"
+                "Accept": "application/json"
             }
 
         });
         userInfo = await result.json()
         localStorage.setItem("user-info", JSON.stringify(result))
-    }
+    } */
 
-    
+
+
 
     return (
         <>
@@ -35,14 +36,14 @@ function RegisterPage() {
                     <form id='createUser'>
                         <h5 className='headerRegisterUser'>Register a user</h5>
                         <label>First name </label>
-                        <input type="text" value={firstName} className='form-control' placeholder='First name' onChange={(e)=>setFirstName(e.target.value)}></input>
+                        <input type="text" value={firstName} className='form-control' placeholder='First name' onChange={(e) => setFirstName(e.target.value)}></input>
                         <label>Last name </label>
-                        <input type="text" value={LastName} className='form-control' placeholder='Last name' onChange={(e)=>setLastName(e.target.value)}></input>
+                        <input type="text" value={LastName} className='form-control' placeholder='Last name' onChange={(e) => setLastName(e.target.value)}></input>
                         <label>Password </label>
-                        <input type="password" value={password} className='form-control' placeholder='password'onChange={(e)=>setPassword(e.target.value)}></input>
-                        <button type="submit" value="Submit" onClick={SignUp}>Click to register</button>
+                        <input type="password" value={password} className='form-control' placeholder='password' onChange={(e) => setPassword(e.target.value)}></input>
+                        <button type="submit" value="Submit" /*</form>onClick={SignUp}*/>Click to register</button>
                         <br />
-                        
+
                     </form>
                 </div>
 
