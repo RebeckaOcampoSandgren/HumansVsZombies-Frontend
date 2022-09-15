@@ -6,25 +6,20 @@ import keycloak from '../keycloak';
 import Cards from '../Component/GameCards/Cards'
 import { loginUser } from '../api/user';
 
-
-
 function LandingPage() {
-
 
     const [selectedUser, setSelectedUser] = useState({ userId: "", firstName: "", lastName: "", isAdmin: "" });
     const [apiError, setApiError] = useState(null)
 
     const logIn = async (selectedUser) => {
         const [error, userResponse] = await loginUser(selectedUser)
-
         if (error !== null) {
-
             setApiError(error)
         }
     }
 
     useEffect(() => {
-        if (keycloak.token !== null) {
+        if (keycloak.auth() === true) {
             let userObject = { userId: keycloak.userId(), firstName: keycloak.userName(), lastName: keycloak.lastName(), isAdmin: false }
             setSelectedUser({
                 ...selectedUser,
@@ -32,10 +27,7 @@ function LandingPage() {
             })
             logIn(userObject)
         }
-
     }, [])
-
-
 
     return (
         <>
