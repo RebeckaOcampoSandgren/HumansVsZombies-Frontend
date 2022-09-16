@@ -78,10 +78,12 @@ if(error) {
                                                      <li>Registered players: {data.players.length}</li>
                                                 </ul>
                                             </Card.Text>
+                                            <RenderOnRole roles={['default-roles-hvz-auth']}>
                                             {keycloak.auth() && (
                                                  <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={handleClick} >Details</Link>
   
                                             )}
+                                            </RenderOnRole>
                                             {/* Use this if you have the role as a user */}
                                             {/* <RenderOnRole roles={['default-roles-hvz-auth']}>*/}
                                             <RenderOnRole roles={['Admin']}>

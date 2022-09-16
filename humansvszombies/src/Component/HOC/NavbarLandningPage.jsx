@@ -22,10 +22,9 @@ function NavbarLandningPage() {
             <button class="btn btn-light" onClick={() => keycloak.doLogin()}>Login</button>
           )}
           {keycloak.auth() && (
-            <button class="btn btn-light" onClick={() => keycloak.doLogout()}>Logout</button>
+            <button class="btn btn-light" onClick={() => keycloak.doLogout()}><NavLink to ='/'>Log Out</NavLink></button>
           )}
-          <NavLink to="/RegisterPageView" id="adminNav">Register</NavLink>
-          <NavLink to="map" id="adminNav">Game Map</NavLink>
+
 
         </Nav>
       </Container>

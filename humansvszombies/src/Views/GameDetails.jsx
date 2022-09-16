@@ -8,6 +8,8 @@ import GameMap from '../Component/WorldMap/GameMap'
 import NavbarLandningPage from "../Component/HOC/NavbarLandningPage"
 import { useState, useEffect } from "react"
 import GameSquadList from "../Component/GameDetails/GameSquadList"
+import RenderOnRole from "../Component/RenderOnRole"
+import KeycloakRoute from "../Component/HOC/KeycloakRoute"
 
 const GameDetails = () => {
 
@@ -34,14 +36,19 @@ const [isHumanVisible, setHVisible] = useState(false);
 return(
     <>
     <NavbarLandningPage/>
+    <RenderOnRole roles={['default-roles-hvz-auth']}>
     <GameTitle game = {gameIdData}/>
     <GameMap/>
     <GameRegistration></GameRegistration>
+    </RenderOnRole>
     <GameBiteCode/>
     <GameSquadCreation game = {gameIdData}/>
+    <RenderOnRole roles={['default-roles-hvz-auth']}>
     <GameSquadList game = {gameIdData}/>
+    </RenderOnRole>
     <GameSquadDetails/>
     <GameChat/>
+
     </>
 )
 }
