@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .list-unstyled {
@@ -20,7 +21,8 @@
   margin-bottom: 35px;
 }
 
-#gameRegisterBtn {
+#gameRegisterBtn{
+  margin-top: 60px;
   width: 300px;
 }
 
@@ -30,14 +32,25 @@
 }
 
 #biteCodeInput,
-#squadCreationInput,
-#card {
+#squadCreationInput
+{
   width: 400px;
-  margin: 0 auto;
+  margin: 0 auto;  
+}
+
+#card{
+  margin: 15px;
+  width: 400px;
+  float: left;
 }
 
 #LandingPageTitle {
-  margin-bottom: 20px;
+  margin: 25px;
+  color: white;
+  text-align: center;
+}
+#WelcomLandingPage{
+  color: white;
 }
 
 ul {
@@ -58,11 +71,15 @@ ul {
 
 #container {
   align-items: center;
+  justify-content: center;
 }
 
 #row {
-  margin: 15px;
+  margin: 50px;
+  align-items: center;
+  
 }
+
 
 #registerBtn {
   margin-left: 100px;
@@ -70,7 +87,7 @@ ul {
 
  #adminNav {
   margin: 10px;
-  color: black;
+  color: lightgray;
   text-decoration-line: none;
 
 }
@@ -78,18 +95,18 @@ ul {
   border-top: 10px;
   border-bottom: 10px;
   border-radius: 5px;
-  background: rgb(196, 197, 196);
-  color: rgb(240, 243, 240);
+  color: rgb(52, 53, 59);
 }
 
 .form-wrapper {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
 }
 
 .form-inline {
   margin-top: 40px;
+  align-items: center;
 }
 
 .form-control {
@@ -144,11 +161,33 @@ li {
   margin-left: 100px;
   margin-top: 40px;
 }
+#user{
+  font-weight: bold;
+  color: white;
+}
 
 .headerRegisterUser {
   margin-top: 25px;
+  color: white;
+}
+#addUser{
+  border-radius: 5px;
+  border: none;
+}
+#token{
+  color: white;
+}
+#tokencode{
+  color: white;
 }
 
+#hvzLogo{
+  color: lightgray;
+}
+
+.navbar{
+  background-color: #181818
+}
 /* #loginBtn {
 
   border-radius: 35px;

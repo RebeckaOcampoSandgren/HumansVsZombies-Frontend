@@ -9,9 +9,9 @@ function NavbarLandningPage() {
 
   return (
 
-    <Navbar bg="light" variant="light">
+    <Navbar className='navbar'>
       <Container>
-        <Navbar.Brand href="/">HvZ</Navbar.Brand>
+        <Navbar.Brand id='hvzLogo' href="/">HvZ</Navbar.Brand>
         <Nav class="navbar-nav ml-auto">
           <RenderOnRole roles={['Admin']}>
             {keycloak.auth() && (
@@ -19,18 +19,14 @@ function NavbarLandningPage() {
             )}
           </RenderOnRole>
           {!keycloak.auth() && (
-            <button class="btn btn-light" onClick={() => keycloak.doLogin()}>Login</button>
+            <a href='#' id="adminNav" onClick={() => keycloak.doLogin()}>Login</a>
           )}
           {keycloak.auth() && (
-            <button class="btn btn-light" onClick={() => keycloak.doLogout()}><NavLink to ='/'>Log Out</NavLink></button>
+            <a href='#' class="btn btn-light" onClick={() => keycloak.doLogout()}>Logout</a>
           )}
-
-
         </Nav>
       </Container>
     </Navbar>
-
   )
-
 }
 export default NavbarLandningPage

@@ -6,10 +6,11 @@ const GameSquadList = ({game}) => {
     //Hooks
     const [squads, setSquads] = useState([]);
     const [ apiError, setApiError] = useState(null);
-
+  
     //Get the squads for the specific game
     useEffect(() => {
         const getSquads = async () => {
+            console.log(game.gameId)
             const [ error, userResponse ] = await getSquadsInGame(game.gameId);
             if (error !== null){
                 setApiError(error)
@@ -19,7 +20,8 @@ const GameSquadList = ({game}) => {
             }
         }
         getSquads();
-    },[]);
+    }, [game.gameId]);
+
 
     return(
         <>

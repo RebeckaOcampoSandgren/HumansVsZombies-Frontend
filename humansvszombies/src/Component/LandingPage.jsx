@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 import keycloak from '../keycloak';
 import Cards from '../Component/GameCards/Cards'
 import { loginUser } from '../api/user';
+import monster from '../IMG/monster.png';
 
 function LandingPage() {
 
     const [selectedUser, setSelectedUser] = useState({ userId: "", firstName: "", lastName: "", isAdmin: "" });
     const [apiError, setApiError] = useState(null)
 
-    const logIn = async (selectedUser) => {
-        const [error, userResponse] = await loginUser(selectedUser)
+    const logIn = async (user) => {
+        console.log(user)
+        const [error, userResponse] = await loginUser(user)
         if (error !== null) {
             setApiError(error)
         }
@@ -28,18 +30,21 @@ function LandingPage() {
             logIn(userObject)
         }
     }, [])
+    
 
     return (
         <>
-            <div className="LandingPagedDiv" >
+            
+
+            <div className="LandingPagedDiv">
 
                 <h1 id="LandingPageTitle">Games</h1>
-                <h2>Welcome {keycloak.userName()}</h2>
-                <h2>Welcome {selectedUser.userId}</h2>
                 {keycloak.getToken() && (
                     <div>
-                        <h4>Token</h4>
-                        <pre>{keycloak.getToken()}</pre>
+                        <h2 id="WelcomLandingPage">Welcome {keycloak.userName()}</h2>
+                        <h2 id="WelcomLandingPage">Welcome {selectedUser.userId}</h2>
+                        <h4 id="token">Token</h4>
+                        <pre id="tokencode">{keycloak.getToken()}</pre>
 
                     </div>
                 )}

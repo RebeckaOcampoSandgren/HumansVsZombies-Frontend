@@ -5,14 +5,13 @@ const apiUrl = process.env.REACT_APP_API_URL
 //if the user is already exists, log in to the page
 export const loginUser = async (userInfo) => {
     const [ checkError, user ] = await getUserById(userInfo.userId)
-    
-    if (user != null){
-        return [ null, user ]
-    }else if(typeof user != "undefined"){
+    console.log(user);
+
+    if(user === null || user === 'undefined'){
+        return await createUser(userInfo)
+    }else{
         return [ null, user ]
     }
-
-    return await createUser(userInfo)
 }
 
 //Create a new user (takes in a user object)

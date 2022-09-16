@@ -15,7 +15,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App" >
         {width > 400 && (
           <>
             <Routes>
