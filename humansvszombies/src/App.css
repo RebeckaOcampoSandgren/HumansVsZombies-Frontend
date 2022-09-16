@@ -44,11 +44,12 @@
 }
 
 #LandingPageTitle {
-  margin-bottom: 25px;
-  color: black;
+  margin: 25px;
+  color: white;
+  text-align: center;
 }
 #WelcomLandingPage{
-  color: rgb(2, 0, 0);
+  color: white;
 }
 
 ul {
@@ -73,8 +74,11 @@ ul {
 }
 
 #row {
-  margin: 10px;
+  margin: 50px;
+  align-items: center;
+  
 }
+
 
 #registerBtn {
   margin-left: 100px;
@@ -95,13 +99,14 @@ ul {
 }
 
 .form-wrapper {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
 }
 
 .form-inline {
   margin-top: 40px;
+  align-items: center;
 }
 
 .form-control {
@@ -158,10 +163,22 @@ li {
 }
 #user{
   font-weight: bold;
+  color: white;
 }
 
 .headerRegisterUser {
   margin-top: 25px;
+  color: white;
+}
+#addUser{
+  border-radius: 5px;
+  border: none;
+}
+#token{
+  color: white;
+}
+#tokencode{
+  color: white;
 }
 
 /* #loginBtn {

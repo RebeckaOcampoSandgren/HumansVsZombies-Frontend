@@ -68,7 +68,7 @@ function Cards() {
                     <Row id="row">
                         <Col>
                             {gameData.map(data =>
-                                <Card sm={4}style={{ width: '16rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
+                                <Card sm={4}style={{ width: '18rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
                                     <Card.Img variant="top" src={`zombieImages/zombie${counter}.png`} />
                                     <Card.Body>
                                         <Card.Title>{data.gameName}</Card.Title>

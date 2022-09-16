@@ -35,13 +35,13 @@ function RegisterPage() {
 
                  <div className='form-wrapper'>
                     <form id='registerUser'>
-                        <h5 className='headerRegisterUser'>Register a user</h5>
+                        <h4 className='headerRegisterUser'>Register a user</h4>
                         <label id='user'>First name </label>
                         <input type="text" value={firstName} className='form-control' placeholder='First name' onChange={(e) => setFirstName(e.target.value)}></input>
                         <label id='user'>Last name </label>
                         <input type="text" value={LastName} className='form-control' placeholder='Last name' onChange={(e) => setLastName(e.target.value)}></input>
                         <label id='user'>Password </label>
-                        <input type="password" value={password} className='form-control' placeholder='password' onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type="Password" value={password} className='form-control' placeholder='password' onChange={(e) => setPassword(e.target.value)}></input>
                         <button id='addUser' type="submit" value="Submit" /*</form>onClick={SignUp}*/>Click to register</button>
                         <br />
 

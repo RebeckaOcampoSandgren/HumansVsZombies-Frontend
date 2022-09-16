@@ -29,23 +29,21 @@ function LandingPage() {
             logIn(userObject)
         }
     }, [])
+    
 
     return (
         <>
-            <div className="LandingPagedDiv" style={{
-                backgroundImage: `url(${monster})`, backgroundSize: 'cover',
-                backgroundRepeat: 'repeat-y',
-                backgroundPosition: 'center',
-                height: '100%',
-                }} >
+            
+
+            <div className="LandingPagedDiv">
 
                 <h1 id="LandingPageTitle">Games</h1>
-                <h2 id="WelcomLandingPage">Welcome {keycloak.userName()}</h2>
-                <h2 id="WelcomLandingPage">Welcome {selectedUser.userId}</h2>
                 {keycloak.getToken() && (
                     <div>
-                        <h4>Token</h4>
-                        <pre>{keycloak.getToken()}</pre>
+                        <h2 id="WelcomLandingPage">Welcome {keycloak.userName()}</h2>
+                        <h2 id="WelcomLandingPage">Welcome {selectedUser.userId}</h2>
+                        <h4 id="token">Token</h4>
+                        <pre id="tokencode">{keycloak.getToken()}</pre>
 
                     </div>
                 )}
