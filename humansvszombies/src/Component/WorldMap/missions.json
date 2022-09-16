@@ -1,0 +1,104 @@
+{
+    "type": "missionCollection",
+    "crs": {
+      "type": "name",
+      "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "missions": {
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.718713, 11.955052]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.710828, 12.003793]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "DESCRIPTIO":""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.672844, 11.885955]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "NAME": "Bearbrook Skateboard Park",
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.667336, 11.935427]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "NAME": "Bearbrook Skateboard Park",
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.707343, 11.924776]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "NAME": "Bearbrook Skateboard Park",
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.719446, 12.017278]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "NAME": "Bearbrook Skateboard Park",
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.729713, 11.974978]
+        }
+      },
+      {
+        "type": "Feature",
+        "missions": {
+          "NAME": "Bearbrook Skateboard Park",
+          "DESCRIPTIO": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [57.734845, 12.032008]
+        }
+      },
+      {"type": "Feature",
+      "missions": {
+        "NAME": "Bearbrook Skateboard Park",
+        "DESCRIPTIO": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [57.728613, 11.936157]
+      }
+      }
+    ]
+  }
