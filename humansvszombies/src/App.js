@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import GameDetails from './Views/GameDetails.jsx';
 import GameMaps from './Views/GameMaps.jsx'
 import MediaQuery from './Component/MediaQuery';
+import AdminRoute from './routes/AdminRoute'
+import RenderOnRole from './Component/RenderOnRole';
+import keycloak from './keycloak';
 
 
 
@@ -20,7 +23,9 @@ function App() {
           <>
             <Routes>
               <Route index path="/" element={<LandingPageView />} />
-              <Route path="/AdministrationPageView" element={<AdministrationPageView />}/>
+              <Route path="/AdministrationPageView" element={
+              <AdministrationPageView />
+              }/>
               <Route path="/RegisterPageView" element={<RegisterPageView />} />
               <Route path="/" element={<LandingPageView />} />
               <Route path="/gamedetails" element={<GameDetails />} />
