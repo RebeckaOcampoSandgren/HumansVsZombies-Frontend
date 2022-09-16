@@ -36,8 +36,8 @@ function AdministrationPage() {
   return (
     <>
       <div className='adminDiv'>
-        <h1>Welcome Administrator</h1>
-        <div className='form-wrapper'>
+        <h1 id="adminWelcome">Welcome Administrator</h1>
+        <div className='form-wrapper2'>
           <Row>
             <Col>
               <CreateGame/> 

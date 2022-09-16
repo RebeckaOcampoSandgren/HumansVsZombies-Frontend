@@ -59,7 +59,7 @@ const EditGame = ({gameData}) =>{
         <div className='form-inline'>
             <form>
               <Dropdown onSelect={handleSelect}>
-                <Dropdown.Toggle className='adminDropdown'> Choose a game to edit</Dropdown.Toggle>
+                <Dropdown.Toggle id='dropdown' className='adminDropdown'> Choose a game to edit</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {gameData.map(d =>
                         <Dropdown.Item eventKey={d.gameId} key={d.gameId} onClick={handleShow}>{d.gameName}</Dropdown.Item>

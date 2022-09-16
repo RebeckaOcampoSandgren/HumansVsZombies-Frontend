@@ -116,7 +116,7 @@ const EditMission = ({gameData}) => {
             <div id='editMissionContainer'>
             <div id='editMissionGame'>
             <Dropdown onSelect={handleGameSelect}>
-                <Dropdown.Toggle className='adminDropdown'>Choose a game to edit missions in</Dropdown.Toggle>
+                <Dropdown.Toggle id='dropdown' className='adminDropdown'>Choose a game to edit missions in</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {gameData.map(d =>
                         <Dropdown.Item eventKey={d.gameId} key={d.gameId}>{d.gameName}</Dropdown.Item>
@@ -129,7 +129,7 @@ const EditMission = ({gameData}) => {
             { showMissionDropdown ?
             <Dropdown onSelect={handleMissionSelect}>
                 <p>{selectedGame.gameName}</p>
-                <Dropdown.Toggle className='adminDropdown'>Choose a mission to edit</Dropdown.Toggle>
+                <Dropdown.Toggle id='dropdown' className='adminDropdown'>Choose a mission to edit</Dropdown.Toggle>
                 <Dropdown.Menu>
                     {missions.map(d =>
                         <Dropdown.Item eventKey={d.missionId} key={d.missionId} onClick={handleShow3}>{d.missionName}</Dropdown.Item>
