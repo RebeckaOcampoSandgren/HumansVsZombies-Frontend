@@ -22,7 +22,7 @@ function NavbarLandningPage() {
             <a href='#' id="adminNav" onClick={() => keycloak.doLogin()}>Login</a>
           )}
           {keycloak.auth() && (
-            <a href='#' class="btn btn-light" onClick={() => keycloak.doLogout()}>Logout</a>
+            <a href='/' class="btn btn-light" onClick={() => keycloak.doLogout()}>Logout</a>
           )}
         </Nav>
       </Container>

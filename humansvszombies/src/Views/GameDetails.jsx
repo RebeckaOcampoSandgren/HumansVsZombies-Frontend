@@ -86,7 +86,6 @@ return(
     </RenderOnRole>
     <GameSquadDetails/>
     <GameChat/>
-
     </>
 )
 }
