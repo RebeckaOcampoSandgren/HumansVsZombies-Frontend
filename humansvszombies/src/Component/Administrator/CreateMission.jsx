@@ -51,7 +51,7 @@ const CreateMission = ({gameData}) => {
     return(
         <div className='form-inline'>
               <Dropdown onSelect={handleSelect}>
-                <Dropdown.Toggle className='adminDropdown'>Choose a game to add a mission to</Dropdown.Toggle>
+                <Dropdown.Toggle id='dropdown' className='adminDropdown'>Choose a game to add a mission to</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {gameData.map(d =>
                         <Dropdown.Item eventKey={d.gameId} key={d.gameId} onClick={handleShow}>{d.gameName}</Dropdown.Item>

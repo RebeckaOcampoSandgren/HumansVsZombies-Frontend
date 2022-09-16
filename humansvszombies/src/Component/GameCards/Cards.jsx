@@ -79,14 +79,15 @@ function Cards() {
                                             </ul>
                                         </Card.Text>
                                         {keycloak.auth() && (
-                                            <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={handleClick} >Details</Link>
+                                            <Link to="/gamedetails" className="btn btn-outline-success" id={data.gameId} onClick={handleClick} >Details</Link>
 
                                         )}
+                                        
                                         {/* Use this if you have the role as a user */}
                                         {/* <RenderOnRole roles={['default-roles-hvz-auth']}>*/}
                                         <RenderOnRole roles={['Admin']}>
                                             {keycloak.auth() && (
-                                                <button onClick={deleteGameClick} id={data.gameId}>Delete game</button>
+                                                <button onClick={deleteGameClick} id={data.gameId} className="deleteGameBtn">Delete game</button>
                                             )}
                                         </RenderOnRole>
                                     </Card.Body>
