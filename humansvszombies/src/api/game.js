@@ -101,7 +101,7 @@ export const getGameById = async (gameId) => {
     }
 }
 
-//Get a list of players in a specific game by playerId
+//Get a list of players in a specific game by gameId
 export const getPlayersInGame = async (gameId) => {
     try {
         const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/games/${gameId}/players`)
@@ -111,6 +111,7 @@ export const getPlayersInGame = async (gameId) => {
 
         const gamePlayers = await response.json()
         return [null, gamePlayers]
+       
 
     }
     catch (error) {
