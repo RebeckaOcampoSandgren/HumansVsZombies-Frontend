@@ -17,6 +17,7 @@ export const initialize = () => {
   };
   return _kc.init(config);
 };
+
  const firstName = () => _kc.tokenParsed?.given_name;
  const lastName = () => _kc.tokenParsed?.family_name;
  const userId = () => _kc.tokenParsed?.sub;
@@ -44,5 +45,3 @@ const keycloak = {
 
 /** @type { Keycloak } keycloak */
 export default keycloak;
-
-

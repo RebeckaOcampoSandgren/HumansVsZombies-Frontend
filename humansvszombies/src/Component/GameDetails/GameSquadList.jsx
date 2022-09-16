@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getSquadsInGame } from "../../api/squad";
+import RenderOnRole from '../RenderOnRole';
 
 const GameSquadList = ({game}) => {
     //Hooks
@@ -35,7 +36,9 @@ const GameSquadList = ({game}) => {
                             <div class="card-body">
                                 <h5 class="card-title">{s.squadName}</h5>
                                 <p class="card-text">Total number of members : {s.squadMembers.length}</p>
+                                <RenderOnRole roles={['Admin']}>
                                 <button class="btn btn-outline-secondary" type="button" id="button">Join</button>
+                                </RenderOnRole>
                             </div>
                         </div>
                     </li>    

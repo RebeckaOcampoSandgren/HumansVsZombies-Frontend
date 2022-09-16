@@ -8,9 +8,10 @@ import GameMap from '../Component/WorldMap/GameMap'
 import NavbarLandningPage from "../Component/HOC/NavbarLandningPage"
 import { useState, useEffect } from "react"
 import GameSquadList from "../Component/GameDetails/GameSquadList"
+import RenderOnRole from "../Component/RenderOnRole"
+import KeycloakRoute from "../Component/HOC/KeycloakRoute"
 import { getPlayersInGame } from '../api/game';
 import keycloak from '../keycloak';
-
 
 const GameDetails = () => {
 
@@ -73,14 +74,19 @@ useEffect(() => {
 return(
     <>
     <NavbarLandningPage/>
+    <RenderOnRole roles={['default-roles-hvz-auth']}>
     <GameTitle game = {gameIdData}/>
     <GameMap/>
+    </RenderOnRole>
     <GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/>
     <GameBiteCode/>
     <GameSquadCreation game = {gameIdData}/>
+    <RenderOnRole roles={['default-roles-hvz-auth']}>
     <GameSquadList game = {gameIdData}/>
+    </RenderOnRole>
     <GameSquadDetails/>
     <GameChat/>
+
     </>
 )
 }
