@@ -64,7 +64,7 @@ function Cards() {
     } else {
         return (
             <div>
-                <Container id="container" fixed className="App py-2 overflow-hidden">
+                <Container id="container" className="App">
                     <Row id="row">
                         <Col>
                             {gameData.map(data =>

@@ -12,6 +12,7 @@ import RenderOnRole from "../Component/RenderOnRole"
 import KeycloakRoute from "../Component/HOC/KeycloakRoute"
 import { getPlayersInGame } from '../api/game';
 import keycloak from '../keycloak';
+import { Container, Row, Card, Col } from 'react-bootstrap';
 
 const GameDetails = () => {
 
@@ -70,15 +71,26 @@ useEffect(() => {
    checkPlayer()
 },[players]);
 
+const renderRegisterBtn = () => {
+   console.log(isRegistered)
+   if (!isRegistered) {
+      return <Col> <GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/></Col>;
+   } else {
+     return null
+   }
+ }
+
 
 return(
     <>
     <NavbarLandningPage/>
-    <RenderOnRole roles={['default-roles-hvz-auth']}>
     <GameTitle game = {gameIdData}/>
-    <GameMap/>
-    </RenderOnRole>
-    <GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/>
+    <Row>   
+      {renderRegisterBtn()}
+      <Col>
+         <GameMap/>
+      </Col>
+    </Row>
     <GameBiteCode/>
     <GameSquadCreation game = {gameIdData}/>
     <RenderOnRole roles={['default-roles-hvz-auth']}>
