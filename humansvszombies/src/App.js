@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import GameDetails from './Views/GameDetails.jsx';
 import GameMaps from './Views/GameMaps.jsx'
 import MediaQuery from './Component/MediaQuery';
-import background from '../src/IMG/background.png';
 
 
 function App() {
@@ -15,12 +14,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App" style={{
-        backgroundImage: `url(${background})`, backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        height: '600px',
-      }}>
+      <div className="App" >
         {width > 400 && (
           <>
             <Routes>

@@ -44,7 +44,11 @@
 }
 
 #LandingPageTitle {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: black;
+}
+#WelcomLandingPage{
+  color: rgb(2, 0, 0);
 }
 
 ul {
@@ -151,6 +155,9 @@ li {
   display: inline-block;
   margin-left: 100px;
   margin-top: 40px;
+}
+#user{
+  font-weight: bold;
 }
 
 .headerRegisterUser {

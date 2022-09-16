@@ -1,4 +1,5 @@
 import { useState } from "react";
+import monster from '../IMG/monster.png';
 /* const apiUrl = process.env.REACT_APP_API_URL */
 
 function RegisterPage() {
@@ -32,16 +33,16 @@ function RegisterPage() {
         <>
             <div className="RegisterPagedDiv">
 
-                <div className='form-wrapper'>
+                 <div className='form-wrapper'>
                     <form id='registerUser'>
                         <h5 className='headerRegisterUser'>Register a user</h5>
-                        <label>First name </label>
+                        <label id='user'>First name </label>
                         <input type="text" value={firstName} className='form-control' placeholder='First name' onChange={(e) => setFirstName(e.target.value)}></input>
-                        <label>Last name </label>
+                        <label id='user'>Last name </label>
                         <input type="text" value={LastName} className='form-control' placeholder='Last name' onChange={(e) => setLastName(e.target.value)}></input>
-                        <label>Password </label>
+                        <label id='user'>Password </label>
                         <input type="password" value={password} className='form-control' placeholder='password' onChange={(e) => setPassword(e.target.value)}></input>
-                        <button type="submit" value="Submit" /*</form>onClick={SignUp}*/>Click to register</button>
+                        <button id='addUser' type="submit" value="Submit" /*</form>onClick={SignUp}*/>Click to register</button>
                         <br />
 
                     </form>
