@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import GameDetails from './Views/GameDetails.jsx';
 import GameMaps from './Views/GameMaps.jsx'
 import MediaQuery from './Component/MediaQuery';
-import KeycloakRoute from './Component/HOC/KeycloakRoute';
+
 
 
 function App() {
@@ -28,9 +28,8 @@ function App() {
             </Routes>
           </>
         )}
-
       </div>
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 
