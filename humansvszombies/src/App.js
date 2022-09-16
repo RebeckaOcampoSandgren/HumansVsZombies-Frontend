@@ -9,6 +9,7 @@ import GameMaps from './Views/GameMaps.jsx'
 import MediaQuery from './Component/MediaQuery';
 
 
+
 function App() {
   const { width } = MediaQuery();
 
@@ -19,7 +20,7 @@ function App() {
           <>
             <Routes>
               <Route index path="/" element={<LandingPageView />} />
-              <Route path="/AdministrationPageView" element={<AdministrationPageView />} />
+              <Route path="/AdministrationPageView" element={<AdministrationPageView />}/>
               <Route path="/RegisterPageView" element={<RegisterPageView />} />
               <Route path="/" element={<LandingPageView />} />
               <Route path="/gamedetails" element={<GameDetails />} />
@@ -27,9 +28,8 @@ function App() {
             </Routes>
           </>
         )}
-
       </div>
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 

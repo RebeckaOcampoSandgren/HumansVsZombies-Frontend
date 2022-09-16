@@ -24,14 +24,9 @@ function NavbarLandningPage() {
           {keycloak.auth() && (
             <a href='#' class="btn btn-light" onClick={() => keycloak.doLogout()}>Logout</a>
           )}
-          <NavLink to="/RegisterPageView" id="adminNav">Register</NavLink>
-          <NavLink to="map" id="adminNav">Game Map</NavLink>
-
         </Nav>
       </Container>
     </Navbar>
-
   )
-
 }
 export default NavbarLandningPage
