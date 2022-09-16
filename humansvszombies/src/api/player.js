@@ -22,7 +22,6 @@ export const updatePlayer = async (playerInfo, playerId) => {
 //Create a new player (takes in a player object)
 export const createPlayer = async (playerInfo) => {
     try{
-        console.log(`${apiUrl}/players`);
         const response =await fetch(`${apiUrl}/players`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -98,3 +97,5 @@ export const getPlayerById = async (playerId) => {
 
     }
 }
+
+
