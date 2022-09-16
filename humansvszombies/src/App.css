@@ -87,7 +87,7 @@ ul {
 
  #adminNav {
   margin: 10px;
-  color: black;
+  color: lightgray;
   text-decoration-line: none;
 
 }
@@ -95,8 +95,7 @@ ul {
   border-top: 10px;
   border-bottom: 10px;
   border-radius: 5px;
-  background: rgb(196, 197, 196);
-  color: rgb(240, 243, 240);
+  color: rgb(52, 53, 59);
 }
 
 .form-wrapper {
@@ -182,6 +181,13 @@ li {
   color: white;
 }
 
+#hvzLogo{
+  color: lightgray;
+}
+
+.navbar{
+  background-color: #181818
+}
 /* #loginBtn {
 
   border-radius: 35px;
