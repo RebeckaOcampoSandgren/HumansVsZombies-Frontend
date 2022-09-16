@@ -40,7 +40,7 @@ return(
     <GameBiteCode/>
     <GameSquadCreation game = {gameIdData}/>
     <GameSquadList game = {gameIdData}/>
-    <GameSquadDetails game = {gameIdData}/>
+    <GameSquadDetails/>
     <GameChat/>
     </>
 )

@@ -155,21 +155,3 @@ export const getCheckinsInSquad = async (squadId) => {
 
     }
 }
-
-//Get all squadmembers in a specific squad by squadId
-export const getSquadMembersInSquad = async (squadId) => {
-    try {
-        const response = await fetch(`https://humanvszombies.azurewebsites.net/api/v1/squads/${squadId}/checkins`)
-        if (!response.ok) {
-            throw new Error('Could not get squadCheckins')
-        }
-
-        const squadCheckins = await response.json()
-        return [null, squadCheckins]
-
-    }
-    catch (error) {
-        return [error.message, null]
-
-    }
-}
