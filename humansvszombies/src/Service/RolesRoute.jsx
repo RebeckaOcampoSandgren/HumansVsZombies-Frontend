@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Route } from "react-router-dom";
-import LandingPage from './Component/LandingPage';
-import keycloak from './keycloak';
+import LandingPage from '../Component/LandingPage';
+import keycloak from '../keycloak';
 
 const RolesRoute = ({ roles, children, ...rest }) => (
   <Route {...rest}>

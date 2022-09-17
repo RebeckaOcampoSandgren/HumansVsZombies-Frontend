@@ -11,11 +11,10 @@ import {
 import parkData from "./missions.json";
 import "./GameMap.css";
 function GameMap() {
+  //Hooks
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [missionData, setData] = useState([]);
-  const [isZombieVisible, setZVisible] = useState();
-  const [isHumanVisible, setHVisible] = useState(false);
 
   //Game outer blue mark coord
   const outer = [
