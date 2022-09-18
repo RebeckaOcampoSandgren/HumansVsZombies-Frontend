@@ -29,6 +29,10 @@
   padding: 60px;
 }
 
+#SquadList {
+  margin: 0 auto;
+}
+
 .gameDescription,
 .squadDetails {
   margin-top: 25px;
@@ -36,26 +40,26 @@
 }
 
 #gameRegisterBtn{
-  margin-top: 60px;
-  width: 300px;
+  width: 80%;
+  height: 50px;
 }
 
 #gameSquadDetails {
-  width: 400px;
-  margin: 0 auto;
+  margin-top: 60px;
 }
 
-#biteCodeInput,
 #squadCreationInput
 {
   width: 400px;
-  margin: 0 auto;  
 }
 
-#card{
-  margin: 15px;
+#card,
+#biteCodeInput,
+#gameSquadDetails{
   width: 400px;
-  float: left;
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px; 
 }
 
 #LandingPageTitle {

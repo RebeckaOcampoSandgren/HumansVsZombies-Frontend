@@ -43,12 +43,10 @@ useEffect(() => {
 const checkPlayer = () => {
    for (let i = 0; i < players.length; i++) {   
       if(players[i].user === keycloak.userId()){
-         console.log("user exists")
          setIsRegistered(true)
          return;
       }
   }
-  console.log("user no exists")
   setIsRegistered(false)
 }
    
@@ -71,34 +69,37 @@ useEffect(() => {
    checkPlayer()
 },[players]);
 
-const renderRegisterBtn = () => {
+const renderRegisterAndMap = () => {
+   if (!isRegistered) {
+      return <Row className="d-flex align-items-center"><Col> <GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/></Col><Col><GameMap/></Col></Row>
+   } else {
+     return <Row><Col><GameMap/></Col></Row>
+   }
+}
+
+const renderUnregistered = () => {
    console.log(isRegistered)
    if (!isRegistered) {
-      return <Col> <GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/></Col>;
+      return 
+      
    } else {
-     return null
+     return <Row><Col><GameMap/></Col></Row>
    }
- }
+}
 
 
 return(
-    <>
-    <NavbarLandningPage/>
-    <GameTitle game = {gameIdData}/>
-    <Row>   
-      {renderRegisterBtn()}
-      <Col>
-         <GameMap/>
-      </Col>
-    </Row>
-    <GameBiteCode/>
-    <GameSquadCreation game = {gameIdData}/>
-    <RenderOnRole roles={['default-roles-hvz-auth']}>
-    <GameSquadList game = {gameIdData}/>
-    </RenderOnRole>
-    <GameSquadDetails/>
-    <GameChat/>
-
+   <>
+   <NavbarLandningPage/>
+   <GameTitle game = {gameIdData}/>
+   {renderRegisterAndMap()}
+   {isRegistered ? <GameBiteCode/> : null}
+   {isRegistered ? <GameSquadCreation game = {gameIdData}/> : null}
+   <RenderOnRole roles={['default-roles-hvz-auth']}>
+   <GameSquadList game = {gameIdData}/>
+   </RenderOnRole>
+   {isRegistered ? <GameSquadDetails/> : null}
+   {isRegistered ? <GameChat/> : null}
     </>
 )
 }
