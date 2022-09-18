@@ -1,7 +1,7 @@
 import AdministratorPage from '../Component/AdministrationPage';
 import NavbarLandningPage from '../Component/HOC/NavbarLandningPage';
-import RenderOnRole from '../Component/RenderOnRole';
-import NotAllowed from '../routes/NotAllowed';
+import RenderOnRole from '../Service/RenderOnRole';
+import NotAllowed from '../Service/NotAllowed';
 
 
 const AdministrationPageView = () => {
