@@ -46,7 +46,7 @@ function LandingPage() {
                         </div>
                     )}
                     <h1 id="LandingPageTitle">Games</h1>
-                    <Cards />
+
                 </div> 
             </div>
         </>

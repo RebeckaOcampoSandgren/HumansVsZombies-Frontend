@@ -31,7 +31,7 @@ const CreateGame = () => {
   //Event Handlers
   //handle create game button's submit and closes create game modal
   const onSubmit = async (game) => {
-    //console.log(game)
+    console.log(game)
     const [error, userResponse] = await createGame(game);
     if (error !== null) {
       setApiError(error);
@@ -75,33 +75,19 @@ const CreateGame = () => {
                 name="gamestate"
                 {...register("description")}
               ></textarea>
-              <label>Northwest latitude</label>
+              <label>Latitude</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Northwest Latitude"
-                {...register("nwLat")}
+                placeholder="Latitude"
+                {...register("nwLat", "seLat")}
               ></input>
-              <label>Northwest longitude</label>
+              <label>Longitude</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Northwest Longitude"
-                {...register("nwLng")}
-              ></input>
-              <label>Southeast latitude</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Southeast Latitude"
-                {...register("seLat")}
-              ></input>
-              <label>Southeast longitude</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Southeast Longitude"
-                {...register("seLng")}
+                placeholder="Longitude"
+                {...register("nwLng", "seLng")}
               ></input>
               <Button
                     variant="success"
