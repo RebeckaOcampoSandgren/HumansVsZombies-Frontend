@@ -46,9 +46,9 @@ function LandingPage() {
                             <h2 id="WelcomLandingPage">Welcome {keycloak.userName()}</h2>
                         </div>
                     )}
-                    <Cards />
                 </div> 
             </div>
+            <Cards />
         </>
     );
     

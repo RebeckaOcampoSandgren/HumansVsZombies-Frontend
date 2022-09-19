@@ -44,6 +44,8 @@ const EditGame = ({gameData}) =>{
 
     //Handle update game button's submit and closes the modal
     const onSubmit = async () => {
+      selectedGame.seLat = selectedGame.nwLat;
+      selectedGame.seLng = selectedGame.nwLng;
         const [ error, userResponse ] = await updateGame(selectedGame, selectedGame.gameId)
         if (error !== null){
             setApiError(error)
@@ -79,17 +81,11 @@ const EditGame = ({gameData}) =>{
                             <label>Description</label>
                             <textarea className='form-control' placeholder='Description' name='description' value={selectedGame.description}
                             onChange={updateGameObject}></textarea>
-                            <label>Northwest latitude</label>
-                            <input type="text" className='form-control' placeholder='Northwest Latitude' name='nwLat' value={selectedGame.nwLat}
+                            <label>Latitude</label>
+                            <input type="text" className='form-control' placeholder='Latitude' name='nwLat' value={selectedGame.nwLat}
                             onChange={updateGameObject}></input>
-                            <label>Northwest longitude</label>
-                            <input type="text" className='form-control' placeholder='Northwest Longitude' name='nwLng' value={selectedGame.nwLng}
-                            onChange={updateGameObject}></input>
-                            <label>Southeast latitude</label>
-                            <input type="text" className='form-control' placeholder='Southeast Latitude' name='seLat' value={selectedGame.seLat}
-                            onChange={updateGameObject}></input>
-                            <label>Southeast longitude</label>
-                            <input type="text" className='form-control' placeholder='Southeast Longitude' name='seLng' value={selectedGame.seLng}
+                            <label>Longitude</label>
+                            <input type="text" className='form-control' placeholder='Longitude' name='nwLng' value={selectedGame.nwLng}
                             onChange={updateGameObject}></input>
                           </form>
                         </div>
