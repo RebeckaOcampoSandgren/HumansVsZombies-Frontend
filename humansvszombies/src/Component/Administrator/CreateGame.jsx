@@ -91,6 +91,7 @@ const CreateGame = () => {
               ></input>
               <Button
                     variant="success"
+                    type="submit"
                   >
                     Create game
                   </Button>
