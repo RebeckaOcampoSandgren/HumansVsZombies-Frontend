@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { deleteGame } from '../../api/game';
 import keycloak from '../../keycloak';
 import RenderOnRole from '../RenderOnRole';
+import '../../App.css';
 
 function Cards() {
     const [error, setError] = useState(null);
@@ -65,10 +66,10 @@ function Cards() {
         return (
             <div>
                 <Container id="container" className="App">
-                    <Row id="row">
-                        <Col>
-                            {gameData.map(data =>
-                                <Card sm={4}style={{ width: '18rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
+                    <Row xs={1} md={3} className="g-4" id="row">
+                        {gameData.map(data =>
+                            <Col>
+                                <Card style={{ width: '18rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
                                     <Card.Img variant="top" src={`zombieImages/zombie${counter}.png`} />
                                     <Card.Body>
                                         <Card.Title>{data.gameName}</Card.Title>
@@ -91,8 +92,8 @@ function Cards() {
                                         </RenderOnRole>
                                     </Card.Body>
                                 </Card>
-                            )}
-                        </Col>
+                            </Col>
+                        )}
                     </Row>
                 </Container>
             </div>

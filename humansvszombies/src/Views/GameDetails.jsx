@@ -24,11 +24,11 @@ const [isHumanVisible, setHVisible] = useState(false);
 const [isRegistered, setIsRegistered] = useState(false);
 const [ apiError, setApiError] = useState(null);
 const [ players, setPlayers] = useState([]);
+const [ player, setPlayer] = useState({});
 
 //fetch the selected game
 useEffect(() => {
    const selectedGame = localStorage.getItem("gameId")
-   console.log(selectedGame)
     fetch(`https://humanvszombies.azurewebsites.net/api/v1/games/${selectedGame}`)
     .then((response) => response.json())
     .then((data) => {
@@ -39,17 +39,6 @@ useEffect(() => {
      })
 },[]);
 
-//check if the user already is player
-const checkPlayer = () => {
-   for (let i = 0; i < players.length; i++) {   
-      if(players[i].user === keycloak.userId()){
-         setIsRegistered(true)
-         return;
-      }
-  }
-  setIsRegistered(false)
-}
-   
 //get the players for the specific game
 useEffect(() => {
    const getPlayers = async () => {
@@ -64,9 +53,16 @@ useEffect(() => {
    getPlayers();
 },[gameIdData]);
 
-//when players are fetched invoke checkPlayer
+//when players are fetched check if the user already is player
 useEffect(() => {
-   checkPlayer()
+   for (let i = 0; i < players.length; i++) {   
+      if(players[i].user === keycloak.userId()){
+         setIsRegistered(true)
+         setPlayer(players[i])
+         return;
+      }
+  }
+  setIsRegistered(false)
 },[players]);
 
 const renderRegisterAndMap = () => {
@@ -77,30 +73,19 @@ const renderRegisterAndMap = () => {
    }
 }
 
-const renderUnregistered = () => {
-   console.log(isRegistered)
-   if (!isRegistered) {
-      return 
-      
-   } else {
-     return <Row><Col><GameMap/></Col></Row>
-   }
-}
-
-
 return(
    <>
    <NavbarLandningPage/>
    <GameTitle game = {gameIdData}/>
    {renderRegisterAndMap()}
-   {isRegistered ? <GameBiteCode/> : null}
+   {isRegistered ? <GameBiteCode isHuman = {player.isHuman} /> : null}
    {isRegistered ? <GameSquadCreation game = {gameIdData}/> : null}
    <RenderOnRole roles={['default-roles-hvz-auth']}>
    <GameSquadList game = {gameIdData}/>
    </RenderOnRole>
    {isRegistered ? <GameSquadDetails/> : null}
    {isRegistered ? <GameChat/> : null}
-    </>
+   </>
 )
 }
 

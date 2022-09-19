@@ -6,6 +6,7 @@ import keycloak from '../keycloak';
 import Cards from '../Component/GameCards/Cards'
 import { loginUser } from '../api/user';
 import monster from '../IMG/monster.png';
+import '../App.css';
 
 
 function LandingPage() {
@@ -36,13 +37,15 @@ function LandingPage() {
     return (
         <>
             <div className="LandingPagedDiv">
-                <h1 id="LandingPageTitle">Games</h1>
-                {keycloak.getToken() && (
-                    <div>
-                        <h2 id="WelcomLandingPage">Welcome {keycloak.userName()}</h2>
-                    </div>
-                )}
-                <Cards />
+                <div id="gameCards">
+                    <h1 id="LandingPageTitle">Games</h1>
+                    {keycloak.getToken() && (
+                        <div>
+                            <h2 id="WelcomLandingPage">Welcome {keycloak.userName()}</h2>
+                        </div>
+                    )}
+                    <Cards />
+                </div> 
             </div>
         </>
     );
