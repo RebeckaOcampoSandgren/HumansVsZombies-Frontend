@@ -7,6 +7,7 @@ import EditGame from "./Administrator/EditGame";
 import EditPlayer from "./Administrator/EditPlayer";
 import CreateMission from "./Administrator/CreateMission";
 import EditMission from "./Administrator/EditMission";
+import keycloak from "../keycloak";
 import { Row, Col } from "react-bootstrap";
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -36,7 +37,7 @@ function AdministrationPage() {
   return (
     <>
       <div className="adminDiv">
-        <h1 id="adminWelcome">Welcome Administrator</h1>
+        <h1 id="adminWelcome">Welcome {keycloak.userName()}</h1>
         <div className="form-wrapper2">
           <Row>
             <Col>
