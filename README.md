@@ -56,9 +56,13 @@ Landing page has:
 As an administrator you have some extra opportunities that a user does not have. The administrator can:
 
 •  Create a game.
+
 •  Edit a game.
+
 •  Edit player’s state. 
+
 •  Create mission markers in a game. 
+
 •  Edit mission markers in a game. 
 
 To be able to try administrator page and its functionality login with: 
@@ -82,9 +86,12 @@ The minimal Viable Product for the assignmement works.
 
 Features to add: 
 
-•  Functionality to chat in real-time 
+•  Functionality to chat in real-time
+
 •  Leave a squad 
+
 •  Show the squad details
+
 •  Functionality for players to register a kill
 
 ## Tech-stack 
