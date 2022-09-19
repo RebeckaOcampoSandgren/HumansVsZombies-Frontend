@@ -1,13 +1,11 @@
 import GameMap from '../Component/WorldMap/GameMap'
 
-
-
 const WorldMaps = () => {
-    return(
+    return (
         <>
-            <GameMap/>
+            <GameMap />
         </>
     )
-    }
-    
-    export default WorldMaps
+}
+
+export default WorldMaps

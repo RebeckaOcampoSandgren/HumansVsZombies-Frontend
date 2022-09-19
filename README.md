@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Human Vs Zombies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is generated with React Javascript, React and Bootstrap. HumansVsZombies is a game where all players start as a human, and an original zombie will be randomly selected. The Original Zombie tags a human player and then a human turn into zombies. In each game there is the possibility to select a squad, join a game and create a squad. 
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Installation](#installation)
+- [Visuals](#visuals)
+- [Contributors](#contributors)
+- [Project status](#project-status)
 
-### `npm start`
+## Website-link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://humansvszombiesapp.herokuapp.com/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+      Install Visual Studio Code. 
+      Git clone RebeckaOcampoSandgren/HumansVsZombies-Frontend 
+      cd humansvszombies 
+      npm install  
+      npm start 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Visuals
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Design of the application pages without design details in the planing process, drawn in Figma.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Figma-wireframe](humansvszombies/Figma/Figma-wireframe.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### Landing page ("/")
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Landing page has:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Game List: A list of all games. Each game card displays the game title, the current game state and number of registered players.
+- Login button: By logging in as a user or an administrator or create a new account you will see more details in landing page. When logged in a  ``` Details ``` button will show in each game card. 
+- Administrator link: By logging in as an administrator you will see ```administrator``` link in the navbar which redirect you to the  Administration page. 
+- Logout button: Logout button will appears to give the user opportunity to logging out. This button redirect the user to the landing page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Game details page ("/gamedetails")
 
-## Learn More
+- Title: The name, description and rules of the game will be displayed to any user. 
+- Map: An interactive map of the game area that contains gravestones and mission markers.
+- Register to game: A button that allows a user to register as a player in the game.
+- Bite Code: Human players will have a unique bite code. The bite codes should be randomly generated.
+- Bite Code Entry: Zombies have to write the tagged humans' bite code to the entry to turn the human player into a zombie. 
+- Squad List: Alist of available squads in each game and a join button for players to join that squad. Each squad in the list displays the squad name, respective total number of members, number of “deceased” members.
+- Squad Creation: A player can create a new squad in a game.
+- Squad Details: This displays the names, ranks and state of each of the squad members of the squad that player is joined. 
+-  Chat box: A simple layout of chatbox to give a player opportunity to communicate to other players.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Administration page ("/AdministrationPageView")
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As an administrator you have some extra opportunities that a user does not have. The administrator can:
 
-### Code Splitting
+•  Create a game.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+•  Edit a game.
 
-### Analyzing the Bundle Size
+•  Edit player’s state. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+•  Create mission markers in a game. 
 
-### Making a Progressive Web App
+•  Edit mission markers in a game. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To be able to try administrator page and its functionality login with: 
+Username: admin
+Password: admin
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributors
 
-### Deployment
+Rebecka Ocampo Sandgren - @rebsan00003 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Negin Bakhtiarirad - @neginb 
 
-### `npm run build` fails to minify
+Betiel Yohannes - @betielyohannes 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Fadi Akkaoui - @FadiAkkaoui
+
+## Project status
+
+The minimal Viable Product for the assignmement works. 
+
+Features to add: 
+
+•  Functionality to chat in real-time
+
+•  Leave a squad 
+
+•  Show the squad details
+
+•  Functionality for players to register a kill
+
+## Tech-stack 
+
+Code editor: Visual studio code
+
+React - Quick Start
+
+Bootstrap // React
+
+Heroku 

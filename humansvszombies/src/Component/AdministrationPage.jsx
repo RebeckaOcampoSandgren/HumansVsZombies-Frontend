@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import * as React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css"
-import '../App.css';
-import MediaQuery from './MediaQuery';
-import CreateGame from './Administrator/CreateGame';
-import EditGame from './Administrator/EditGame';
-import EditPlayer from './Administrator/EditPlayer';
-import CreateMission from './Administrator/CreateMission';
-import EditMission from './Administrator/EditMission';
-import {Container, Row, Col} from 'react-bootstrap';
-const apiUrl = process.env.REACT_APP_API_URL
+import { useState, useEffect } from "react";
+import * as React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
+import CreateGame from "./Administrator/CreateGame";
+import EditGame from "./Administrator/EditGame";
+import EditPlayer from "./Administrator/EditPlayer";
+import CreateMission from "./Administrator/CreateMission";
+import EditMission from "./Administrator/EditMission";
+import keycloak from "../keycloak";
+import { Row, Col } from "react-bootstrap";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function AdministrationPage() {
   //Hooks
@@ -20,48 +20,49 @@ function AdministrationPage() {
   //Get all the games to pass to edit game and edit player
   useEffect(() => {
     fetch(`${apiUrl}/Games`)
-    .then((response) => response.json())
-    .then((data) => {
-      setIsLoaded(true);
-      setError(error);
-       setData(data);
-     },
-     (error) => {
-        setIsLoaded(true);
-        setError(error);
-     }
-     )
-}, []);
+      .then((response) => response.json())
+      .then(
+        (data) => {
+          setIsLoaded(true);
+          setError(error);
+          setData(data);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
+  }, []);
 
   return (
     <>
-      <div className='adminDiv'>
-        <h1>Welcome Administrator</h1>
-        <div className='form-wrapper'>
+      <div className="adminDiv">
+        <h1 id="adminWelcome">Welcome {keycloak.userName()}</h1>
+        <div className="form-wrapper2">
           <Row>
             <Col>
-              <CreateGame/> 
+              <CreateGame />
             </Col>
             <Col>
-              <EditGame gameData = {data}/>
+              <EditGame gameData={data} />
             </Col>
             <Col>
-              <EditPlayer gameData = {data}/>
+              <EditPlayer gameData={data} />
             </Col>
           </Row>
-        </div> 
-        <div className='form-wrapper' id='missionContainer'>
+        </div>
+        <div className="form-wrapper" id="missionContainer">
           <Row>
             <Col>
-              <CreateMission gameData = {data}/>
+              <CreateMission gameData={data} />
             </Col>
             <Col>
-              <EditMission gameData = {data}/>
+              <EditMission gameData={data} />
             </Col>
           </Row>
-        </div> 
+        </div>
       </div>
     </>
   );
 }
-export default AdministrationPage
+export default AdministrationPage;

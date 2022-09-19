@@ -17,7 +17,11 @@ export const initialize = () => {
   };
   return _kc.init(config);
 };
- const userName = () => _kc.tokenParsed?.given_name;
+
+ const firstName = () => _kc.tokenParsed?.given_name;
+ const lastName = () => _kc.tokenParsed?.family_name;
+ const userId = () => _kc.tokenParsed?.sub;
+
  const doLogin = _kc.login;
  const hasRole = (roles) => roles.some((role) => _kc.hasRealmRole(role));
  const doLogout = _kc.logout;
@@ -28,16 +32,16 @@ const isLoggedIn = () => !!_kc.token;
 const auth = () => _kc.authenticated;
 
 const keycloak = {
-  userName,
+  userName: firstName,
   doLogin,
   hasRole,
   doLogout,
   getToken,
+  lastName : lastName,
+  userId : userId,
   isLoggedIn,
   auth
  };
 
 /** @type { Keycloak } keycloak */
 export default keycloak;
-
-

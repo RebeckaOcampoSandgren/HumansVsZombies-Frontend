@@ -6,19 +6,18 @@ const GameTitle = ({game}) => {
         <>
             <div id="gameTitle" className="text-center">
                 <header>
-                    <h2>Game title</h2>
+                    <h2>{game.gameName}</h2>
                 </header>
                 <div className="gameDescription" key={game.gameId}>
                     {game.gameId && (
-                    <p> {game.gameName} </p>
+                    <p> {game.description} </p>
                         )}
                 </div>
                 <div>
                     <h4>Game Rules</h4>
                     <ul className="list-unstyled">
-                        <li>Have fun</li>
-                        <li>Be happy</li>
-                        <li>Shoot well</li>
+                        <li>Do not share personal information in the chat</li>
+                        <li>Don't hurt each other</li>
                     </ul>
                 </div>
             </div>
