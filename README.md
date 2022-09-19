@@ -81,7 +81,6 @@ Features to add:
 •  Show the squad details
 •  Functionality for players to register a kill
 
-
 ## Tech-stack 
 
 Code editor: Visual studio code
