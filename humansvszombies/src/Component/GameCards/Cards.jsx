@@ -47,7 +47,7 @@ function Cards() {
     const [clearError] = await deleteGame(event.target.id);
 
     if (clearError !== null) {
-      return;
+      window.location.reload();
     }
   };
 
