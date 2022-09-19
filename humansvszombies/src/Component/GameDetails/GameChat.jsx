@@ -18,9 +18,9 @@ const GameChat = () => {
               <MDBCardHeader className="d-flex justify-content-between align-items-center p-3">
               <h5 className="mb-0">Chat</h5>
               <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                <MDBBtn color='link'>Squad</MDBBtn>
-                <MDBBtn color='link'>Global</MDBBtn>
-                  <MDBBtn color='link'>Faction</MDBBtn>
+                <MDBBtn color='dark-light'>Squad</MDBBtn>
+                <MDBBtn color='dark-light'>Global</MDBBtn>
+                  <MDBBtn color='dark-light'>Faction</MDBBtn>
               </div>
               </MDBCardHeader>
                 <MDBCardBody>
@@ -32,14 +32,14 @@ const GameChat = () => {
                     />
                     <div>
                       <p
-                        className="small p-2 ms-3 mb-1 rounded-3"
-                        style={{ backgroundColor: "#f5f6f7" }}
+                        className="small p-2 ms-3 mb-1 rounded-3 text-white"
+                        style={{ backgroundColor: "#A0A0A0" }}
                       >
                         Hello!
                       </p>
                       <p
-                        className="small p-2 ms-3 mb-1 rounded-3"
-                        style={{ backgroundColor: "#f5f6f7" }}
+                        className="small p-2 ms-3 mb-1 rounded-3 text-white"
+                        style={{ backgroundColor: "#A0A0A0" }}
                       >
                         Are you ready to win the game??
                       </p>
@@ -60,13 +60,14 @@ const GameChat = () => {
   
                   <div className="d-flex flex-row justify-content-end mb-4 pt-1">
                     <div>
-                      <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
+                      <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-dark">
                         Hii, yes I'm so ready!
                       </p>
-                      <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
+                      <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-dark">
                         Let's kill some zombies
                       </p>
-                      <p className="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">
+                      <p className="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end"
+                      >
                         00:06
                       </p>
                     </div>
@@ -85,14 +86,14 @@ const GameChat = () => {
                     />
                     <div>
                       <p
-                        className="small p-2 ms-3 mb-1 rounded-3"
-                        style={{ backgroundColor: "#f5f6f7" }}
+                        className="small p-2 ms-3 mb-1 rounded-3 text-white"
+                        style={{ backgroundColor: "#A0A0A0" }}
                       >
                         Okay
                       </p>
                       <p
-                        className="small p-2 ms-3 mb-1 rounded-3"
-                        style={{ backgroundColor: "#f5f6f7" }}
+                        className="small p-2 ms-3 mb-1 rounded-3 text-white"
+                        style={{ backgroundColor: "#A0A0A0" }}
                       >
                         GLHF
                       </p>
@@ -114,7 +115,7 @@ const GameChat = () => {
                   id="exampleFormControlInput1"
                   placeholder="Type message"
                 ></input>
-                <MDBBtn>Send</MDBBtn>
+                <MDBBtn className="btn btn-dark">Send</MDBBtn>
               </MDBCardFooter>
             </MDBCard>
           </MDBCol>

@@ -5,8 +5,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createSquad } from '../../api/squad';
-import { useEffect } from 'react';
-import keycloak from '../../keycloak';
 
 //These configs for preventing errors (are not used at the moment)
 //minimum length of game name is 3
@@ -43,7 +41,7 @@ const GameSquadCreation = ({game}) => {
     return(
         <>
             <div className='form-inline'>
-                <Button onClick={handleShow2}>Click to create a squad</Button>
+                <Button onClick={handleShow2} className="btn btn-dark">Click to create a squad</Button>
                     <Modal show={showModal2} onHide={handleClose2}>
                         <ModalHeader>Squad</ModalHeader>
                         <ModalBody>

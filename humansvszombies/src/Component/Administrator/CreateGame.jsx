@@ -91,7 +91,7 @@ const CreateGame = () => {
               ></input>
               <Button
                     variant="success"
-                    type="submit"
+                    type="submit" value="Create game" className='submitGame'
                   >
                     Create game
                   </Button>
