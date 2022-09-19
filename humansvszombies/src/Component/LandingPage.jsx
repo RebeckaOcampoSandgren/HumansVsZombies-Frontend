@@ -23,6 +23,7 @@ function LandingPage() {
     if (error !== null) {
       setApiError(error);
     }
+}
 
     useEffect(() => {
         if (keycloak.auth() === true) {
@@ -50,5 +51,7 @@ function LandingPage() {
             </div>
         </>
     );
+    
 }
-export default LandingPage;
+
+export default LandingPage

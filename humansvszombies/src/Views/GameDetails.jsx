@@ -9,8 +9,7 @@ import GameMap from '../Component/WorldMap/GameMap'
 import NavbarLandningPage from "../Component/HOC/NavbarLandningPage"
 import { useState, useEffect } from "react"
 import GameSquadList from "../Component/GameDetails/GameSquadList"
-import RenderOnRole from "../Component/RenderOnRole"
-import KeycloakRoute from "../Component/HOC/KeycloakRoute"
+import RenderOnRole from "../Service/RenderOnRole"
 import { getPlayersInGame } from '../api/game';
 import keycloak from '../keycloak';
 import { Container, Row, Card, Col } from 'react-bootstrap';
