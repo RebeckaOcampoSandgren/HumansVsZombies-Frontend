@@ -26,7 +26,7 @@ https://humansvszombiesapp.herokuapp.com/
 
 Design of the application pages without design details in the planing process, drawn in Figma.
 
-![Figma-wireframe](humansvszombies/src/Figma/Figma-wireframe.png)
+![Figma-wireframe](humansvszombies/Figma/Figma-wireframe.png)
 
 
 #### Landing page ("/")
