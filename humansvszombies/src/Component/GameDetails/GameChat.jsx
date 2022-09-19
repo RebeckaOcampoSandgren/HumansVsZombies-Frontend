@@ -18,9 +18,9 @@ const GameChat = () => {
               <MDBCardHeader className="d-flex justify-content-between align-items-center p-3">
               <h5 className="mb-0">Chat</h5>
               <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                <MDBBtn color='link'>Squad</MDBBtn>
-                <MDBBtn color='link'>Global</MDBBtn>
-                  <MDBBtn color='link'>Faction</MDBBtn>
+                <MDBBtn style={{ color: "black" }} color='link'>Squad</MDBBtn>
+                <MDBBtn style={{ color: "black" }} color='link'>Global</MDBBtn>
+                  <MDBBtn style={{ color: "black" }} color='link'>Faction</MDBBtn>
               </div>
               </MDBCardHeader>
                 <MDBCardBody>
@@ -41,7 +41,7 @@ const GameChat = () => {
                         className="small p-2 ms-3 mb-1 rounded-3"
                         style={{ backgroundColor: "#f5f6f7" }}
                       >
-                        Are you ready to win the game??
+                        How are you?
                       </p>
                       <p className="small ms-3 mb-3 rounded-3 text-muted">
                         23:58
@@ -61,10 +61,7 @@ const GameChat = () => {
                   <div className="d-flex flex-row justify-content-end mb-4 pt-1">
                     <div>
                       <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                        Hii, yes I'm so ready!
-                      </p>
-                      <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                        Let's kill some zombies
+                        Hi I'm good thank you! And you?
                       </p>
                       <p className="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">
                         00:06
@@ -88,13 +85,13 @@ const GameChat = () => {
                         className="small p-2 ms-3 mb-1 rounded-3"
                         style={{ backgroundColor: "#f5f6f7" }}
                       >
-                        Okay
+                        All good!
                       </p>
                       <p
                         className="small p-2 ms-3 mb-1 rounded-3"
                         style={{ backgroundColor: "#f5f6f7" }}
                       >
-                        GLHF
+                        You wanna go on a mission?
                       </p>
                       <p className="small ms-3 mb-3 rounded-3 text-muted">
                         00:07
