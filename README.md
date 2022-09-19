@@ -32,6 +32,7 @@ Design of the application pages without design details in the planing process, d
 #### Landing page ("/")
 
 Landing page has:
+
 - Game List: A list of all games. Each game card displays the game title, the current game state and number of registered players.
 - Login button: By logging in as a user or an administrator or create a new account you will see more details in landing page. When logged in a  ``` Details ``` button will show in each game card. 
 - Administrator link: By logging in as an administrator you will see ```administrator``` link in the navbar which redirect you to the  Administration page. 
@@ -53,6 +54,7 @@ Landing page has:
 #### Administration page ("/AdministrationPageView")
 
 As an administrator you have some extra opportunities that a user does not have. The administrator can:
+
 •  Create a game.
 •  Edit a game.
 •  Edit player’s state. 
@@ -79,6 +81,7 @@ Fadi Akkaoui - @FadiAkkaoui
 The minimal Viable Product for the assignmement works. 
 
 Features to add: 
+
 •  Functionality to chat in real-time 
 •  Leave a squad 
 •  Show the squad details
