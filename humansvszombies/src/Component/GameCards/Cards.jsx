@@ -1,62 +1,60 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect, useState, array } from 'react';
-import { Container, Row, Card, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { deleteGame } from '../../api/game';
-import keycloak from '../../keycloak';
-import RenderOnRole from '../RenderOnRole';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState, array } from "react";
+import { Container, Row, Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { deleteGame } from "../../api/game";
+import keycloak from "../../keycloak";
+import RenderOnRole from "../../Service/RenderOnRole";
 import '../../App.css';
 
 function Cards() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [gameData, setData] = useState([]);
-    const [selectedGame, setSelectedGame] = useState({ game: "" });
-    const [isZombieVisible, setZVisible] = useState(false);
-    const [isHumanVisible, setHVisible] = useState(false);
-    let counter = 0;
+    //Hooks
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [gameData, setData] = useState([]);
 
-    function handleCounter() {
-        if (counter === 6) {
-            counter = 0;
+  let counter = 0;
+  function handleCounter() {
+    if (counter === 6) {
+      counter = 0;
+    }
+    counter++;
+  }
+
+  //Gets all games
+  useEffect(() => {
+    fetch(`https://humanvszombies.azurewebsites.net/api/v1/games`)
+      .then((response) => response.json())
+      .then(
+        (data) => {
+          setIsLoaded(true);
+          setError(error);
+          setData(data);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
         }
-        counter++;
+      );
+  }, []);
+  //Deletes game when delete button pressed
+  const deleteGameClick = async (event) => {
+    console.log(event.target.id);
+    if (!window.confirm("Are you sure?\nThis can not be undone!")) {
+      return;
     }
 
-    useEffect(() => {
-        fetch(`https://humanvszombies.azurewebsites.net/api/v1/games`)
-            .then((response) => response.json())
-            .then((data) => {
-                setIsLoaded(true);
-                setError(error);
-                setData(data);
-            },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, []);
+    const [clearError] = await deleteGame(event.target.id);
 
-    const deleteGameClick = async (event) => {
-        console.log(event.target.id);
-        if (!window.confirm('Are you sure?\nThis can not be undone!')) {
-            return
-        }
-
-        const [clearError] = await deleteGame(event.target.id)
-
-        if (clearError !== null) {
-            return
-        }
-
+    if (clearError !== null) {
+      return;
     }
+  };
 
-
-    function handleClick(event) {
-
-        localStorage.setItem("gameId", event.target.id)
-    };
+  function handleClick(event) {
+    //Saves choosen gameId to localStorage
+    localStorage.setItem("gameId", event.target.id);
+  }
 
     if (error) {
         return <div>Error: {error.message}</div>;
@@ -99,5 +97,6 @@ function Cards() {
             </div>
         )
     }
+
 }
 export default Cards;

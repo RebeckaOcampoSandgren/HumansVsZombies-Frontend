@@ -8,18 +8,20 @@ import { loginUser } from '../api/user';
 import monster from '../IMG/monster.png';
 import '../App.css';
 
-
 function LandingPage() {
+  const [selectedUser, setSelectedUser] = useState({
+    userId: "",
+    firstName: "",
+    lastName: "",
+    isAdmin: "",
+  });
+  const [apiError, setApiError] = useState(null);
 
-    const [selectedUser, setSelectedUser] = useState({ userId: "", firstName: "", lastName: "", isAdmin: "" });
-    const [apiError, setApiError] = useState(null)
-
-    const logIn = async (user) => {
-        console.log(user)
-        const [error, userResponse] = await loginUser(user)
-        if (error !== null) {
-            setApiError(error)
-        }
+  const logIn = async (user) => {
+    console.log(user);
+    const [error, userResponse] = await loginUser(user);
+    if (error !== null) {
+      setApiError(error);
     }
 
     useEffect(() => {
@@ -33,7 +35,6 @@ function LandingPage() {
         }
     }, [])
     
-
     return (
         <>
             <div className="LandingPagedDiv">
@@ -50,4 +51,4 @@ function LandingPage() {
         </>
     );
 }
-export default LandingPage
+export default LandingPage;

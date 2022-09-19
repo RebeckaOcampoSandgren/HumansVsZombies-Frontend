@@ -1,15 +1,19 @@
 import AdministratorPage from '../Component/AdministrationPage';
 import NavbarLandningPage from '../Component/HOC/NavbarLandningPage';
-import KeycloakRoute from '../Component/HOC/KeycloakRoute';
+import RenderOnRole from '../Service/RenderOnRole';
+import NotAllowed from '../Service/NotAllowed';
 
 
 const AdministrationPageView = () => {
     return(
         <>
-        {/* <KeycloakRoute role='Admin'> */}
+        <RenderOnRole roles={['Admin']}>
         <NavbarLandningPage/>
         <AdministratorPage/>
-        {/* </KeycloakRoute> */}
+        </RenderOnRole>
+        <RenderOnRole roles={['User']}>
+        <NotAllowed/>
+        </RenderOnRole>
         </>
     )
 }

@@ -8,8 +8,6 @@ import GameDetails from './Views/GameDetails.jsx';
 import GameMaps from './Views/GameMaps.jsx'
 import MediaQuery from './Component/MediaQuery';
 
-
-
 function App() {
   const { width } = MediaQuery();
 

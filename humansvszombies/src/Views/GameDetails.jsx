@@ -1,3 +1,4 @@
+
 import GameRegistration from "../Component/GameDetails/GameRegistration"
 import GameTitle from "../Component/GameDetails/GameTitle"
 import GameBiteCode from "../Component/GameDetails/GameBiteCode"
@@ -15,7 +16,6 @@ import keycloak from '../keycloak';
 import { Container, Row, Card, Col } from 'react-bootstrap';
 
 const GameDetails = () => {
-
 const [error, setError] = useState(null);
 const [isLoaded, setIsLoaded] = useState(false);
 const [gameIdData, setData] = useState([]);
@@ -89,4 +89,4 @@ return(
 )
 }
 
-export default GameDetails
+export default GameDetails;

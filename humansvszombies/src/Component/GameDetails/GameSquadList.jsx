@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getSquadsInGame } from "../../api/squad";
-import RenderOnRole from '../RenderOnRole';
+import RenderOnRole from '../../Service/RenderOnRole';
 
 const GameSquadList = ({game}) => {
     //Hooks
