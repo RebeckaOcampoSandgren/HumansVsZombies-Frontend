@@ -64,7 +64,7 @@ function Cards() {
         return (
             <div>
                 <Container id="container" className="App">
-                    <Row xs={1} md={3} className="g-4" id="row">
+                    <Row xs={1} md={2} lg={2} xl={3} className="g-4" id="row">
                         {gameData.map(data =>
                             <Col>
                                 <Card style={{ width: '18rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
