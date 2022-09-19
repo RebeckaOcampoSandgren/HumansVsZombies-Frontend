@@ -111,6 +111,7 @@ const CreateMission = ({ gameData }) => {
                   ></input>
                   <Button
                     variant="success"
+                    type="submit"
                   >
                     Create mission
                   </Button>
