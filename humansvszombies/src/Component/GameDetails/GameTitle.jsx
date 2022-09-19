@@ -16,9 +16,8 @@ const GameTitle = ({game}) => {
                 <div>
                     <h4>Game Rules</h4>
                     <ul className="list-unstyled">
-                        <li>Have fun</li>
-                        <li>Be happy</li>
-                        <li>Shoot well</li>
+                        <li>Do not share personal information in the chat</li>
+                        <li>Don't hurt each other</li>
                     </ul>
                 </div>
             </div>

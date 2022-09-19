@@ -25,7 +25,7 @@ const GameSquadList = ({game}) => {
 
     return(
         <>
-        <div id="SquadList" className="text-center">
+        <div id="SquadList">
                 <header>
                     <h2>Available squads</h2>
                 </header>

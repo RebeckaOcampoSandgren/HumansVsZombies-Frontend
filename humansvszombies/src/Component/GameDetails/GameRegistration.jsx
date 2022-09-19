@@ -41,9 +41,7 @@ const GameRegistration = (gameInfo) => {
          
     return(
         <>
-            {
-                (!isReg ) ? <Button id='gameRegisterBtn' onClick={register}>Register To Game</Button> : null
-            }
+            <Button id='gameRegisterBtn' className='align-middle' onClick={register}>Register To Game</Button> 
         </>
     )
 }

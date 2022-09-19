@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { deleteGame } from "../../api/game";
 import keycloak from "../../keycloak";
 import RenderOnRole from "../../Service/RenderOnRole";
+import '../../App.css';
 
 function Cards() {
     //Hooks
@@ -55,68 +56,47 @@ function Cards() {
     localStorage.setItem("gameId", event.target.id);
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <div>
-        <Container id="container" fixed className="App py-2 overflow-hidden">
-          <Row id="row">
-            <Col>
-              {gameData.map((data) => (
-                <Card
-                  sm={4}
-                  style={{ width: "18rem" }}
-                  id="card"
-                  key={data.gameId}
-                  onLoad={handleCounter()}
-                >
-                  <Card.Img
-                    variant="top"
-                    src={`zombieImages/zombie${counter}.png`}
-                  />
-                  <Card.Body>
-                    <Card.Title>{data.gameName}</Card.Title>
-                    <Card.Text>
-                      <ul>
-                        <li>State: {data.gameState}</li>
-                        <li>Registered players: {data.players.length}</li>
-                      </ul>
-                    </Card.Text>
-                    {keycloak.auth() && (
-                      <Link
-                        to="/gamedetails"
-                        className="btn btn-outline-success"
-                        id={data.gameId}
-                        onClick={handleClick}
-                      >
-                        Details
-                      </Link>
-                    )}
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+        return <div>Loading...</div>
+    } else {
+        return (
+            <div>
+                <Container id="container" className="App">
+                    <Row xs={1} md={3} className="g-4" id="row">
+                        {gameData.map(data =>
+                            <Col>
+                                <Card style={{ width: '18rem' }} id="card" key={data.gameId} onLoad={handleCounter()}>
+                                    <Card.Img variant="top" src={`zombieImages/zombie${counter}.png`} />
+                                    <Card.Body>
+                                        <Card.Title>{data.gameName}</Card.Title>
+                                        <Card.Text>
+                                            <ul>
+                                                <li>State: {data.gameState}</li>
+                                                <li>Registered players: {data.players.length}</li>
+                                            </ul>
+                                        </Card.Text>
+                                        {keycloak.auth() && (
+                                            <Link to="/gamedetails" className="btn btn-primary" id={data.gameId} onClick={handleClick} >Details</Link>
 
-                    {/* Use this if you have the role as a user */}
-                    {/* <RenderOnRole roles={['default-roles-hvz-auth']}>*/}
-                    <RenderOnRole roles={["Admin"]}>
-                      {keycloak.auth() && (
-                        <button
-                          onClick={deleteGameClick}
-                          id={data.gameId}
-                          className="deleteGameBtn"
-                        >
-                          Delete game
-                        </button>
-                      )}
-                    </RenderOnRole>
-                  </Card.Body>
-                </Card>
-              ))}
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }
+                                        )}
+                                        {/* Use this if you have the role as a user */}
+                                        {/* <RenderOnRole roles={['default-roles-hvz-auth']}>*/}
+                                        <RenderOnRole roles={['Admin']}>
+                                            {keycloak.auth() && (
+                                                <button onClick={deleteGameClick} id={data.gameId}>Delete game</button>
+                                            )}
+                                        </RenderOnRole>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )}
+                    </Row>
+                </Container>
+            </div>
+        )
+    }
+
 }
 export default Cards;
