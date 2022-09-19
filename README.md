@@ -67,8 +67,11 @@ Password: admin
 ## Contributors
 
 Rebecka Ocampo Sandgren - @rebsan00003 
+
 Negin Bakhtiarirad - @neginb 
+
 Betiel Yohannes - @betielyohannes 
+
 Fadi Akkaoui - @FadiAkkaoui
 
 ## Project status
@@ -84,6 +87,9 @@ Features to add:
 ## Tech-stack 
 
 Code editor: Visual studio code
+
 React - Quick Start
+
 Bootstrap // React
+
 Heroku 
