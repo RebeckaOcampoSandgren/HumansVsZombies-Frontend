@@ -60,8 +60,8 @@ As an administrator you have some extra opportunities that a user does not have.
 •  Edit mission markers in a game. 
 
 To be able to try administrator page and its functionality login with: 
-Username: 
-Password:
+Username: admin
+Password: admin
 
 
 ## Contributors
