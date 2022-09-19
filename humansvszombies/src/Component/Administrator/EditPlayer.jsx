@@ -105,7 +105,7 @@ const EditPlayer = ({gameData}) =>{
         <div id='editPlayerContainer' className='form-inline'>
             <div id='editPlayerGame'>
             <Dropdown onSelect={handleGameSelect}>
-                <Dropdown.Toggle id='dropdown' className='adminDropdown'>Choose a game to edit players in</Dropdown.Toggle>
+                <Dropdown.Toggle className="btn btn-dark">Choose a game to edit players in</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {gameData.map(d =>
                         <Dropdown.Item eventKey={d.gameId} key={d.gameId}>{d.gameName}</Dropdown.Item>
@@ -118,7 +118,7 @@ const EditPlayer = ({gameData}) =>{
             { showPlayerDropdown ?
             <Dropdown onSelect={handlePlayerSelect}>
                 <p>{selectedGame.gameName}</p>
-                <Dropdown.Toggle className='adminDropdown'>Choose a player to edit</Dropdown.Toggle>
+                <Dropdown.Toggle className="btn btn-dark">Choose a player to edit</Dropdown.Toggle>
                 <Dropdown.Menu>
                     {players.map(d =>
                         <Dropdown.Item eventKey={d.playerId} key={d.playerId} onClick={handleShow3}>{d.playerId}</Dropdown.Item>
@@ -139,8 +139,8 @@ const EditPlayer = ({gameData}) =>{
                         </div>
                     </ModalBody>
                     <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose3}>Close</Button>
-                    <Button variant="primary" onClick={onSubmit}>Save Changes</Button>
+                    <Button className="btn btn-dark" onClick={handleClose3}>Close</Button>
+                    <Button variant="success" onClick={onSubmit}>Save Changes</Button>
                     </Modal.Footer>
                 </Modal>
                 </Dropdown.Menu>

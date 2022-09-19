@@ -120,7 +120,7 @@ const EditMission = ({ gameData }) => {
       <div id="editMissionContainer">
         <div id="editMissionGame">
           <Dropdown onSelect={handleGameSelect}>
-            <Dropdown.Toggle id="dropdown" className="adminDropdown">
+            <Dropdown.Toggle className="btn btn-dark">
               Choose a game to edit missions in
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -137,7 +137,7 @@ const EditMission = ({ gameData }) => {
           {showMissionDropdown ? (
             <Dropdown onSelect={handleMissionSelect}>
               <p>{selectedGame.gameName}</p>
-              <Dropdown.Toggle id="dropdown" className="adminDropdown">
+              <Dropdown.Toggle className="btn btn-dark">
                 Choose a mission to edit
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -210,10 +210,10 @@ const EditMission = ({ gameData }) => {
                     </div>
                   </ModalBody>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose3}>
+                    <Button className="btn btn-dark" onClick={handleClose3}>
                       Close
                     </Button>
-                    <Button variant="primary" onClick={onSubmit}>
+                    <Button variant="success" onClick={onSubmit}>
                       Save Changes
                     </Button>
                   </Modal.Footer>

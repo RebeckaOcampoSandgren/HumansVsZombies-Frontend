@@ -171,6 +171,9 @@ li {
 
 .adminDropdown {
   padding: 10px;
+  background-color: rgba(77, 77, 77, 0.76);
+  color: black;
+  border-radius: 5px
 }
 
 .adminCheckbox {
@@ -178,7 +181,8 @@ li {
   margin-right: 8px;
 }
 #adminWelcome{
-  color: white;
+  margin-top:50px;
+  color: black;
 }
 #clickCreatgame{
   width: 120px;
@@ -242,13 +246,13 @@ li {
   border-radius: 5px;
  
 }
-#dropdown{
+/* #dropdown{
   background-color: lightgray;
   border: none;
-}
+} */
 #dropdown:hover{
-  background-color: #4cec72b8;
-  color: white;
+  background-color: rgba(77, 77, 77, 0.76);
+  color: black;
   border-radius: 5px
 }
 
@@ -262,4 +266,8 @@ li {
   z-index: 10;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
+}
+
+.btn-btn-dark{
+  margin-left: 5px;;
 }

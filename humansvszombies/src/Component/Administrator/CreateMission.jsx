@@ -51,7 +51,7 @@ const CreateMission = ({ gameData }) => {
   return (
     <div className="form-inline">
       <Dropdown onSelect={handleSelect}>
-        <Dropdown.Toggle id="dropdown" className="adminDropdown">
+        <Dropdown.Toggle className="btn btn-dark">
           Choose a game to add a mission to
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -109,16 +109,16 @@ const CreateMission = ({ gameData }) => {
                     className="form-control"
                     {...register("endTime")}
                   ></input>
-                  <input
-                    type="submit"
-                    value="Create mission"
-                    className="submitGame"
-                  ></input>
+                  <Button
+                    variant="success"
+                  >
+                    Create mission
+                  </Button>
                 </form>
               </div>
             </ModalBody>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button className="btn btn-dark" onClick={handleClose}>
                 Close
               </Button>
             </Modal.Footer>

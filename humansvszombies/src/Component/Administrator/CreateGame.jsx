@@ -45,7 +45,7 @@ const CreateGame = () => {
 
   return (
     <div className="form-inline">
-      <Button id="dropdown" onClick={handleShow2}>
+      <Button className="btn btn-dark" onClick={handleShow2}>
         Click to create a game
       </Button>
       <Modal show={showModal2} onHide={handleClose2}>
@@ -89,16 +89,16 @@ const CreateGame = () => {
                 placeholder="Longitude"
                 {...register("nwLng", "seLng")}
               ></input>
-              <input
-                type="submit"
-                value="Create game"
-                className="submitGame"
-              ></input>
+              <Button
+                    variant="success"
+                  >
+                    Create game
+                  </Button>
             </form>
           </div>
         </ModalBody>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose2}>
+          <Button className="btn btn-dark" onClick={handleClose2}>
             Close
           </Button>
         </Modal.Footer>
