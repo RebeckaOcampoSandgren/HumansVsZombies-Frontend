@@ -86,6 +86,9 @@ return(
    {isRegistered ? <GameSquadDetails/> : null}
    </RenderOnRole>
    {isRegistered ? <GameChat/> : null}
+   <RenderOnRole roles={['Admin']}>
+   <GameChat/>
+   </RenderOnRole>
    </>
 )
 }
