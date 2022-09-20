@@ -24,7 +24,6 @@ const GameSquadList = (game) => {
 
     //Create a new squadMember
     const addSquadMember = async (squadMemberObject) => {
-        console.log(squadMemberObject)
         const [ error, userResponse ] = await createSquadMember(squadMemberObject)
         if (error !== null){
             setApiError(error)
@@ -55,7 +54,7 @@ const GameSquadList = (game) => {
                                 <h5 class="card-title">{s.squadName}</h5>
                                 <p class="card-text">Total number of members : {s.squadMembers.length}</p>
                                 <RenderOnRole roles={['default-roles-hvz-auth']}>
-                                <button value={s.squadId} className="btn btn-dark" onClick={e => join(e.target.value)}>Join</button>
+                                {game.info[2] ? <button value={s.squadId} className="btn btn-dark" onClick={e => join(e.target.value)}>Join</button> : null}
                                 </RenderOnRole>
                             </div>
                         </div>

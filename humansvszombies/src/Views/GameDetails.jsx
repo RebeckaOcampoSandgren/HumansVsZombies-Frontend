@@ -82,7 +82,7 @@ return(
    {isRegistered ? <GameBiteCode isHuman = {player.isHuman} /> : null}
    {isRegistered ? <GameSquadCreation game = {gameIdData}/> : null}
    </RenderOnRole>
-   <GameSquadList info = {[gameIdData, player]}/>
+   <GameSquadList info = {[gameIdData, player, isRegistered]}/>
    <RenderOnRole roles={['default-roles-hvz-auth']}>
    {isRegistered ? <GameSquadDetails/> : null}
    </RenderOnRole>
