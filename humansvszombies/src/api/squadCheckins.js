@@ -69,9 +69,7 @@ export const deleteSquadCheckin = async (squadCheckinId) => {
 //Get all squadCheckins
 export const getAllSquadCheckins = async () => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/squadCheckins`
-    );
+    const response = await fetch(`${apiUrl}/squadCheckins`);
     if (!response.ok) {
       throw new Error("Could not get squadCheckins");
     }
@@ -86,9 +84,7 @@ export const getAllSquadCheckins = async () => {
 //Get specific squadCheckin by squadCheckinId
 export const getSquadCheckinById = async (squadCheckinId) => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/squadCheckins/${squadCheckinId}`
-    );
+    const response = await fetch(`${apiUrl}/squadCheckins/${squadCheckinId}` );
     if (!response.ok) {
       throw new Error("Could not get the squadCheckin");
     }

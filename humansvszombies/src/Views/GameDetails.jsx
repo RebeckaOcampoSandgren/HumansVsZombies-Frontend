@@ -58,6 +58,7 @@ useEffect(() => {
       if(players[i].user === keycloak.userId()){
          setIsRegistered(true)
          setPlayer(players[i])
+         const playerArr = [player]
          return;
       }
   }
@@ -81,7 +82,7 @@ return(
    {isRegistered ? <GameBiteCode isHuman = {player.isHuman} /> : null}
    {isRegistered ? <GameSquadCreation game = {gameIdData}/> : null}
    </RenderOnRole>
-   <GameSquadList game = {gameIdData}/>
+   <GameSquadList info = {[gameIdData, player]}/>
    <RenderOnRole roles={['default-roles-hvz-auth']}>
    {isRegistered ? <GameSquadDetails/> : null}
    </RenderOnRole>

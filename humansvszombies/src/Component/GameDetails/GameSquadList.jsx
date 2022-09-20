@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getSquadsInGame } from "../../api/squad";
+import { createSquadMember } from "../../api/squadMembers";
 import RenderOnRole from '../../Service/RenderOnRole';
 
-const GameSquadList = ({game}) => {
+const GameSquadList = (game) => {
     //Hooks
     const [squads, setSquads] = useState([]);
     const [ apiError, setApiError] = useState(null);
@@ -10,8 +11,7 @@ const GameSquadList = ({game}) => {
     //Get the squads for the specific game
     useEffect(() => {
         const getSquads = async () => {
-            console.log(game.gameId)
-            const [ error, userResponse ] = await getSquadsInGame(game.gameId);
+            const [ error, userResponse ] = await getSquadsInGame(game.info[0].gameId);
             if (error !== null){
                 setApiError(error)
             }
@@ -20,8 +20,26 @@ const GameSquadList = ({game}) => {
             }
         }
         getSquads();
-    }, [game.gameId]);
+    }, [game.info[0].gameId]);
 
+    //Create a new squadMember
+    const addSquadMember = async (squadMemberObject) => {
+        console.log(squadMemberObject)
+        const [ error, userResponse ] = await createSquadMember(squadMemberObject)
+        if (error !== null){
+            setApiError(error)
+        }
+        if(userResponse !== null){
+            alert("You are now a member in this squad")
+            window.location.reload()
+        }
+    };
+
+    //Creates a new squadMember in the database
+    const join = (squadId) => {
+        let squadMemberObject = { rank: Math.floor(Math.random() * (1 - 100) + 100), squadId : parseInt(squadId), playerId :game.info[1].playerId};
+        addSquadMember(squadMemberObject)
+    }
 
     return(
         <>
@@ -37,7 +55,7 @@ const GameSquadList = ({game}) => {
                                 <h5 class="card-title">{s.squadName}</h5>
                                 <p class="card-text">Total number of members : {s.squadMembers.length}</p>
                                 <RenderOnRole roles={['default-roles-hvz-auth']}>
-                                <button class="btn btn-outline-secondary" type="button" id="button">Join</button>
+                                <button value={s.squadId} className="btn btn-dark" onClick={e => join(e.target.value)}>Join</button>
                                 </RenderOnRole>
                             </div>
                         </div>

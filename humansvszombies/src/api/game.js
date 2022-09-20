@@ -71,9 +71,7 @@ export const deleteGame = async (gameId) => {
 //Get all games
 export const getAllGames = async () => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/games`
-    );
+    const response = await fetch(`${apiUrl}/games`);
     if (!response.ok) {
       throw new Error("Could not get games");
     }
@@ -88,9 +86,7 @@ export const getAllGames = async () => {
 //Get specific game by gameId
 export const getGameById = async (gameId) => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/games/${gameId}`
-    );
+    const response = await fetch(`${apiUrl}/games/${gameId}`);
     if (!response.ok) {
       throw new Error("Could not get the game");
     }
@@ -105,9 +101,7 @@ export const getGameById = async (gameId) => {
 //Get a list of players in a specific game by gameId
 export const getPlayersInGame = async (gameId) => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/games/${gameId}/players`
-    );
+    const response = await fetch(`${apiUrl}/games/${gameId}/players`);
     if (!response.ok) {
       throw new Error("Could not get players");
     }
@@ -122,9 +116,7 @@ export const getPlayersInGame = async (gameId) => {
 //Get specific player in specific game by playerId
 export const getPlayerInGameById = async (gameId, playerId) => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/games/${gameId}/${playerId}`
-    );
+    const response = await fetch(`${apiUrl}/games/${gameId}/${playerId}`);
     if (!response.ok) {
       throw new Error("Could not get player");
     }
