@@ -69,9 +69,7 @@ export const deleteKill = async (killId) => {
 //Get all kills
 export const getAllKills = async () => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/kills`
-    );
+    const response = await fetch(`${apiUrl}/kills`);
     if (!response.ok) {
       throw new Error("Could not get kills");
     }
@@ -86,9 +84,7 @@ export const getAllKills = async () => {
 //Get specific user by userId
 export const getKillById = async (killId) => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/kills/${killId}`
-    );
+    const response = await fetch(`${apiUrl}/kills/${killId}`);
     if (!response.ok) {
       throw new Error("Could not get the kill");
     }

@@ -79,7 +79,7 @@ export const deleteUser = async (userId) => {
 export const getAllUsers = async () => {
   try {
     const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/users`
+      `${apiUrl}/users`
     );
     if (!response.ok) {
       throw new Error("Could not get users");
@@ -96,7 +96,7 @@ export const getAllUsers = async () => {
 export const getUserById = async (userId) => {
   try {
     const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/users/${userId}`
+      `${apiUrl}/users/${userId}`
     );
     if (!response.ok) {
       throw new Error("Could not get the user");
