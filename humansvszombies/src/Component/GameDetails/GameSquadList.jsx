@@ -36,8 +36,8 @@ const GameSquadList = ({game}) => {
                             <div class="card-body">
                                 <h5 class="card-title">{s.squadName}</h5>
                                 <p class="card-text">Total number of members : {s.squadMembers.length}</p>
-                                <RenderOnRole roles={['Admin']}>
-                                <button class="btn btn-dark" type="button" id="button">Join</button>
+                                <RenderOnRole roles={['default-roles-hvz-auth']}>
+                                <button class="btn btn-outline-secondary" type="button" id="button">Join</button>
                                 </RenderOnRole>
                             </div>
                         </div>

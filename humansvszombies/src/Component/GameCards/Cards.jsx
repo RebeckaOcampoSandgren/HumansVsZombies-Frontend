@@ -6,6 +6,7 @@ import { deleteGame } from "../../api/game";
 import keycloak from "../../keycloak";
 import RenderOnRole from "../../Service/RenderOnRole";
 import '../../App.css';
+import Loading from '../loading/Loading';
 
 function Cards() {
     //Hooks
@@ -47,7 +48,7 @@ function Cards() {
     const [clearError] = await deleteGame(event.target.id);
 
     if (clearError !== null) {
-      return;
+      window.location.reload();
     }
   };
 
@@ -59,7 +60,7 @@ function Cards() {
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-        return <div>Loading...</div>
+        return <Loading message="Loading..." />
     } else {
         return (
             <div>

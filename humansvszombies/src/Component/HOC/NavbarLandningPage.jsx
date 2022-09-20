@@ -26,7 +26,7 @@ function NavbarLandningPage() {
             </a>
           )}
           {keycloak.auth() && (
-            <a href='#' id="adminNav" onClick={() => keycloak.doLogout()}>Logout</a>
+            <a href='/' id="adminNav" onClick={() => keycloak.doLogout()}>Logout</a>
           )}
         </Nav>
       </Container>

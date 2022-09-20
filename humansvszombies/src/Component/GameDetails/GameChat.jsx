@@ -41,7 +41,7 @@ const GameChat = () => {
                         className="small p-2 ms-3 mb-1 rounded-3 text-white"
                         style={{ backgroundColor: "#A0A0A0" }}
                       >
-                        Are you ready to win the game??
+                        How are you?
                       </p>
                       <p className="small ms-3 mb-3 rounded-3 text-muted">
                         23:58
@@ -61,10 +61,7 @@ const GameChat = () => {
                   <div className="d-flex flex-row justify-content-end mb-4 pt-1">
                     <div>
                       <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-dark">
-                        Hii, yes I'm so ready!
-                      </p>
-                      <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-dark">
-                        Let's kill some zombies
+                        Hi I'm good thank you! And you?
                       </p>
                       <p className="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end"
                       >
@@ -89,13 +86,13 @@ const GameChat = () => {
                         className="small p-2 ms-3 mb-1 rounded-3 text-white"
                         style={{ backgroundColor: "#A0A0A0" }}
                       >
-                        Okay
+                        All good!
                       </p>
                       <p
                         className="small p-2 ms-3 mb-1 rounded-3 text-white"
                         style={{ backgroundColor: "#A0A0A0" }}
                       >
-                        GLHF
+                        You wanna go on a mission?
                       </p>
                       <p className="small ms-3 mb-3 rounded-3 text-muted">
                         00:07
