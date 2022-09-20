@@ -8,10 +8,9 @@ import {
   Pane,
   Rectangle,
 } from "react-leaflet";
-import parkData from "./missions.json";
+import mission from "./missions.json";
 import "./GameMap.css";
 function GameMap() {
-  //Hooks
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [missionData, setData] = useState([]);
@@ -47,6 +46,11 @@ function GameMap() {
       });
   }, []);
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>
+  } else {
   return (
     <MapContainer
       center={[57.70716, 11.96679]}
@@ -59,7 +63,7 @@ function GameMap() {
       />
       <Marker position={[positionMark[0], positionMark[1]]} icon={graveIcon}>
         <Pane name="rectangle">
-          <Rectangle bounds={outer} pathOptions={{ color: "blue" }} />
+          <Rectangle bounds={outer} pathOptions={{ color: "black" }} />
         </Pane>
         {missionData.map((p) => (
           <Popup>
@@ -72,25 +76,25 @@ function GameMap() {
           </Popup>
         ))}
       </Marker>
-      {parkData.features.map((park) => (
+      {mission.features.map((mission) => (
         <Marker
           position={[
-            park.geometry.coordinates[0],
-            park.geometry.coordinates[1],
+            mission.geometry.coordinates[0],
+            mission.geometry.coordinates[1],
           ]}
           icon={missionIcon}
         >
-          {missionData.map((p) => (
+          {missionData.map((m) => (
             <Popup>
               This is a mission.
               <br></br>
               <br></br>
-              <div>Description: {p.description}</div>
+              <div>Description: {m.description}</div>
             </Popup>
           ))}
         </Marker>
       ))}
     </MapContainer>
   );
-}
+}}
 export default GameMap;

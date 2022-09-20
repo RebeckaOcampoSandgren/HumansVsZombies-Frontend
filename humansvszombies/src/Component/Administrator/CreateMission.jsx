@@ -47,6 +47,7 @@ const CreateMission = ({ gameData }) => {
       window.location.reload();
     }
   };
+  
 
   return (
     <div className="form-inline">
@@ -111,6 +112,7 @@ const CreateMission = ({ gameData }) => {
                   ></input>
                   <Button
                     variant="success"
+                    type="submit"
                   >
                     Create mission
                   </Button>

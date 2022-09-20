@@ -66,7 +66,7 @@ useEffect(() => {
 
 const renderRegisterAndMap = () => {
    if (!isRegistered) {
-      return <Row className="d-flex align-items-center"><Col> <GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/></Col><Col><GameMap/></Col></Row>
+      return <Row className="d-flex align-items-center"><RenderOnRole roles={['default-roles-hvz-auth']}><Col><GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/></Col></RenderOnRole><Col><GameMap/></Col></Row>
    } else {
      return <Row><Col><GameMap/></Col></Row>
    }
@@ -77,13 +77,18 @@ return(
    <NavbarLandningPage/>
    <GameTitle game = {gameIdData}/>
    {renderRegisterAndMap()}
+   <RenderOnRole roles={['default-roles-hvz-auth']}>
    {isRegistered ? <GameBiteCode isHuman = {player.isHuman} /> : null}
    {isRegistered ? <GameSquadCreation game = {gameIdData}/> : null}
-   <RenderOnRole roles={['default-roles-hvz-auth']}>
-   <GameSquadList game = {gameIdData}/>
    </RenderOnRole>
+   <GameSquadList game = {gameIdData}/>
+   <RenderOnRole roles={['default-roles-hvz-auth']}>
    {isRegistered ? <GameSquadDetails/> : null}
+   </RenderOnRole>
    {isRegistered ? <GameChat/> : null}
+   <RenderOnRole roles={['Admin']}>
+   <GameChat/>
+   </RenderOnRole>
    </>
 )
 }

@@ -17,7 +17,7 @@ const GameTitle = ({game}) => {
                     <h4>Game Rules</h4>
                     <ul className="list-unstyled">
                         <li>Do not share personal information in the chat</li>
-                        <li>Don't hurt each other</li>
+                        <li>Do not hurt each other</li>
                     </ul>
                 </div>
             </div>
