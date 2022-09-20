@@ -41,7 +41,7 @@ const GameRegistration = (gameInfo) => {
          
     return(
         <>
-            <Button id='gameRegisterBtn' className='align-middle' onClick={register}>Register To Game</Button> 
+            <Button id='gameRegisterBtn' className='btn btn-dark align-middle' onClick={register}>Register To Game</Button> 
         </>
     )
 }

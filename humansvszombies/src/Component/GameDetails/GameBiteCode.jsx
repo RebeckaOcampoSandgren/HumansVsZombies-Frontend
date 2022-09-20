@@ -19,7 +19,7 @@ const GameBiteCode = (player) => {
                 {!isHuman ? 
                 <div class="input-group" id="biteCodeInput">
                     <input type="text" class="form-control" placeholder="Write your bite code" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
-                    <button class="btn btn-outline-secondary" type="button" id="button">OK</button>
+                    <button class="btn btn-dark" type="button" id="button">OK</button>
                 </div> : null}
             </div>
         </>
