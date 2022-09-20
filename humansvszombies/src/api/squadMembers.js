@@ -3,7 +3,6 @@ const apiUrl = process.env.REACT_APP_API_URL;
 //Create a new squad member (takes in a squadMember object)
 export const createSquadMember = async (squadMemberInfo) => {
   try {
-    console.log(`${apiUrl}/squadMembers`);
     const response = await fetch(`${apiUrl}/squadMembers`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -65,9 +64,7 @@ export const deleteSquadMember = async (squadMemberId) => {
 //Get all squadMembers
 export const getAllSquadMembers = async () => {
   try {
-    const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/squadMembers`
-    );
+    const response = await fetch(`${apiUrl}/squadMembers`);
     if (!response.ok) {
       throw new Error("Could not get squad members");
     }
@@ -83,7 +80,7 @@ export const getAllSquadMembers = async () => {
 export const getSquadMemberById = async (squadMemberId) => {
   try {
     const response = await fetch(
-      `https://humanvszombies.azurewebsites.net/api/v1/squadMembers/${squadMemberId}`
+      `${apiUrl}/squadMembers/${squadMemberId}`
     );
     if (!response.ok) {
       throw new Error("Could not get the squadMember");
