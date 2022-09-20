@@ -47,6 +47,7 @@ const CreateMission = ({ gameData }) => {
       window.location.reload();
     }
   };
+  
 
   return (
     <div className="form-inline">
