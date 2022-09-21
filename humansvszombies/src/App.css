@@ -267,10 +267,7 @@ li {
   border-radius: 5px;
  
 }
-/* #dropdown{
-  background-color: lightgray;
-  border: none;
-} */
+
 #dropdown:hover{
   background-color: rgba(77, 77, 77, 0.76);
   color: black;

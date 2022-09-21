@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+//Method of adapting the web page to different screen sizes
 function MediaQuery() {
   const isSSR = typeof window !== "undefined";
   const [windowSize, setWindowSize] = useState({

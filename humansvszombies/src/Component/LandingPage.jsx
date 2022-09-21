@@ -1,11 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import { Container, Row, Card, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import keycloak from '../keycloak';
 import Cards from '../Component/GameCards/Cards'
 import { loginUser } from '../api/user';
-import monster from '../IMG/monster.png';
 import '../App.css';
 
 function LandingPage() {
@@ -15,26 +12,28 @@ function LandingPage() {
     lastName: "",
     isAdmin: "",
   });
+
   const [apiError, setApiError] = useState(null);
 
+  //Login method to check if User exists already or need to be registred
   const logIn = async (user) => {
-    console.log(user);
     const [error, userResponse] = await loginUser(user);
     if (error !== null) {
       setApiError(error);
     }
 }
 
-    useEffect(() => {
-        if (keycloak.auth() === true) {
-            let userObject = { userId: keycloak.userId(), firstName: keycloak.userName(), lastName: keycloak.lastName(), isAdmin: false }
-            setSelectedUser({
-                ...selectedUser,
-                ...userObject
-            })
-            logIn(userObject)
-        }
-    }, [])
+//Take the information of user from keycloak and store it
+useEffect(() => {
+    if (keycloak.auth() === true) {
+        let userObject = { userId: keycloak.userId(), firstName: keycloak.userName(), lastName: keycloak.lastName(), isAdmin: false }
+        setSelectedUser({
+            ...selectedUser,
+            ...userObject
+        })
+        logIn(userObject)
+    }
+}, [])
     
     return (
         <>
@@ -50,8 +49,7 @@ function LandingPage() {
             </div>
             <Cards/>
         </>
-    );
-    
+    );  
 }
 
 export default LandingPage

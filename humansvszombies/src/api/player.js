@@ -25,7 +25,7 @@ export const updatePlayer = async (playerInfo, playerId) => {
   }
 };
 
-//Create a new player (takes in a player object)
+//Create a new player
 export const createPlayer = async (playerInfo) => {
   try {
     const response = await fetch(`${apiUrl}/players`, {
@@ -43,7 +43,7 @@ export const createPlayer = async (playerInfo) => {
   }
 };
 
-//Delete an existing player (takes in a player object)
+//Delete an existing player
 export const deletePlayer = async (playerId) => {
   try {
     const response = await fetch(`${apiUrl}/players/${playerId}`, {

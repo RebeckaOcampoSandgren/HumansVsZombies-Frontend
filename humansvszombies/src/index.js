@@ -9,7 +9,7 @@ import Loading from './Component/loading/Loading';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Display a loading screen when connecting to Keycloak
-root.render(<Loading message="Connecting to Keycloak..." />)
+root.render(<Loading message="Loading..." />)
 
 // Initialize Keycloak
 initialize()

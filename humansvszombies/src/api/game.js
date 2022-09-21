@@ -45,7 +45,7 @@ export const updateGame = async (gameInfo, gameId) => {
   }
 };
 
-//Delete an existing game (takes in a game object)
+//Delete an existing game
 export const deleteGame = async (gameId) => {
   try {
     const response = await fetch(`${apiUrl}/games/${gameId}`, {
@@ -64,9 +64,6 @@ export const deleteGame = async (gameId) => {
     return [error.message, null];
   }
 };
-
-//Zombiechat
-//Humanchat
 
 //Get all games
 export const getAllGames = async () => {

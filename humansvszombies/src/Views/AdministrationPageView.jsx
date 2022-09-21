@@ -3,7 +3,6 @@ import NavbarLandningPage from '../Component/HOC/NavbarLandningPage';
 import RenderOnRole from '../Service/RenderOnRole';
 import NotAllowed from '../Service/NotAllowed';
 
-
 const AdministrationPageView = () => {
     return(
         <>

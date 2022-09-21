@@ -1,4 +1,3 @@
-
 import GameRegistration from "../Component/GameDetails/GameRegistration"
 import GameTitle from "../Component/GameDetails/GameTitle"
 import GameBiteCode from "../Component/GameDetails/GameBiteCode"
@@ -12,23 +11,22 @@ import GameSquadList from "../Component/GameDetails/GameSquadList"
 import RenderOnRole from "../Service/RenderOnRole"
 import { getPlayersInGame } from '../api/game';
 import keycloak from '../keycloak';
-import { Container, Row, Card, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 const GameDetails = () => {
 const [error, setError] = useState(null);
-const [isLoaded, setIsLoaded] = useState(false);
 const [gameIdData, setData] = useState([]);
-const [isZombieVisible, setZVisible] = useState(false);
-const [isHumanVisible, setHVisible] = useState(false);
 const [isRegistered, setIsRegistered] = useState(false);
 const [ apiError, setApiError] = useState(null);
 const [ players, setPlayers] = useState([]);
 const [ player, setPlayer] = useState({});
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 //fetch the selected game
 useEffect(() => {
    const selectedGame = localStorage.getItem("gameId")
-    fetch(`https://humanvszombies.azurewebsites.net/api/v1/games/${selectedGame}`)
+    fetch(`${apiUrl}/games/${selectedGame}`)
     .then((response) => response.json())
     .then((data) => {
        setData(data);
@@ -58,13 +56,13 @@ useEffect(() => {
       if(players[i].user === keycloak.userId()){
          setIsRegistered(true)
          setPlayer(players[i])
-         const playerArr = [player]
          return;
       }
   }
   setIsRegistered(false)
 },[players]);
 
+//Show the register button and map for unregistered users or just show map if the user is already a player in that game
 const renderRegisterAndMap = () => {
    if (!isRegistered) {
       return <Row className="d-flex align-items-center"><RenderOnRole roles={['default-roles-hvz-auth']}><Col><GameRegistration info = {[isRegistered, players.length, gameIdData.gameId]}/></Col></RenderOnRole><Col><GameMap/></Col></Row>

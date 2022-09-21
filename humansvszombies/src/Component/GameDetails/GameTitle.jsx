@@ -1,6 +1,3 @@
-import { useState } from "react"
-import Cards from "../GameCards/Cards"
-
 const GameTitle = ({game}) => {
     return(
         <>

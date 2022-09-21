@@ -2,8 +2,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 //Create a new squad
 export const createSquad = async (squadInfo) => {
-  try {
-    console.log(`${apiUrl}/squads`);
+  try {;
     const response = await fetch(`${apiUrl}/squads`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -122,7 +121,6 @@ export const getSquadInGameById = async (gameId, squadId) => {
   }
 };
 
-//Get all chats for a specific squad
 
 //Get all squadcheckins in a specific squad by squadId
 export const getCheckinsInSquad = async (squadId) => {

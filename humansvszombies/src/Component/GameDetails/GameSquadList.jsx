@@ -8,7 +8,7 @@ const GameSquadList = (game) => {
     const [squads, setSquads] = useState([]);
     const [ apiError, setApiError] = useState(null);
   
-    //Get the squads for the specific game
+    //Get all the squads in a specific game
     useEffect(() => {
         const getSquads = async () => {
             const [ error, userResponse ] = await getSquadsInGame(game.info[0].gameId);

@@ -1,10 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import {createPlayer, getAllPlayers } from '../../api/player';
+import {createPlayer} from '../../api/player';
 import keycloak from '../../keycloak';
-import { useState, useEffect} from 'react';
-import { getPlayersInGame } from '../../api/game';
-import { logDOM } from '@testing-library/react';
+import { useState} from 'react';
 
 const GameRegistration = (gameInfo) => {
     //Hooks
@@ -34,7 +32,6 @@ const GameRegistration = (gameInfo) => {
             human = false;
             patientZero = true;
         }
-
         let playerObject = { isHuman: human, isPatientZero: patientZero, biteCode: Math.floor(Math.random() * (99999 - 10000) + 10000), gameId: gameInfo.info[2], userId: keycloak.userId()};
         addPlayer(playerObject)
     }

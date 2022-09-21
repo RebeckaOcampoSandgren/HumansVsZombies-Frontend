@@ -9,6 +9,7 @@ import CreateMission from "./Administrator/CreateMission";
 import EditMission from "./Administrator/EditMission";
 import keycloak from "../keycloak";
 import { Row, Col } from "react-bootstrap";
+
 const apiUrl = process.env.REACT_APP_API_URL;
 
 function AdministrationPage() {

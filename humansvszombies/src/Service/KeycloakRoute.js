@@ -7,16 +7,14 @@ import keycloak from "../keycloak";
  * @param {{ children: ReactNode, role: string, redirectTo: string }} props
  * @returns {JSX.Element}
  */
-function KeycloakRoute({ children, role, redirectTo = "/" }) {
 
+function KeycloakRoute({ children, role, redirectTo = "/" }) {
   if (!keycloak.auth()) {
     return <Navigate replace to={redirectTo} />;
   }
-
   if (keycloak.hasRole(role)) {
     return <>{children}</>;
   }
-
   return <Navigate replace to={redirectTo} />;
 }
 
