@@ -1,13 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row } from 'react-bootstrap';
-import { useState, useEffect} from 'react';
+import { useState} from 'react';
 
 const GameBiteCode = (player) => {
-    const [ isHuman, setIsHuman] = useState(false);
-
-    useEffect(() => {
-        setIsHuman(player.isHuman)
-    }, []);
+    //set the isHuman attribute to true for player
+    const [ isHuman, setIsHuman] = useState(player.isHuman);
 
     return(
         <>

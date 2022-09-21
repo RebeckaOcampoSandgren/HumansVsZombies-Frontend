@@ -1,6 +1,6 @@
 const apiUrl = process.env.REACT_APP_API_URL;
 
-//Create a new squad member (takes in a squadMember object)
+//Create a new squad member
 export const createSquadMember = async (squadMemberInfo) => {
   try {
     const response = await fetch(`${apiUrl}/squadMembers`, {
@@ -41,7 +41,7 @@ export const updateSquadMember = async (squadMemberInfo, squadMemberId) => {
   }
 };
 
-//Delete an existing squad member (takes in a squadMember object)
+//Delete an existing squad member
 export const deleteSquadMember = async (squadMemberId) => {
   try {
     const response = await fetch(`${apiUrl}/squadMembers/${squadMemberId}`, {

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
+import mission from "./missions.json";
+import "./GameMap.css";
 import {
   MapContainer,
   TileLayer,
@@ -8,8 +10,9 @@ import {
   Pane,
   Rectangle,
 } from "react-leaflet";
-import mission from "./missions.json";
-import "./GameMap.css";
+
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function GameMap() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -20,6 +23,7 @@ function GameMap() {
     [57.6, 12.1],
     [57.7887, 11.7],
   ];
+
   var graveIcon = L.icon({
     iconUrl: "./gravesite.png",
     iconSize: [30, 30],
@@ -30,11 +34,12 @@ function GameMap() {
     iconSize: [30, 30],
   });
 
+  //Default position of the map location
   const positionMark = [57.70716, 11.96679];
 
   //Gets missions
   useEffect(() => {
-    fetch("https://humanvszombies.azurewebsites.net/api/v1/missions")
+    fetch(`${apiUrl}/missions`)
       .then((response) => response.json())
       .then((data) => {
         setIsLoaded(true);
@@ -45,6 +50,7 @@ function GameMap() {
         console.log(err);
       });
   }, []);
+
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -97,4 +103,5 @@ function GameMap() {
     </MapContainer>
   );
 }}
+
 export default GameMap;

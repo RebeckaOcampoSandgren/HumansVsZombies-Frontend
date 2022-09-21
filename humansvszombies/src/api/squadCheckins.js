@@ -1,9 +1,8 @@
 const apiUrl = process.env.REACT_APP_API_URL;
 
-//Create a new squadCheckin (takes in a squadCheckin object)
+//Create a new squadCheckin
 export const createSquadCheckin = async (SquadCheckinInfo) => {
   try {
-    console.log(`${apiUrl}/squadCheckins`);
     const response = await fetch(`${apiUrl}/squadCheckins`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,7 +45,7 @@ export const updateSquadCheckin = async (squadCheckinInfo, squadCheckinId) => {
   }
 };
 
-//Delete an existing squadCheckin (takes in a squadCheckin object)
+//Delete an existing squadCheckin
 export const deleteSquadCheckin = async (squadCheckinId) => {
   try {
     const response = await fetch(`${apiUrl}/squadCheckins/${squadCheckinId}`, {

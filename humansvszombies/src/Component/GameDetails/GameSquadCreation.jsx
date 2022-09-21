@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createSquad } from '../../api/squad';
 
-//These configs for preventing errors (are not used at the moment)
 //minimum length of game name is 3
 const squadnameConfig = {
     required: true,
@@ -27,7 +26,6 @@ const GameSquadCreation = ({game}) => {
         const onSubmit = async (squad) => {
             squad.gameId = game.gameId;
             const [ error, userResponse ] = await createSquad(squad)
-
             if (error !== null){
                 setApiError(error)
             }

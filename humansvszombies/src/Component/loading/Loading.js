@@ -7,7 +7,6 @@ function Loading(props) {
       </div>
       <p className="App">{message}</p>
       </>
-
     )
   }
   
