@@ -3,8 +3,6 @@ const apiUrl = process.env.REACT_APP_API_URL;
 //if the user is already exists, log in to the page
 export const loginUser = async (userInfo) => {
   const [checkError, user] = await getUserById(userInfo.userId);
-  console.log(user);
-
   if (user === null || user === "undefined") {
     return await createUser(userInfo);
   } else {
@@ -12,11 +10,9 @@ export const loginUser = async (userInfo) => {
   }
 };
 
-//Create a new user (takes in a user object)
+//Create a new user
 export const createUser = async (userInfo) => {
   try {
-    console.log("inside of create");
-    console.log(`${apiUrl}/users`);
     const response = await fetch(`${apiUrl}/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -78,13 +74,10 @@ export const deleteUser = async (userId) => {
 //Get all users
 export const getAllUsers = async () => {
   try {
-    const response = await fetch(
-      `${apiUrl}/users`
-    );
+    const response = await fetch(`${apiUrl}/users`);
     if (!response.ok) {
       throw new Error("Could not get users");
     }
-
     const squadMembers = await response.json();
     return [null, squadMembers];
   } catch (error) {
@@ -95,13 +88,10 @@ export const getAllUsers = async () => {
 //Get specific user by userId
 export const getUserById = async (userId) => {
   try {
-    const response = await fetch(
-      `${apiUrl}/users/${userId}`
-    );
+    const response = await fetch(`${apiUrl}/users/${userId}`);
     if (!response.ok) {
       throw new Error("Could not get the user");
     }
-
     const userById = await response.json();
     return [null, userById];
   } catch (error) {

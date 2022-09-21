@@ -3,7 +3,6 @@ const apiUrl = process.env.REACT_APP_API_URL;
 //Create a new kill
 export const createKill = async (killInfo) => {
   try {
-    console.log(`${apiUrl}/kills`);
     const response = await fetch(`${apiUrl}/kills`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
